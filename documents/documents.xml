@@ -1,0 +1,472 @@
+<documents>
+  <document id="5d011128e46742cbbf0e0c44a7d37de5">
+    <content>5. 实现可以列表中可以直接更改的功能</content>
+    <createTime>2018-08-19 06:10:10.572 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+  </document>
+  <document id="73bba1bae56d49118966abb5636065b5">
+    <content>4. 创建一个webView视图, 用来展示content中的url
+            制定判断规则, 使某些可以用来搜索
+        </content>
+    <createTime>2018-08-19 06:10:10.664 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+  </document>
+  <document id="c03a7dd50e21417286d013ee64f13bf8">
+    <content>1. KeyEvent如何检测组合键</content>
+    <createTime>2018-08-19 06:18:48.643 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+  </document>
+  <document id="3ff68c17e5a744029f4529413379b7be">
+    <content>2. 进行分类标记,和分类添加
+            Note就用普通的视图
+            ToDo要新写一个, 要有添加提醒的时间
+        </content>
+    <createTime>2018-08-19 09:49:08.155 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+  </document>
+  <document id="9d5957b5519a4079b242219fb4d324ce">
+    <content>7. markdown</content>
+    <createTime>2018-08-19 11:36:16.15 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="467edebdf9224874a551e0caaa664578">
+    <content>&lt;p&gt;引入方法：
+&lt;dependency&gt;
+  &lt;groupId&gt;org.markdownj&lt;/groupId&gt;
+  &lt;artifactId&gt;markdownj-core&lt;/artifactId&gt;
+  &lt;version&gt;0.4&lt;/version&gt;
+&lt;/dependency&gt;
+1
+2
+3
+4
+5
+使用方法：
+//postContent 是 markdown 格式的文件读取到的字符串
+ MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+ String html = markdownProcessor.markdown(postContent);&lt;/</content>
+    <createTime>2018-08-19 15:02:58.308 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="186c4be7a26948f189ebd5af6b99d480">
+    <content>&lt;p&gt;``` 引入方法：
+&lt;dependency&gt;
+  &lt;groupId&gt;org.markdownj&lt;/groupId&gt;
+  &lt;artifactId&gt;markdownj-core&lt;/artifactId&gt;
+  &lt;version&gt;0.4&lt;/version&gt;
+&lt;/dependency&gt;
+1
+2
+3
+4
+5
+使用方法：
+//postContent 是 markdown 格式的文件读取到的字符串
+ MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+ String html = markdownProcessor.markdown(postContent);&lt;/</content>
+    <createTime>2018-08-19 15:03:21.146 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="dfbafffcde324f58820009f1e392ab75">
+    <content>&lt;p&gt;```引入方法：
+&lt;dependency&gt;
+  &lt;groupId&gt;org.markdownj&lt;/groupId&gt;
+  &lt;artifactId&gt;markdownj-core&lt;/artifactId&gt;
+  &lt;version&gt;0.4&lt;/version&gt;
+&lt;/dependency&gt;
+1
+2
+3
+4
+5
+使用方法：
+//postContent 是 markdown 格式的文件读取到的字符串
+ MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+ String html = markdownProcessor.markdown(postContent);
+```&lt;/</content>
+    <createTime>2018-08-19 15:03:33.214 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="b3ae280fdf734b9ca2aac9a8a01ed9bc">
+    <content>&lt;p&gt;&lt;a href=&quot;http://bbs.bugcode.cn/t/61965&quot;&gt;http://bbs.bugcode.cn/t/61965&lt;/a&gt;&lt;/p&gt;
+</content>
+    <createTime>2018-08-19 15:55:37.602 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="42ac47e8519b4803a6e9294baa551196">
+    <content>&lt;h1&gt;url的正则: (https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]&lt;/h1&gt;
+</content>
+    <createTime>2018-08-19 15:56:34.264 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="10dd1a187d1242049fdb970d6bec5f83">
+    <title></title>
+    <content>&lt;h1&gt;url的正则: (https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/speeding/p/5097790.html&quot;&gt;http://www.cnblogs.com/speeding/p/5097790.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    <createTime>2018-08-19 16:02:43.319 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="dfe6155b217844fba5689e323d388c41">
+    <content>&lt;h1&gt;url的正则: (https?|ftp|file)://[-A-Za-z0-9+&amp;@#/%?=~_|!:,.;]+[-A-Za-z0-9+&amp;@#/%=~_|]&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/speeding/p/5097790.html&quot;&gt;http://www.cnblogs.com/speeding/p/5097790.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    <createTime>2018-08-19 16:03:34.373 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="764d704cc9ea4c48ab73e33e4d68a02d">
+    <title></title>
+    <content>&lt;p&gt;content = StringUtils.replaceUrlsToMarkDownStyle(content);&lt;/p&gt;
+</content>
+    <createTime>2018-08-19 16:04:17.963 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="edbc84122e1e40c3af22a4c04b421392">
+    <title></title>
+    <content>&lt;h1&gt;标题&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;列表&lt;/li&gt;
+&lt;li&gt;有序列表
+&lt;code&gt;代码&lt;/code&gt;
+&lt;strong&gt;加粗&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    <createTime>2018-08-20 01:19:02.141 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="ddac2626872e4d7eb07924ace7fed95e">
+    <content>&lt;code&gt;String content = newValue.getContent();
+                //markdownToHtml
+                content = StringUtils.replaceUrlsToMarkDownStyle(content);
+                content = MarkDownUtils.convertMarkDownToHtml(content);&lt;/code&gt;</content>
+    <createTime>2018-08-20 05:47:25.249 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="62dcd72e4af14beb826355e3ac507fd5">
+    <content> 
+针对中文,演示Markdown的各种语法
+  
+大标题
+===================================
+  大标题一般显示工程名,类似html的\&lt;h1\&gt;&lt;br /&gt;
+  你只要在标题下面跟上=====即可
+
+  
+中标题
+-----------------------------------
+  中标题一般显示重点项,类似html的\&lt;h2\&gt;&lt;br /&gt;
+  你只要在标题下面输入------即可
+  
+### 小标题
+  小标题类似html的\&lt;h3\&gt;&lt;br /&gt;
+  小标题的格式如下 ### 小标题&lt;br /&gt;
+  注意#和标题字符中间要有空格
+
+### 注意!!!下面所有语法的提示我都先用小标题提醒了!!! 
+
+### 单行文本框
+    这是一个单行的文本框,只要两个Tab再输入文字即可
+        
+### 多行文本框  
+    这是一个有多行的文本框
+    你可以写入代码等,每行文字只要输入两个Tab再输入文字即可
+    这里你可以输入一段代码
+
+### 比如我们可以在多行文本框里输入一段代码,来一个Java版本的HelloWorld吧
+    public class HelloWorld {
+
+      /**
+      * @param args
+	    */
+	    public static void main(String[] args) {
+		    System.out.println(&quot;HelloWorld!&quot;);
+
+	    }
+
+    }
+### 链接
+1.[点击这里你可以链接到www.google.com](http://www.google.com)&lt;br /&gt;
+2.[点击这里我你可以链接到我的博客](http://guoyunsky.iteye.com)&lt;br /&gt;
+
+###只是显示图片
+![github](http://github.com/unicorn.png &quot;github&quot;)
+
+###想点击某个图片进入一个网页,比如我想点击github的icorn然后再进入www.github.com
+[![image]](http://www.github.com/)
+[image]: http://github.com/github.png &quot;github&quot;
+
+### 文字被些字符包围
+&gt; 文字被些字符包围
+&gt;
+&gt; 只要再文字前面加上&gt;空格即可
+&gt;
+&gt; 如果你要换行的话,新起一行,输入&gt;空格即可,后面不接文字
+&gt; 但&gt; 只能放在行首才有效
+
+### 文字被些字符包围,多重包围
+&gt; 文字被些字符包围开始
+&gt;
+&gt; &gt; 只要再文字前面加上&gt;空格即可
+&gt;
+&gt;  &gt; &gt; 如果你要换行的话,新起一行,输入&gt;空格即可,后面不接文字
+&gt;
+&gt; &gt; &gt; &gt; 但&gt; 只能放在行首才有效
+
+### 特殊字符处理
+有一些特殊字符如&lt;,#等,只要在特殊字符前面加上转义字符\即可&lt;br /&gt;
+你想换行的话其实可以直接用html标签\&lt;br /\&gt;
+
+
+
+    </content>
+    <createTime>2018-08-20 06:13:22.667 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="1dd8b4a55bf2437bb7c1e6b294c69671">
+    <title></title>
+    <content>```public void getString```</content>
+    <createTime>2018-08-20 06:33:42.327 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="bd745a525c7a45ea8c60ff4d50b89157">
+    <content>```
+public class MarkDownUtils {
+    public static String convertMarkDownToHtml(String markdown){
+        MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+        return markdownProcessor.markdown(markdown);
+    }
+}```</content>
+    <createTime>2018-08-20 06:34:04.789 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="2f79d0a1a46e439591f547a094632a6a">
+    <content>```
+public class MarkDownUtils {
+    public static String convertMarkDownToHtml(String markdown){
+        MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+        return markdownProcessor.markdown(markdown);
+    }
+}
+```</content>
+    <createTime>2018-08-20 06:34:25.381 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="6e983f070fe940cf9cc24452969b926f">
+    <content>```public class MarkDownUtils {
+    public static String convertMarkDownToHtml(String markdown){
+        MarkdownProcessor markdownProcessor = new MarkdownProcessor();
+        return markdownProcessor.markdown(markdown);
+    }
+}```</content>
+    <createTime>2018-08-20 06:34:44.629 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="713caf07eb7741a29c4e0db6e9ad9acb">
+    <title></title>
+    <content>https://raw.githubusercontent.com/zhangjikai/markdown-css/master/markdown.min.css</content>
+    <createTime>2018-08-20 06:36:40.324 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="cbae366b44544609994a12788927e02e">
+    <title></title>
+    <content>https://raw.githubusercontent.com/zhangjikai/markdown-css/master/markdown.min.css</content>
+    <createTime>2018-08-20 06:36:58.166 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="1a392c14f45749d8a4cbf5e67b7e8058">
+    <title></title>
+    <content># 删除时添加提醒
+三月三</content>
+    <createTime>2018-08-20 07:19:47.616 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="1faf9c125dbe480fbd6c397e6e178269">
+    <title></title>
+    <content> 针对中文,演示Markdown的各种语法
+大标题
+===================================
+  大标题一般显示工程名,类似html的\&lt;h1\&gt;&lt;br /&gt;
+  你只要在标题下面跟上=====即可
+
+  
+中标题
+-----------------------------------
+  中标题一般显示重点项,类似html的\&lt;h2\&gt;&lt;br /&gt;
+  你只要在标题下面输入------即可
+  
+### 小标题
+  小标题类似html的\&lt;h3\&gt;&lt;br /&gt;
+  小标题的格式如下 ### 小标题&lt;br /&gt;
+  注意#和标题字符中间要有空格
+
+### 注意!!!下面所有语法的提示我都先用小标题提醒了!!! 
+
+### 单行文本框
+    这是一个单行的文本框,只要两个Tab再输入文字即可
+        
+### 多行文本框  
+    这是一个有多行的文本框
+    你可以写入代码等,每行文字只要输入两个Tab再输入文字即可
+    这里你可以输入一段代码
+
+### 比如我们可以在多行文本框里输入一段代码,来一个Java版本的HelloWorld吧
+    public class HelloWorld {
+
+      /**
+      * @param args
+	    */
+	    public static void main(String[] args) {
+		    System.out.println(&quot;HelloWorld!&quot;);
+
+	    }
+
+    }
+### 链接
+1.[点击这里你可以链接到www.google.com](http://www.google.com)&lt;br /&gt;
+2.[点击这里我你可以链接到我的博客](http://guoyunsky.iteye.com)&lt;br /&gt;
+
+###只是显示图片
+![github](http://github.com/unicorn.png &quot;github&quot;)
+
+###想点击某个图片进入一个网页,比如我想点击github的icorn然后再进入www.github.com
+[![image]](http://www.github.com/)
+[image]: http://github.com/github.png &quot;github&quot;
+
+### 文字被些字符包围
+&gt; 文字被些字符包围
+&gt;
+&gt; 只要再文字前面加上&gt;空格即可
+&gt;
+&gt; 如果你要换行的话,新起一行,输入&gt;空格即可,后面不接文字
+&gt; 但&gt; 只能放在行首才有效
+
+### 文字被些字符包围,多重包围
+&gt; 文字被些字符包围开始
+&gt;
+&gt; &gt; 只要再文字前面加上&gt;空格即可
+&gt;
+&gt;  &gt; &gt; 如果你要换行的话,新起一行,输入&gt;空格即可,后面不接文字
+&gt;
+&gt; &gt; &gt; &gt; 但&gt; 只能放在行首才有效
+
+### 特殊字符处理
+有一些特殊字符如&lt;,#等,只要在特殊字符前面加上转义字符\即可&lt;br /&gt;
+你想换行的话其实可以直接用html标签\&lt;br /\&gt;
+
+
+</content>
+    <createTime>2018-08-20 09:56:39.521 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="70299d2e208443f881ff6e160a134104">
+    <title></title>
+    <content># 架构思路
+- 主体为MVC架构, controller只负责获取view, 传递给service, service 负责绑定数据 , 之后返回给controller, 返回到view
+- servcie采用模版模式, 先写出一个模版, 生成只缺数据的view, 返回给controller, 由controller来组装, 返回view
+- 模版的编写采用模块化
+- 模版要有可扩展性, 这个就得依靠模块化了</content>
+    <createTime>2018-08-21 15:29:13.483 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0b66a3048d2b4b74ad663d1df79985b3">
+    <title></title>
+    <content># 添加or修改
+- 解决思路: 添加两个textArea, 一个用来添加, 一个用来回显修改</content>
+    <createTime>2018-08-22 15:44:53.739 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="77eabb9f55a749bc899e3d158da51799">
+    <content># 2018-8-22
+- 垃圾箱显示
+- 添加or修改
+- 删除确认提示</content>
+    <createTime>2018-08-22 15:49:25.230 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0d5ab5a8db274e38b639c3095e2bdf2d">
+    <content># 2018-8-23
+- end可以在任意地方输入: 检测光标位置?</content>
+    <createTime>2018-08-22 15:51:24.343 UTC</createTime>
+    <lastModifyTime>2018-08-26 05:36:10.118 UTC</lastModifyTime>
+    <version>3</version>
+  </document>
+  <document id="2f94447595df4a01924a0ea03c35c92a">
+    <content># 需要练习一下</content>
+    <createTime>2018-08-26 05:36:43.475 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="6e1ac6c53fa744afb6fbd13bbae7464a">
+    <content># 时间的问题</content>
+    <createTime>2018-08-26 05:50:21.875 UTC</createTime>
+    <lastModifyTime>2018-08-26 05:51:16.287 UTC</lastModifyTime>
+    <version>2</version>
+  </document>
+  <document id="f3816f5ca4dd4da28bbe69c28af78dd9">
+    <content>添加状态栏</content>
+    <createTime>2018-08-26 05:53:15.473 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <todo id="f6e50b6bee234667b50ccaca01620152">
+    <content># 自动切换输入法</content>
+    <type>todo</type>
+    <createTime>2018-08-26 07:28:02.26 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </todo>
+  <note id="5e3dd9957c4f4116b898b0278b3b1030">
+    <content># 语义识别
+
+&gt;每一个成熟的技术背后都是无数个技术拼凑而成的 
+
+- 复旦大学的NPL项目 网址: https://github.com/FudanNLP/fnlp
+- 基于复旦大学NPL项目的时间识别功能: 网址: https://github.com/shinyke/Time-NLP
+- 待解决的问题: &quot;xxx后&quot;无法识别</content>
+    <type defined-in="document">note</type>
+    <createTime>2018-08-26 11:04:10.350 UTC</createTime>
+    <lastModifyTime>2018-08-26 11:04:31.510 UTC</lastModifyTime>
+    <version>2</version>
+    <type>note</type>
+  </note>
+  <todo id="969a837a93814cd98a873c358dff47b6">
+    <content>三小时后可以</content>
+    <type>todo</type>
+    <createTime>2018-08-28 12:47:10.83 UTC</createTime>
+    <lastModifyTime>2018-08-28 12:47:31.861 UTC</lastModifyTime>
+    <version>2</version>
+    <remindDate>2018-08-28 15:47:00.0 UTC</remindDate>
+  </todo>
+  <document id="35337f879a6d41c6b905a88d9921f8c0">
+    <content>发都放假</content>
+    <createTime>2018-08-28 14:30:46.722 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+</documents>

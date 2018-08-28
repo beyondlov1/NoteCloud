@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
+
+<HBox fx:id="container" prefHeight="661.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.beyond.controller.MainController">
+   <children>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="583.0" prefWidth="290.0">
+         <children>
+             <TextField fx:id="titleTextField" layoutX="32.0" layoutY="80.0" prefHeight="38.0" prefWidth="204.0" visible="false" />
+             <TextArea fx:id="contentTextAreaSaveOrUpdate" layoutX="16.0" layoutY="31.0" onKeyReleased="#saveOrUpdate" prefHeight="267.0" prefWidth="262.0" />
+            <Text fx:id="message" layoutX="67.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.240234375" />
+            <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="3.0" layoutY="183.0" onKeyReleased="#save" prefHeight="583.0" prefWidth="348.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <TextArea fx:id="contentTextAreaSave" layoutX="14.0" layoutY="312.0" onKeyReleased="#save" prefHeight="335.0" prefWidth="262.0" />
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="583.0" prefWidth="460.0">
+         <children>
+            <ListView fx:id="documentListView" layoutX="25.0" layoutY="22.0" prefHeight="350.0" prefWidth="290.0" visible="false" />
+            <TabPane fx:id="tabPane" prefHeight="661.0" prefWidth="460.0" side="BOTTOM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <tabs>
+                  <Tab text="default">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <TableView fx:id="documentTableView" prefHeight="632.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="titleTableColumn" prefWidth="106.0" text="title" visible="false" />
+                                  <TableColumn fx:id="contentTableColumn" prefWidth="462.0" sortable="false" text="content" />
+                                    <TableColumn fx:id="lastModifyTimeTableColumn" minWidth="0.0" prefWidth="0.0" text="lastModifyTime" visible="false" />
+                                    <TableColumn fx:id="operationTableColumn" prefWidth="51.0" text="operationTableColumn" visible="false" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="deleted">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="deletedDocumentTableView" prefHeight="632.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="deletedTitleTableColumn" prefWidth="106.0" text="title" visible="false" />
+                                    <TableColumn fx:id="deletedContentTableColumn" prefWidth="462.0" sortable="false" text="content" />
+                                    <TableColumn fx:id="deletedLastModifyTimeTableColumn" minWidth="0.0" prefWidth="0.0" text="lastModifyTime" visible="false" />
+                                    <TableColumn fx:id="deletedOperationTableColumn" prefWidth="51.0" text="operationTableColumn" visible="false" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="661.0" prefWidth="486.0">
+         <children>
+            <WebView fx:id="webView" layoutX="60.0" onKeyReleased="#save" prefHeight="661.0" prefWidth="486.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button layoutX="389.0" layoutY="562.0" mnemonicParsing="false" onAction="#delete" text="delete" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
