@@ -19,19 +19,25 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class SynchronizeImpl implements Synchroinze {
-    @Override
-    public void synchronize(String url, String filePath) {
 
+
+    private CloseableHttpClient getClient(){
         //init credentials
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("xxxx", "xxxx");
         UsernamePasswordCredentials credentials1 = new UsernamePasswordCredentials("admin", "admin");
         UsernamePasswordCredentials credentials2 = new UsernamePasswordCredentials("xxxx", "xxxx");
-        provider.setCredentials(AuthScope.ANY,credentials2);
+        provider.setCredentials(AuthScope.ANY,credentials1);
 
+        //initClient
         HttpClientBuilder builder = HttpClientBuilder.create();
         builder.setDefaultCredentialsProvider(provider);
-        CloseableHttpClient client = builder.build();
+        return builder.build();
+    }
+
+    @Override
+    public void synchronize(String url, String filePath) {
+        CloseableHttpClient client = getClient();
         try {
             DavPropertyNameSet set = new DavPropertyNameSet();
             set.add("testprop",Namespace.getNamespace("myNamespace1"));
