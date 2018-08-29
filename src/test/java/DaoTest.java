@@ -13,7 +13,7 @@ public class DaoTest {
         LocalDao localDao = new LocalDaoXmlImpl("D:\\JavaProject\\NoteCloud\\documents\\documents.xml");
         //localDao.setVersion(3);
         int version = localDao.getVersion();
-        long lastModifyTime = localDao.getLastModifyTime();
+        long lastModifyTime = localDao.getLastModifyTimeMills();
         System.out.println(new Date(lastModifyTime));
     }
 

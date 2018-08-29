@@ -206,7 +206,7 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
     @Override
-    public long getLastModifyTime() {
+    public long getLastModifyTimeMills() {
         try {
             FileTime lastModifiedTime = Files.getLastModifiedTime(Paths.get(xmlPath ));
             return lastModifiedTime.toMillis();

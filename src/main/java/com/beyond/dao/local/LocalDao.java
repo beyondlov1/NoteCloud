@@ -16,5 +16,5 @@ public interface LocalDao {
 
     int setVersion(int version);
     int getVersion();
-    long getLastModifyTime();
+    long getLastModifyTimeMills();
 }

@@ -20,6 +20,8 @@ public interface RemoteDao {
     List<String> getFileChildren(String dirPath);
     int getVersion();
     int setVersion(int version);
+    void setLastModifyTimeMills(long lastModifyTimeMills);
+    long getLastModifyTimeMills();
     int upload(File file);
     int download(String url);
 }

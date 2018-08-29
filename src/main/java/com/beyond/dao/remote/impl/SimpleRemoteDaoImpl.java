@@ -4,34 +4,20 @@ import com.beyond.dao.remote.RemoteDao;
 import com.beyond.entity.Document;
 import com.beyond.f.F;
 import com.beyond.utils.HttpUtils;
-import com.beyond.utils.XmlUtils;
-import com.thoughtworks.xstream.XStream;
-import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.jackrabbit.webdav.DavConstants;
 import org.apache.jackrabbit.webdav.client.methods.HttpPropfind;
 import org.apache.jackrabbit.webdav.client.methods.HttpProppatch;
-import org.apache.jackrabbit.webdav.property.DavProperty;
-import org.apache.jackrabbit.webdav.property.DavPropertyNameSet;
-import org.apache.jackrabbit.webdav.property.DavPropertySet;
-import org.apache.jackrabbit.webdav.property.DefaultDavProperty;
-import org.apache.jackrabbit.webdav.xml.Namespace;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SimpleRemoteDaoImpl implements RemoteDao {
 
     private String url;
 
-    public SimpleRemoteDaoImpl(String url){
+    public SimpleRemoteDaoImpl(String url) {
         this.url = url;
     }
 
@@ -82,13 +68,13 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     @Override
     public int getVersion() {
-        String versionString;
         CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
         HttpPropfind httpPropfind = HttpUtils.getPropfind(url, "version");
         try {
             CloseableHttpResponse response = client.execute(httpPropfind);
             String content = HttpUtils.getContentFromResponse(response);
-            return HttpUtils.getOnlyVersionInResponseContent(content);
+            client.close();
+            return (int) HttpUtils.getInResponseContent(content, "version", 2, "\\d+");
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
@@ -100,14 +86,44 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
         HttpProppatch httpProppatch = HttpUtils.addProperty(url, "version", version);
         try {
-            if (httpProppatch==null) throw new RuntimeException("HttpProppatch is null");
+            if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
             CloseableHttpResponse response = client.execute(httpProppatch);
+            client.close();
             return version;
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
         }
     }
+
+    @Override
+    public void setLastModifyTimeMills(long lastModifyTimeMills) {
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        HttpProppatch httpProppatch = HttpUtils.addProperty(url, "lastModifyTimeMills", lastModifyTimeMills);
+        try {
+            if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
+            client.execute(httpProppatch);
+            client.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public long getLastModifyTimeMills() {
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        HttpPropfind httpPropfind = HttpUtils.getPropfind(url, "lastModifyTimeMills");
+        try {
+            CloseableHttpResponse response = client.execute(httpPropfind);
+            String content = HttpUtils.getContentFromResponse(response);
+            client.close();
+            return HttpUtils.getInResponseContent(content, "lastModifyTimeMills", 1, "\\d+");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 
     @Override
     public int upload(File file) {
@@ -120,11 +136,13 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         return 0;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String url = "https://yura.teracloud.jp/dav/test.jpg";
         RemoteDao remoteDao = new SimpleRemoteDaoImpl(url);
         remoteDao.setVersion(9);
         int version = remoteDao.getVersion();
         System.out.println(version);
+        remoteDao.setLastModifyTimeMills(10000);
+        System.out.println(remoteDao.getLastModifyTimeMills());
     }
 }

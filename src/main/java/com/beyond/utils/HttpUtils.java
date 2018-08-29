@@ -24,61 +24,59 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HttpUtils {
-    private static CloseableHttpClient client;
-    public static CloseableHttpClient getClient(String username, String password){
-        if (client==null){
-            CredentialsProvider provider = new BasicCredentialsProvider();
-            UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(username, password);
-            provider.setCredentials(AuthScope.ANY,credentials);
+    public static CloseableHttpClient getClient(String username, String password) {
+        CredentialsProvider provider = new BasicCredentialsProvider();
+        UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(username, password);
+        provider.setCredentials(AuthScope.ANY, credentials);
 
-            //initClient
-            HttpClientBuilder builder = HttpClientBuilder.create();
-            builder.setDefaultCredentialsProvider(provider);
-            client = builder.build();
-        }
-        return client;
+        //initClient
+        HttpClientBuilder builder = HttpClientBuilder.create();
+        builder.setDefaultCredentialsProvider(provider);
+        return builder.build();
     }
 
-    public static HttpProppatch addProperty(String url, String key, Object value, Namespace namespace){
-        DavPropertySet newProps=new DavPropertySet();
-        DavProperty property=new DefaultDavProperty<Object>(key,value,namespace);
+    public static HttpProppatch addProperty(String url, String key, Object value, Namespace namespace) {
+        DavPropertySet newProps = new DavPropertySet();
+        DavProperty property = new DefaultDavProperty<Object>(key, value, namespace);
         newProps.add(property);
-        DavPropertyNameSet removeProperties=new DavPropertyNameSet();
+        DavPropertyNameSet removeProperties = new DavPropertyNameSet();
         HttpProppatch httpProppatch = null;
         try {
-             httpProppatch = new HttpProppatch(url,newProps,removeProperties);
+            httpProppatch = new HttpProppatch(url, newProps, removeProperties);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return httpProppatch;
     }
-    public static HttpProppatch addProperty(String url,String key,Object value){
-        return addProperty(url,key,value,DavConstants.NAMESPACE);
+
+    public static HttpProppatch addProperty(String url, String key, Object value) {
+        return addProperty(url, key, value, DavConstants.NAMESPACE);
     }
 
-    public static HttpPropfind getPropfind(String url,String key, Namespace namespace){
+    public static HttpPropfind getPropfind(String url, String key, Namespace namespace) {
         DavPropertyNameSet set = new DavPropertyNameSet();
-        set.add(key,namespace);
+        set.add(key, namespace);
         try {
-            return new HttpPropfind(url,DavConstants.PROPFIND_BY_PROPERTY,set,DavConstants.DEPTH_INFINITY);
+            return new HttpPropfind(url, DavConstants.PROPFIND_BY_PROPERTY, set, DavConstants.DEPTH_INFINITY);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public static HttpPropfind getPropfind(String url,String key){
-        return getPropfind(url,key,DavConstants.NAMESPACE);
+
+    public static HttpPropfind getPropfind(String url, String key) {
+        return getPropfind(url, key, DavConstants.NAMESPACE);
     }
 
-    public static String getContentFromResponse(CloseableHttpResponse response){
+    public static String getContentFromResponse(CloseableHttpResponse response) {
         StringBuilder stringBuilder = new StringBuilder();
         HttpEntity entity = response.getEntity();
         try {
             InputStream content = entity.getContent();
             byte[] bytes = new byte[1024];
             int len = 0;
-            while((len=content.read(bytes))!=-1){
-                stringBuilder.append(new String(bytes,0,len));
+            while ((len = content.read(bytes)) != -1) {
+                stringBuilder.append(new String(bytes, 0, len));
             }
             return stringBuilder.toString();
         } catch (IOException e) {
@@ -87,14 +85,14 @@ public class HttpUtils {
         }
     }
 
-    public static int getOnlyVersionInResponseContent(String content){
-        String[] versions = content.split("version");
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(versions[2]);
-        if (matcher.find()){
+    public static long getInResponseContent(String content, String targetTag, int splitIndex, String regex) {
+        String[] versions = content.split(targetTag);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(versions[splitIndex]);
+        if (matcher.find()) {
             String versionString = matcher.group();
-            return Integer.valueOf(versionString);
-        }else {
+            return Long.valueOf(versionString);
+        } else {
             return -1;
         }
     }

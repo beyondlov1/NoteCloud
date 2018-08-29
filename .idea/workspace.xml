@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfecf7b-5e89-4292-846c-0c814b361a9c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs__2_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/f/F.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/f/F.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/LocalDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/LocalDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/f/F.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/f/F.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/config.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -70,13 +64,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SimpleRemoteDaoImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SimpleRemoteDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+            <state relative-caret-position="560">
+              <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#617#618#0" expanded="true" />
+                <element signature="e#647#648#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpUtils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HttpUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="89" column="53" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="53" />
+            <state relative-caret-position="306">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,8 +102,8 @@
       <file leaf-file-name="RemoteDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="204">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,8 +114,8 @@
       <file leaf-file-name="LocalDaoXmlImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="208" column="33" selection-start-line="208" selection-start-column="16" selection-end-line="208" selection-end-column="33" />
+            <state relative-caret-position="94">
+              <caret line="210" column="56" lean-forward="true" selection-start-line="210" selection-start-column="56" selection-end-line="210" selection-end-column="56" />
               <folding>
                 <element signature="method#setXmlPath#0;class#LocalDaoXmlImpl#0" />
                 <element signature="method#add#0;class#LocalDaoXmlImpl#0" />
@@ -150,8 +146,8 @@
       <file leaf-file-name="DaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/DaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+            <state relative-caret-position="142">
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,8 +158,8 @@
       <file leaf-file-name="LocalDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="226">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -266,16 +262,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Synchroinze.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/impl/SynchronizeImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/f/F.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LocalDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/properties/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/f/F.java" />
-        <option value="$PROJECT_DIR$/src/test/java/LocalDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/DaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/properties/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" />
       </list>
     </option>
   </component>
@@ -780,7 +776,7 @@
       <workItem from="1535257347912" duration="13629000" />
       <workItem from="1535288280277" duration="3620000" />
       <workItem from="1535458904105" duration="11818000" />
-      <workItem from="1535472131335" duration="8430000" />
+      <workItem from="1535472131335" duration="10400000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1534378578323</created>
@@ -901,7 +897,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535544617690</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="添加简单同步">
+      <created>1535554135748</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1535554135748</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -937,7 +940,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153495000" />
+    <option name="totallyTimeSpent" value="155465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -953,11 +956,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="17" weight="0.32838285" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.21287128" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.29867986" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.28547856" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="0" side_tool="true" visible="true" weight="0.20499243" />
+      <window_info content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="0" side_tool="true" visible="true" weight="0.20499243" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32838285" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
@@ -1275,13 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-webdav/2.16.3/jackrabbit-webdav-2.16.3.jar!/org/apache/jackrabbit/webdav/property/DefaultDavProperty.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1293,48 +1289,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="208" column="33" selection-start-line="208" selection-start-column="16" selection-end-line="208" selection-end-column="33" />
-          <folding>
-            <element signature="method#setXmlPath#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#add#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#delete#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#deleteById#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#update#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectAll#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectAll#1;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectById#0;class#LocalDaoXmlImpl#0" />
-            <element signature="e#4753#4818#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/f/F.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1365,10 +1323,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
-          <caret line="89" column="53" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="53" />
+          <caret line="210" column="56" lean-forward="true" selection-start-line="210" selection-start-column="56" selection-end-line="210" selection-end-column="56" />
+          <folding>
+            <element signature="method#setXmlPath#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#add#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#delete#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#deleteById#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#update#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#selectAll#0;class#LocalDaoXmlImpl#0" />
+            <element signature="method#selectAll#1;class#LocalDaoXmlImpl#0" />
+            <element signature="method#selectById#0;class#LocalDaoXmlImpl#0" />
+            <element signature="e#4753#4818#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1377,8 +1370,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="90" column="18" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
+        <state relative-caret-position="560">
+          <caret line="118" column="18" selection-start-line="118" selection-start-column="18" selection-end-line="118" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
