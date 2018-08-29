@@ -13,4 +13,8 @@ public interface LocalDao {
     <T> List<T> selectAll(Class<T> clazz);
     List<Document> selectAll();
     Document selectById(String id);
+
+    int setVersion(int version);
+    int getVersion();
+    long getLastModifyTime();
 }

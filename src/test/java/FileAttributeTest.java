@@ -31,11 +31,11 @@ import java.util.List;
 public class FileAttributeTest {
     @Test
     public void test() throws IOException {
-        String url = "C:\\Users\\huayu\\Downloads\\test.txt";
+        String url = "C:\\Users\\Administrator\\Downloads\\test1.xml";
         System.out.println(Files.getAttribute(Paths.get(url),"basic:creationTime"));
         UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(url), UserDefinedFileAttributeView.class);
         ByteBuffer byteBuffer = ByteBuffer.wrap("1".getBytes());
-        userDefinedFileAttributeView.write("version",byteBuffer);
+        //userDefinedFileAttributeView.write("version",byteBuffer);
         List<String> attrNames = userDefinedFileAttributeView.list(); // 读出所有属性
         for (String name: attrNames) {
             ByteBuffer bb = ByteBuffer.allocate(userDefinedFileAttributeView.size(name)); // 准备一块儿内存块读取
@@ -48,7 +48,7 @@ public class FileAttributeTest {
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("xxxx", "xxxx");
         UsernamePasswordCredentials credentials1 = new UsernamePasswordCredentials("admin", "admin");
-        UsernamePasswordCredentials credentials2 = new UsernamePasswordCredentials("xxxx", "xxxxx");
+        UsernamePasswordCredentials credentials2 = new UsernamePasswordCredentials("806784568@qq.com", "acwqgpgqtn9pz3ya");
         provider.setCredentials(AuthScope.ANY,credentials2);
 
         //initClient
@@ -57,8 +57,8 @@ public class FileAttributeTest {
         CloseableHttpClient client = builder.build();
 
         try {
-            HttpPut httpPut=new HttpPut("https://dav.jianguoyun.com/dav/NoteCloud/test.xml");
-            httpPut.setEntity(new FileEntity(new File("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml")));
+            HttpPut httpPut=new HttpPut("https://dav.jianguoyun.com/dav/NoteCloud/test1.xml");
+            httpPut.setEntity(new FileEntity(new File("D:\\JavaProject\\NoteCloud\\documents\\documents.xml")));
 
             CloseableHttpResponse response = client.execute(httpPut);
             HttpEntity entity = response.getEntity();

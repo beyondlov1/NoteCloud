@@ -18,8 +18,8 @@ public interface RemoteDao {
 
     //对库的整体操作
     List<String> getFileChildren(String dirPath);
-    Integer getVersion();
-    Integer setVersion(Integer version);
+    int getVersion();
+    int setVersion(int version);
     int upload(File file);
     int download(String url);
 }

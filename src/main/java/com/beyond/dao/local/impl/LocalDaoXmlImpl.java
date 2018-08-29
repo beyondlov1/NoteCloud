@@ -2,13 +2,16 @@ package com.beyond.dao.local.impl;
 
 import com.beyond.dao.local.LocalDao;
 import com.beyond.entity.Document;
-import com.beyond.entity.Note;
-import com.beyond.utils.ConfigUtils;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
-import sun.security.krb5.Config;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.FileTime;
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.*;
 
 public class LocalDaoXmlImpl implements LocalDao {
@@ -172,5 +175,44 @@ public class LocalDaoXmlImpl implements LocalDao {
             }
         }
         return null;
+    }
+
+    @Override
+    public int setVersion(int version) {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(version));
+        try {
+            userDefinedFileAttributeView.write("version", byteBuffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return version;
+    }
+
+    @Override
+    public int getVersion() {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        try {
+            ByteBuffer byteBuffer = ByteBuffer.allocate(userDefinedFileAttributeView.size("version"));
+            userDefinedFileAttributeView.read("version",byteBuffer);
+            byteBuffer.flip();
+            String value = Charset.defaultCharset().decode(byteBuffer).toString();
+            return Integer.parseInt(value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public long getLastModifyTime() {
+        try {
+            FileTime lastModifiedTime = Files.getLastModifiedTime(Paths.get(xmlPath ));
+            return lastModifiedTime.toMillis();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 }

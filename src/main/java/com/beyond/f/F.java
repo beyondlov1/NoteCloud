@@ -9,4 +9,7 @@ public interface F {
     String COMMIT_STRING_NOTE = "note\n";
     String COMMIT_STRING_TODO = "todo\n";
     String COMMIT_STRING_END = "end\n";
+
+    String USERNAME = ConfigUtils.getProperty("remote.username");
+    String PASSWORD = ConfigUtils.getProperty("remote.password");
 }
