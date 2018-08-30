@@ -21,6 +21,9 @@ import org.apache.jackrabbit.webdav.xml.Namespace;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,6 +57,26 @@ public class HttpUtils {
         return addProperty(url, key, value, DavConstants.NAMESPACE);
     }
 
+    public static HttpProppatch addProperties(String url, Map<String,Object> properties, Namespace namespace) {
+        DavPropertySet newProps = new DavPropertySet();
+        Iterator<String> iterator = properties.keySet().iterator();
+        while (iterator.hasNext()){
+            String key = iterator.next();
+            Object value = properties.get(key);
+            DavProperty property = new DefaultDavProperty<Object>(key, value, namespace);
+            newProps.add(property);
+        }
+        DavPropertyNameSet removeProperties = new DavPropertyNameSet();
+        HttpProppatch httpProppatch = null;
+        try {
+            httpProppatch = new HttpProppatch(url, newProps, removeProperties);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return httpProppatch;
+    }
+
+
     public static HttpPropfind getPropfind(String url, String key, Namespace namespace) {
         DavPropertyNameSet set = new DavPropertyNameSet();
         set.add(key, namespace);
@@ -67,6 +90,19 @@ public class HttpUtils {
 
     public static HttpPropfind getPropfind(String url, String key) {
         return getPropfind(url, key, DavConstants.NAMESPACE);
+    }
+
+    public static HttpPropfind getBatchPropfind(String url, Set<String> keys, Namespace namespace) {
+        DavPropertyNameSet set = new DavPropertyNameSet();
+        for (String key:keys) {
+            set.add(key, namespace);
+        }
+        try {
+            return new HttpPropfind(url, DavConstants.PROPFIND_BY_PROPERTY, set, DavConstants.DEPTH_INFINITY);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static String getContentFromResponse(CloseableHttpResponse response) {

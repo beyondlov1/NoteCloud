@@ -14,14 +14,19 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.FileEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.apache.jackrabbit.webdav.DavConstants;
 import org.apache.jackrabbit.webdav.client.methods.HttpPropfind;
 import org.apache.jackrabbit.webdav.client.methods.HttpProppatch;
+import org.apache.jackrabbit.webdav.xml.Namespace;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class SimpleRemoteDaoImpl implements RemoteDao {
 
@@ -78,30 +83,31 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     @Override
     public void setVersion(int version) {
-        setProperty("_version",version);
+        setProperty("_version", version);
     }
 
     @Override
     public int getVersion() {
         String version = getProperty("_version");
-        return StringUtils.isBlank(version)?-1:Integer.parseInt(version);
+        return StringUtils.isBlank(version) ? -1 : Integer.parseInt(version);
     }
 
     @Override
     public void setLastModifyTimeMills(long lastModifyTimeMills) {
-        setProperty("_lastModifyTimeMills",lastModifyTimeMills);
+        setProperty("_lastModifyTimeMills", lastModifyTimeMills);
     }
 
     @Override
     public long getLastModifyTimeMills() {
         String lastModifyTimeMills = getProperty("_lastModifyTimeMills");
-        return StringUtils.isBlank(lastModifyTimeMills)?-1:Long.parseLong(lastModifyTimeMills);
+        return StringUtils.isBlank(lastModifyTimeMills) ? -1 : Long.parseLong(lastModifyTimeMills);
     }
 
     /**
      * 设置属性
+     *
      * @param propertyName 属性名称, 自定义的格式为: _xxx, 防止与其他名称重复
-     * @param value 属性值
+     * @param value        属性值
      * @return 1为成功, -1为失败
      */
     @Override
@@ -121,6 +127,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     /**
      * 获取属性值
+     *
      * @param propertyName 属性名称
      * @return 返回属性值得字符串
      */
@@ -139,9 +146,41 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         }
     }
 
+    @Override
+    public void setProperties(Map<String, Object> properties) {
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        HttpProppatch httpProppatch = HttpUtils.addProperties(url, properties, DavConstants.NAMESPACE);
+        try {
+            if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
+            client.execute(httpProppatch);
+            client.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Map<String, Object> getProperties(Set<String> keys) {
+        Map<String, Object> result = new HashMap<>();
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        HttpPropfind httpPropfind = HttpUtils.getBatchPropfind(url, keys, DavConstants.NAMESPACE);
+        for (String key : keys) {
+            try {
+                CloseableHttpResponse response = client.execute(httpPropfind);
+                String content = HttpUtils.getContentFromResponse(response);
+                client.close();
+                result.put(key, HttpUtils.getStringInResponseContent(content, key, 1));
+            } catch (IOException e) {
+                e.printStackTrace();
+                result.put(key, null);
+            }
+        }
+        return result;
+    }
 
     /**
      * 上传文件
+     *
      * @param file
      * @return -1为上传失败, 1为上传成功
      */
@@ -162,7 +201,8 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     /**
      * 下载文件
-     * @param url 地址
+     *
+     * @param url      地址
      * @param filePath 存入本地的地址
      * @return -1为下载失败, 1为下载成功
      */
@@ -176,14 +216,11 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
             HttpEntity entity = response.getEntity();
             fileOutputStream = new FileOutputStream(filePath);
             fileOutputStream.write(EntityUtils.toByteArray(entity));
-            //set local version
-            LocalDao localDao = new LocalDaoXmlImpl(filePath);
-            localDao.setVersion(getVersion());
             return 1;
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
-        }finally {
+        } finally {
             try {
                 if (fileOutputStream != null) {
                     fileOutputStream.close();
@@ -208,7 +245,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         String filePath = "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml";
         remoteDao.upload(new File(filePath));
         remoteDao.setVersion(10);
-        remoteDao.download(url,"F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+        remoteDao.download(url, "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
         LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
         System.out.println(localDao.getVersion());
     }

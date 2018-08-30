@@ -4,6 +4,8 @@ import com.beyond.entity.Document;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public interface RemoteDao {
     //对文档的操作
@@ -24,6 +26,8 @@ public interface RemoteDao {
     long getLastModifyTimeMills();
     int setProperty(String propertyName,Object value);
     String getProperty(String propertyName);
+    void setProperties(Map<String,Object> properties);
+    Map<String, Object> getProperties(Set<String> keys);
     int upload(File file);
     int download(String url, String filePath);
 }
