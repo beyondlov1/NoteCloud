@@ -1,5 +1,6 @@
 package com.beyond.utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -85,15 +86,23 @@ public class HttpUtils {
         }
     }
 
-    public static long getInResponseContent(String content, String targetTag, int splitIndex, String regex) {
-        String[] versions = content.split(targetTag);
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(versions[splitIndex]);
-        if (matcher.find()) {
-            String versionString = matcher.group();
-            return Long.valueOf(versionString);
-        } else {
-            return -1;
+    public static String getStringInResponseContent(String content, String targetTag, int splitIndex) {
+        targetTag = targetTag+">";
+        String[] split = content.split(targetTag);
+        try {
+            String s = StringUtils.substringBeforeLast(split[splitIndex].trim(), "</");
+            return StringUtils.isBlank(s) ? null : s.trim();
+        }catch (Exception e){
+            return null;
         }
+
+        //Pattern pattern = Pattern.compile(regex);
+        //Matcher matcher = pattern.matcher(split[splitIndex]);
+        //if (matcher.find()) {
+        //    System.out.println(matcher.group());
+        //    return matcher.group();
+        //} else {
+        //    return null;
+        //}
     }
 }

@@ -6,15 +6,24 @@ import com.beyond.f.F;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DaoTest {
     @Test
     public void test(){
-        LocalDao localDao = new LocalDaoXmlImpl("D:\\JavaProject\\NoteCloud\\documents\\documents.xml");
+        LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
         //localDao.setVersion(3);
-        int version = localDao.getVersion();
-        long lastModifyTime = localDao.getLastModifyTimeMills();
-        System.out.println(new Date(lastModifyTime));
+//        int version = localDao.getVersion();
+//        long lastModifyTime = localDao.getLastModifyTimeMills();
+//        System.out.println(new Date(lastModifyTime));
+        Map<String,Object> map = new HashMap<>();
+        map.put("test1","test1");
+        map.put("test2","test2");
+        map.put("test3","test3");
+        localDao.setProperties(map);
+        Map<String, Object> properties = localDao.getProperties();
+        System.out.println(properties);
     }
 
     @Test

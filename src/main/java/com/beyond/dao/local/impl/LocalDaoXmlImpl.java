@@ -4,6 +4,8 @@ import com.beyond.dao.local.LocalDao;
 import com.beyond.entity.Document;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
+import javafx.beans.binding.ObjectExpression;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -24,7 +26,7 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
     @Override
-    public void setXmlPath(String xmlPath){
+    public void setXmlPath(String xmlPath) {
         this.xmlPath = xmlPath;
         this.init();
     }
@@ -179,40 +181,83 @@ public class LocalDaoXmlImpl implements LocalDao {
 
     @Override
     public int setVersion(int version) {
-        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
-        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(version));
-        try {
-            userDefinedFileAttributeView.write("version", byteBuffer);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return -1;
-        }
+        setProperty("version", version);
         return version;
     }
 
     @Override
     public int getVersion() {
-        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
-        try {
-            ByteBuffer byteBuffer = ByteBuffer.allocate(userDefinedFileAttributeView.size("version"));
-            userDefinedFileAttributeView.read("version",byteBuffer);
-            byteBuffer.flip();
-            String value = Charset.defaultCharset().decode(byteBuffer).toString();
-            return Integer.parseInt(value);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return -1;
+        String version = getProperty("version");
+        return StringUtils.isBlank(version) ? -1 : Integer.parseInt(version);
     }
 
     @Override
     public long getLastModifyTimeMills() {
         try {
-            FileTime lastModifiedTime = Files.getLastModifiedTime(Paths.get(xmlPath ));
+            FileTime lastModifiedTime = Files.getLastModifiedTime(Paths.get(xmlPath));
             return lastModifiedTime.toMillis();
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         }
     }
+
+    @Override
+    public void setProperty(String propertyName, Object value) {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
+        try {
+            userDefinedFileAttributeView.write(propertyName, byteBuffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String getProperty(String propertyName) {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        try {
+            ByteBuffer byteBuffer = ByteBuffer.allocate(userDefinedFileAttributeView.size(propertyName));
+            userDefinedFileAttributeView.read(propertyName, byteBuffer);
+            byteBuffer.flip();
+            return Charset.defaultCharset().decode(byteBuffer).toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public void setProperties(Map<String, Object> properties) {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        for (String key : properties.keySet()) {
+            Object value = properties.get(key);
+            ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
+            try {
+                userDefinedFileAttributeView.write(key, byteBuffer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @Override
+    public Map<String, Object> getProperties() {
+        Map<String, Object> map = new HashMap<>();
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        try {
+            List<String> keys = userDefinedFileAttributeView.list();
+            for (String key :keys) {
+                ByteBuffer byteBuffer = ByteBuffer.allocate(userDefinedFileAttributeView.size(key));
+                userDefinedFileAttributeView.read(key, byteBuffer);
+                byteBuffer.flip();
+                map.put(key,Charset.defaultCharset().decode(byteBuffer).toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
 }
