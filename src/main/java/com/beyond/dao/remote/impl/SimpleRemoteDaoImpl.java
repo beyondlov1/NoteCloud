@@ -8,6 +8,7 @@ import com.beyond.f.F;
 import com.beyond.utils.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
+import org.apache.http.StatusLine;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
@@ -15,6 +16,7 @@ import org.apache.http.entity.FileEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.jackrabbit.webdav.DavConstants;
+import org.apache.jackrabbit.webdav.client.methods.HttpMkcol;
 import org.apache.jackrabbit.webdav.client.methods.HttpPropfind;
 import org.apache.jackrabbit.webdav.client.methods.HttpProppatch;
 import org.apache.jackrabbit.webdav.xml.Namespace;
@@ -23,6 +25,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -184,6 +190,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int upload(File file) {
+        mkDir();
         CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
         HttpPut httpPut = new HttpPut(url);
         httpPut.setEntity(new FileEntity(file));
@@ -229,8 +236,46 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         }
     }
 
+    @Override
+    public boolean isExist(){
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        HttpGet httpGet = new HttpGet(url);
+        CloseableHttpResponse response = null;
+        try {
+            response = client.execute(httpGet);
+            StatusLine statusLine = response.getStatusLine();
+            int statusCode = statusLine.getStatusCode();
+            return statusCode < 300 && statusCode >= 200;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public void mkDir(){
+        mkDirs(url);
+    }
+
+    private void mkDirs(String url){
+        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        String parentUrl = HttpUtils.getParentUrl(url);
+        HttpMkcol httpMkcol = new HttpMkcol(parentUrl);
+        String root = "https://"+URI.create(url).getHost();
+        if (!StringUtils.equalsIgnoreCase(parentUrl,root)){
+            mkDirs(parentUrl);
+        }
+        try {
+            client.execute(httpMkcol);
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
-        String url = "https://yura.teracloud.jp/dav/test.xml";
+        String url = "https://yura.teracloud.jp/dav/test1/test1/test.xml";
         RemoteDao remoteDao = new SimpleRemoteDaoImpl(url);
         //remoteDao.setVersion(9);
         //int version = remoteDao.getVersion();
@@ -240,11 +285,12 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         //String teststst = remoteDao.getProperty("teststst");
         //System.out.println(teststst);
         //System.out.println(remoteDao.getLastModifyTimeMills());
-        String filePath = "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml";
-        remoteDao.upload(new File(filePath));
-        remoteDao.setVersion(10);
-        remoteDao.download(url, "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
-        LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
-        System.out.println(localDao.getVersion());
+//        String filePath = "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml";
+//        remoteDao.upload(new File(filePath));
+//        remoteDao.setVersion(10);
+//        remoteDao.download(url, "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+//        LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+//        System.out.println(localDao.getVersion());
+        ((SimpleRemoteDaoImpl) remoteDao).mkDir();
     }
 }

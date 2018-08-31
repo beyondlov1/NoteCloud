@@ -141,4 +141,9 @@ public class HttpUtils {
         //    return null;
         //}
     }
+
+    public static String getParentUrl(String url) {
+        int index = StringUtils.lastIndexOf(url, "/");
+        return StringUtils.substring(url,0,index);
+    }
 }

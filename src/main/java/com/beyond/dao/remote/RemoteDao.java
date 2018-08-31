@@ -37,4 +37,7 @@ public interface RemoteDao {
     void setLastModifyTimeMills(long lastModifyTimeMills);
     @Deprecated
     String getLastModifyTimeMills();
+
+    boolean isExist();
+    void mkDir();
 }
