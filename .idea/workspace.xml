@@ -2,42 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfecf7b-5e89-4292-846c-0c814b361a9c" name="Default" comment="添加简单同步">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libs__2_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documents/DeletedDocuments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents/DeletedDocuments.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documents/documents.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents/documents.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/DocumentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/DocumentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/utils/ListUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/ListUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/MainApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$SortType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$SortType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/LocalDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/LocalDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/utils/ListUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/utils/ListUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/main.fxml" afterDir="false" />
     </list>
@@ -53,14 +22,16 @@
     <session id="521633229">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="33" />
+          <entry key="fxml" value="55" />
           <entry key="java" value="5755" />
           <entry key="properties" value="61" />
           <entry key="xml" value="23" />
@@ -70,7 +41,7 @@
         <counts>
           <entry key="JAVA" value="5755" />
           <entry key="Properties" value="61" />
-          <entry key="XML" value="56" />
+          <entry key="XML" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -100,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1656">
-              <caret line="219" selection-start-line="219" selection-end-line="219" />
+            <state relative-caret-position="1824">
+              <caret line="232" selection-start-line="232" selection-end-line="232" />
               <folding>
                 <element signature="class#SortType#0;class#MainController#0" />
                 <element signature="method#init#0;class#MainController#0" />
@@ -110,7 +81,6 @@
                 <element signature="method#changeInputMethod#0;class#MainController#0" />
                 <element signature="method#focusBackToTableView#0;class#MainController#0" />
                 <element signature="method#initFocus#0;class#MainController#0" />
-                <element signature="method#save#0;class#MainController#0" />
                 <element signature="method#saveOrUpdate#0;class#MainController#0" />
                 <element signature="method#delete#0;class#MainController#0" />
                 <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
@@ -221,12 +191,12 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/views/main.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -351,8 +321,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="31" />
-    <option name="y" value="-8" />
+    <option name="y" value="352" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -364,6 +333,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -511,9 +483,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -677,7 +646,8 @@
       <workItem from="1535288280277" duration="3620000" />
       <workItem from="1535458904105" duration="11818000" />
       <workItem from="1535505723022" duration="46481000" />
-      <workItem from="1535707084476" duration="988000" />
+      <workItem from="1535707084476" duration="2882000" />
+      <workItem from="1535720739346" duration="266000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1534378578323</created>
@@ -805,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535621522506</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="添加简单同步">
+      <created>1535717820284</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1535717820284</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -841,13 +818,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184693000" />
+    <option name="totallyTimeSpent" value="186853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="JRebel" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="1" side_tool="true" visible="true" weight="0.16364606" />
+      <window_info content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="1" side_tool="true" visible="true" weight="0.24147122" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.24962178" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -859,7 +837,7 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32790446" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49924356" visible="true" weight="0.15418024" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.49924356" visible="true" weight="0.2562432" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.18892509" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -1052,6 +1030,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1114,8 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="219" selection-start-line="219" selection-end-line="219" />
+        <state relative-caret-position="1824">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
           <folding>
             <element signature="class#SortType#0;class#MainController#0" />
             <element signature="method#init#0;class#MainController#0" />
@@ -1124,7 +1105,6 @@
             <element signature="method#changeInputMethod#0;class#MainController#0" />
             <element signature="method#focusBackToTableView#0;class#MainController#0" />
             <element signature="method#initFocus#0;class#MainController#0" />
-            <element signature="method#save#0;class#MainController#0" />
             <element signature="method#saveOrUpdate#0;class#MainController#0" />
             <element signature="method#delete#0;class#MainController#0" />
             <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
@@ -1228,12 +1208,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/main.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
