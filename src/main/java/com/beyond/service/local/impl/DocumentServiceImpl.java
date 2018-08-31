@@ -4,6 +4,7 @@ import com.beyond.controller.MainController;
 import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.entity.Document;
+import com.beyond.proxy.LocalDaoProxy;
 import com.beyond.service.local.DocumentService;
 import com.beyond.utils.*;
 import javafx.beans.property.Property;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.beyond.f.F.DEFAULT_XML_PATH;
 import static com.beyond.f.F.DELETED_XML_PATH;
 
 public class DocumentServiceImpl implements DocumentService {
@@ -37,7 +39,7 @@ public class DocumentServiceImpl implements DocumentService {
 
     public void changeWorkSpace(String xmlPath){
         this.xmlPath = xmlPath;
-        this.localDao = new LocalDaoXmlImpl(xmlPath);
+        this.localDao = LocalDaoProxy.getInstance().getLocalDao(xmlPath);
     }
 
     @Override

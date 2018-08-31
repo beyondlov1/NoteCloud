@@ -87,9 +87,8 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public int getVersion() {
-        String version = getProperty("_version");
-        return StringUtils.isBlank(version) ? -1 : Integer.parseInt(version);
+    public String getVersion() {
+        return getProperty("_version");
     }
 
     @Override
@@ -98,9 +97,8 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public long getLastModifyTimeMills() {
-        String lastModifyTimeMills = getProperty("_lastModifyTimeMills");
-        return StringUtils.isBlank(lastModifyTimeMills) ? -1 : Long.parseLong(lastModifyTimeMills);
+    public String getLastModifyTimeMills() {
+        return getProperty("_lastModifyTimeMills");
     }
 
     /**

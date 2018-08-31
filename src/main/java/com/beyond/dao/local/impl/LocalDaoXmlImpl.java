@@ -180,26 +180,24 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
     @Override
-    public int setVersion(int version) {
-        setProperty("version", version);
-        return version;
+    public void setVersion(int version) {
+        setProperty("_version", version);
     }
 
     @Override
-    public int getVersion() {
-        String version = getProperty("version");
-        return StringUtils.isBlank(version) ? -1 : Integer.parseInt(version);
+    public String getVersion() {
+        return getProperty("_version");
+    }
+
+
+    @Override
+    public void setLastModifyTimeMills(long lastModifyTimeMills) {
+        setProperty("_lastModifyTimeMills", lastModifyTimeMills);
     }
 
     @Override
-    public long getLastModifyTimeMills() {
-        try {
-            FileTime lastModifiedTime = Files.getLastModifiedTime(Paths.get(xmlPath));
-            return lastModifiedTime.toMillis();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return -1;
-        }
+    public String getLastModifyTimeMills() {
+        return getProperty("_lastModifyTimeMills");
     }
 
     @Override
@@ -222,7 +220,7 @@ public class LocalDaoXmlImpl implements LocalDao {
             byteBuffer.flip();
             return Charset.defaultCharset().decode(byteBuffer).toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }

@@ -20,6 +20,9 @@ public class ListUtils {
                 index = i;
             }
         }
+        if (index==-1){
+            return null;
+        }
         return list.get(index);
     }
 

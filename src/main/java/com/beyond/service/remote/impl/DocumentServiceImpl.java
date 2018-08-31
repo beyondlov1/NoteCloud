@@ -26,12 +26,13 @@ public class DocumentServiceImpl implements DocumentService {
         this.localDao = new LocalDaoXmlImpl(filePath);
         this.remoteDao = new SimpleRemoteDaoImpl(url);
     }
+
     @Override
     public void synchronize() {
-        int localVersion = localDao.getVersion();
-        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
-        int remoteVersion = remoteDao.getVersion();
-        long remoteLastModifyTimeMills = remoteDao.getLastModifyTimeMills();
+        int localVersion = localDao.getVersion()==null?-1:Integer.parseInt(localDao.getVersion());
+        long localLastModifyTimeMills = localDao.getLastModifyTimeMills()==null?-1:Long.parseLong(localDao.getLastModifyTimeMills());
+        int remoteVersion = remoteDao.getVersion()==null?-1:Integer.parseInt(remoteDao.getVersion());
+        long remoteLastModifyTimeMills = remoteDao.getLastModifyTimeMills()==null?-1:Long.parseLong(remoteDao.getLastModifyTimeMills());
 
         SynchronizeEntity synchronizeEntity = new SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
         SynchronizeType synchronizeType = synchronizeEntity.getSynchronizeType();
@@ -46,6 +47,7 @@ public class DocumentServiceImpl implements DocumentService {
             remoteDao.setProperty("_lastModifyTimeMills",localDao.getProperty("_lastModifyTimeMills"));
             remoteDao.setProperty("_version",localDao.getProperty("_version"));
         }
+
     }
 
 
@@ -55,7 +57,7 @@ public class DocumentServiceImpl implements DocumentService {
         private int remoteVersion;
         private long remoteLastModifyTimeMills;
 
-        public SynchronizeEntity(int localVersion, long localLastModifyTimeMills, int remoteVersion, long remoteLastModifyTimeMills) {
+        private SynchronizeEntity(int localVersion, long localLastModifyTimeMills, int remoteVersion, long remoteLastModifyTimeMills) {
             this.localVersion = localVersion;
             this.localLastModifyTimeMills = localLastModifyTimeMills;
             this.remoteVersion = remoteVersion;
@@ -102,6 +104,16 @@ public class DocumentServiceImpl implements DocumentService {
 
         public void setRemoteLastModifyTimeMills(long remoteLastModifyTimeMills) {
             this.remoteLastModifyTimeMills = remoteLastModifyTimeMills;
+        }
+
+        @Override
+        public String toString() {
+            return "SynchronizeEntity{" +
+                    "localVersion=" + localVersion +
+                    ", localLastModifyTimeMills=" + localLastModifyTimeMills +
+                    ", remoteVersion=" + remoteVersion +
+                    ", remoteLastModifyTimeMills=" + remoteLastModifyTimeMills +
+                    '}';
         }
     }
 }

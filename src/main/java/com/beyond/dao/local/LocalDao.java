@@ -15,9 +15,10 @@ public interface LocalDao {
     List<Document> selectAll();
     Document selectById(String id);
 
-    int setVersion(int version);
-    int getVersion();
-    long getLastModifyTimeMills();
+    void setVersion(int version);
+    String getVersion();
+    void setLastModifyTimeMills(long lastModifyTimeMills);
+    String getLastModifyTimeMills();
     void setProperty(String propertyName, Object value);
     Object getProperty(String propertyName);
     Map<String, Object> getProperties();

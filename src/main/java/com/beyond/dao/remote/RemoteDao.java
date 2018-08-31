@@ -20,14 +20,21 @@ public interface RemoteDao {
 
     //对库的整体操作
     List<String> getFileChildren(String dirPath);
-    int getVersion();
-    void setVersion(int version);
-    void setLastModifyTimeMills(long lastModifyTimeMills);
-    long getLastModifyTimeMills();
+
+
     int setProperty(String propertyName,Object value);
     String getProperty(String propertyName);
     void setProperties(Map<String,Object> properties);
     Map<String, Object> getProperties(Set<String> keys);
     int upload(File file);
     int download(String url, String filePath);
+
+    @Deprecated
+    String getVersion();
+    @Deprecated
+    void setVersion(int version);
+    @Deprecated
+    void setLastModifyTimeMills(long lastModifyTimeMills);
+    @Deprecated
+    String getLastModifyTimeMills();
 }

@@ -17,11 +17,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 
 import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class MainController {
 
@@ -271,8 +273,14 @@ public class MainController {
     @FXML
     private void delete() {
         if (!StringUtils.isEmpty(selectedId)) {
-            documentService.deleteById(selectedId, fxDocumentList);
-            deletedDocumentService.deleteById(selectedId, deletedFxDocumentList);
+            Document document = ListUtils.getDocumentById(fxDocumentList, selectedId);
+            Document deletedDocument = ListUtils.getDocumentById(deletedFxDocumentList, selectedId);
+            if (document!=null){
+                documentService.deleteById(selectedId, fxDocumentList);
+            }
+            if (deletedDocument!=null){
+                deletedDocumentService.deleteById(selectedId, deletedFxDocumentList);
+            }
             changeViewAfterDelete();
         }
     }

@@ -48,7 +48,7 @@ public class FileAttributeTest {
         CredentialsProvider provider = new BasicCredentialsProvider();
         UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("xxxx", "xxxx");
         UsernamePasswordCredentials credentials1 = new UsernamePasswordCredentials("admin", "admin");
-        UsernamePasswordCredentials credentials2 = new UsernamePasswordCredentials("806784568@qq.com", "acwqgpgqtn9pz3ya");
+        UsernamePasswordCredentials credentials2 = new UsernamePasswordCredentials("806784568@qq.com", "xxx");
         provider.setCredentials(AuthScope.ANY,credentials2);
 
         //initClient

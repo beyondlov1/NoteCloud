@@ -31,7 +31,7 @@ public class DaoTest {
         String url = "https://dav.jianguoyun.com/dav/NoteCloud/test1.xml";
         RemoteDao remoteDao = new SimpleRemoteDaoImpl(url);
         remoteDao.setVersion(9);
-        int version = remoteDao.getVersion();
+        String version = remoteDao.getVersion();
         System.out.println(version);
     }
 }
