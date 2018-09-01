@@ -1,9 +1,8 @@
 package com.beyond.service.remote;
 
-import com.beyond.controller.MainController;
-import com.beyond.service.remote.impl.DocumentServiceImpl;
+import com.beyond.service.remote.impl.SimpleDocumentServiceImpl;
 import javafx.util.Callback;
 
 public interface DocumentService {
-    void synchronize(Callback<DocumentServiceImpl.SynchronizeType, Object> callback);
+    void synchronize(Callback<SimpleDocumentServiceImpl.SynchronizeType, Object> callback);
 }

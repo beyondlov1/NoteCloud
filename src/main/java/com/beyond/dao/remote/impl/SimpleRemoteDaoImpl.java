@@ -22,10 +22,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class SimpleRemoteDaoImpl implements RemoteDao {
 
@@ -86,8 +83,13 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public String getVersion() {
-        return getProperty("_version");
+    public long getVersion() {
+        String versionString = getProperty("_version");
+        if (StringUtils.isNotBlank(versionString)){
+            return Long.parseLong(versionString);
+        }else{
+            return -1;
+        }
     }
 
     @Override
@@ -96,8 +98,13 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public String getLastModifyTimeMills() {
-        return getProperty("_lastModifyTimeMills");
+    public long getLastModifyTimeMills() {
+        String versionString = getProperty("_lastModifyTimeMills");
+        if (StringUtils.isNotBlank(versionString)){
+            return Long.parseLong(versionString);
+        }else{
+            return -1;
+        }
     }
 
     /**
@@ -109,15 +116,19 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int setProperty(String propertyName, Object value) {
-        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
-        HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value);
-        try {
-            if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
-            client.execute(httpProppatch);
-            client.close();
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!Objects.isNull(value)) {
+            CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
+            HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value);
+            try {
+                if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
+                client.execute(httpProppatch);
+                client.close();
+                return 1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }else{
             return -1;
         }
     }

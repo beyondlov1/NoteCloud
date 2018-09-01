@@ -29,10 +29,10 @@ public interface RemoteDao {
     int upload(File file);
     int download(String url, String filePath);
 
-    String getVersion();
+    long getVersion();
     void setVersion(int version);
     void setLastModifyTimeMills(long lastModifyTimeMills);
-    String getLastModifyTimeMills();
+    long getLastModifyTimeMills();
 
     boolean isExist();
     void mkDir();

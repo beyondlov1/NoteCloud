@@ -2,9 +2,9 @@ package com.beyond.dao.local.impl;
 
 import com.beyond.dao.local.LocalDao;
 import com.beyond.entity.Document;
+import com.beyond.f.Config;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
-import javafx.beans.binding.ObjectExpression;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
@@ -12,7 +12,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.attribute.FileTime;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.*;
 
@@ -31,7 +30,7 @@ public class LocalDaoXmlImpl implements LocalDao {
         this.init();
     }
 
-    private int init() {
+    private void init() {
 
         //如果文件存在
         File file = new File(xmlPath);
@@ -55,7 +54,6 @@ public class LocalDaoXmlImpl implements LocalDao {
 
                 }
             }
-            return 1;
         }
 
         //如果不存在 创建
@@ -75,11 +73,6 @@ public class LocalDaoXmlImpl implements LocalDao {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        if (isCreateNewFileSuccess) {
-            return 1;
-        } else {
-            return 0;
         }
     }
 
@@ -179,16 +172,24 @@ public class LocalDaoXmlImpl implements LocalDao {
         return null;
     }
 
+
+
+
+
     @Override
     public void setVersion(int version) {
         setProperty("_version", version);
     }
 
     @Override
-    public String getVersion() {
-        return getProperty("_version");
+    public long getVersion() {
+        String versionString = getProperty("_version");
+        if (StringUtils.isNotBlank(versionString)){
+            return Long.parseLong(versionString);
+        }else{
+            return -1;
+        }
     }
-
 
     @Override
     public void setLastModifyTimeMills(long lastModifyTimeMills) {
@@ -196,18 +197,25 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
     @Override
-    public String getLastModifyTimeMills() {
-        return getProperty("_lastModifyTimeMills");
+    public long getLastModifyTimeMills() {
+        String versionString = getProperty("_lastModifyTimeMills");
+        if (StringUtils.isNotBlank(versionString)){
+            return Long.parseLong(versionString);
+        }else{
+            return -1;
+        }
     }
 
     @Override
     public void setProperty(String propertyName, Object value) {
-        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
-        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
-        try {
-            userDefinedFileAttributeView.write(propertyName, byteBuffer);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!Objects.isNull(value)) {
+            UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+            ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
+            try {
+                userDefinedFileAttributeView.write(propertyName, byteBuffer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -220,7 +228,7 @@ public class LocalDaoXmlImpl implements LocalDao {
             byteBuffer.flip();
             return Charset.defaultCharset().decode(byteBuffer).toString();
         } catch (IOException e) {
-            //e.printStackTrace();
+            Config.logger.info(e.getMessage());
             return null;
         }
     }

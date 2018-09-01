@@ -10,7 +10,14 @@ import javafx.util.Callback;
 
 import java.io.File;
 
-public class DocumentServiceImpl implements DocumentService {
+/**
+ * 远端的服务层
+ * 主要任务: 同步数据
+ * 实现思路: 判断lastModifyTimeMills和Version, 只保留最新的版本
+ * 缺陷: 每隔一段同步一次, 在两次同步间的真空期, 设备1,设备2 同时添加数据, 则会导致下次较快同步的人会上传, 之后版本号+1, 会和下次同步的人
+ * 版本号相同,或者比后者版本号要大, 从而会导致丢失更新
+ */
+public class SimpleDocumentServiceImpl implements DocumentService {
 
     private LocalDao localDao;
     private RemoteDao remoteDao;
@@ -22,7 +29,7 @@ public class DocumentServiceImpl implements DocumentService {
         UPLOAD,DOWNLOAD,NULL
     }
     
-    public DocumentServiceImpl(String url, String filePath){
+    public SimpleDocumentServiceImpl(String url, String filePath){
         this.url = url;
         this.filePath = filePath;
         this.localDao = new LocalDaoXmlImpl(filePath);
@@ -31,10 +38,10 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public void synchronize(Callback<SynchronizeType, Object> callback) {
-        int localVersion = localDao.getVersion()==null?-1:Integer.parseInt(localDao.getVersion());
-        long localLastModifyTimeMills = localDao.getLastModifyTimeMills()==null?-1:Long.parseLong(localDao.getLastModifyTimeMills());
-        int remoteVersion = remoteDao.getVersion()==null?-1:Integer.parseInt(remoteDao.getVersion());
-        long remoteLastModifyTimeMills = remoteDao.getLastModifyTimeMills()==null?-1:Long.parseLong(remoteDao.getLastModifyTimeMills());
+        long localVersion = localDao.getVersion();
+        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
+        long remoteVersion = remoteDao.getVersion();
+        long remoteLastModifyTimeMills = remoteDao.getLastModifyTimeMills();
 
         SynchronizeEntity synchronizeEntity = new SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
         SynchronizeType synchronizeType = synchronizeEntity.getSynchronizeType();
@@ -51,17 +58,16 @@ public class DocumentServiceImpl implements DocumentService {
         }
 
         callback.call(synchronizeType);
-
     }
 
 
     class SynchronizeEntity{
-        private int localVersion;
+        private long localVersion;
         private long localLastModifyTimeMills;
-        private int remoteVersion;
+        private long remoteVersion;
         private long remoteLastModifyTimeMills;
 
-        private SynchronizeEntity(int localVersion, long localLastModifyTimeMills, int remoteVersion, long remoteLastModifyTimeMills) {
+        private SynchronizeEntity(long localVersion, long localLastModifyTimeMills, long remoteVersion, long remoteLastModifyTimeMills) {
             this.localVersion = localVersion;
             this.localLastModifyTimeMills = localLastModifyTimeMills;
             this.remoteVersion = remoteVersion;

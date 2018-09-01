@@ -1,13 +1,14 @@
 package com.beyond.controller;
 
-import com.beyond.MainApplication;
 import com.beyond.entity.Note;
 import com.beyond.entity.Todo;
 import com.beyond.entity.fx.Document;
 import com.beyond.f.Config;
 import com.beyond.service.local.DocumentService;
 import com.beyond.service.local.impl.DocumentServiceImpl;
+import com.beyond.service.remote.impl.SimpleDocumentServiceImpl;
 import com.beyond.utils.*;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -32,7 +33,7 @@ public class MainController{
 
     private DocumentService documentService = new DocumentServiceImpl(Config.DEFAULT_XML_PATH);
     private DocumentService deletedDocumentService = new DocumentServiceImpl(Config.DELETED_XML_PATH);
-    private com.beyond.service.remote.DocumentService remoteDocumentService = new com.beyond.service.remote.impl.DocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
+    private com.beyond.service.remote.DocumentService remoteDocumentService = new SimpleDocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
     private Timer timer = new Timer();
 
     private String selectedId;
@@ -126,9 +127,11 @@ public class MainController{
         documentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<com.beyond.entity.fx.Document>() {
             @Override
             public void changed(ObservableValue<? extends com.beyond.entity.fx.Document> observable, com.beyond.entity.fx.Document oldValue, com.beyond.entity.fx.Document newValue) {
-                documentService.initWebView(webView, newValue);
-                contentTextAreaSaveOrUpdate.setText(newValue.getContent());
-                selectedId = newValue.getId();
+                if (newValue!=null){
+                    documentService.initWebView(webView, newValue);
+                    contentTextAreaSaveOrUpdate.setText(newValue.getContent());
+                    selectedId = newValue.getId();
+                }
             }
         });
         deletedDocumentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<com.beyond.entity.fx.Document>() {
@@ -398,35 +401,34 @@ public class MainController{
 
     private void synchronizeModelAndView(){
         fxDocumentList = documentService.initObservableList();
-       // deletedFxDocumentList = deletedDocumentService.initObservableList();
+        documentService.initTableView(documentTableView,fxDocumentList);
+        documentTableView.getSelectionModel().select(0);
         refresh();
     }
 
     public void startSynchronize(){
-        TimerTask timerTask = new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                try {
-                    remoteDocumentService.synchronize(new Callback<com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType, Object>() {
-                        @Override
-                        public Object call(com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType param) {
-//                            if (param== com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType.UPLOAD){
-//                                //TODO:UPLOAD CALL
-//                            }
-                            if (param== com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType.DOWNLOAD){
-                                synchronizeModelAndView();
+                Platform.runLater(() -> {
+                    try {
+                        remoteDocumentService.synchronize(new Callback<SimpleDocumentServiceImpl.SynchronizeType, Object>() {
+                            @Override
+                            public Object call(SimpleDocumentServiceImpl.SynchronizeType param) {
+                                if (param== SimpleDocumentServiceImpl.SynchronizeType.DOWNLOAD) {
+                                    synchronizeModelAndView();
+                                }
+                                return null;
                             }
-                            return null;
-                        }
-                    });
-                    logger.info("synchronize success");
-                }catch (Exception e){
-                    e.printStackTrace();
-                    logger.info("connect timeout");
-                }
+                        });
+                        logger.info("synchronize success");
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        logger.info("connect timeout");
+                    }
+                });
             }
-        };
-        timer.schedule(timerTask,0,SYNCHRONIZE_PERIOD*60*1000);
+        }, 1000, SYNCHRONIZE_PERIOD*60*1000);
     }
 
     public void stopSynchronize(){
