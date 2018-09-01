@@ -13,7 +13,7 @@ public class ConfigUtils {
     //单例模式
     private static Properties properties;
 
-    private static String configPath =      LocalDaoXmlImpl.class.getResource("/").getPath()+"properties/config.properties";
+    private static String configPath =LocalDaoXmlImpl.class.getResource("/").getPath()+"properties/config.properties";
 
     public static Properties getProperties(String configPath){
 

@@ -54,6 +54,7 @@ public class LocalDaoXmlImpl implements LocalDao {
 
                 }
             }
+            return;
         }
 
         //如果不存在 创建
@@ -177,7 +178,7 @@ public class LocalDaoXmlImpl implements LocalDao {
 
 
     @Override
-    public void setVersion(int version) {
+    public void setVersion(long version) {
         setProperty("_version", version);
     }
 
@@ -228,6 +229,7 @@ public class LocalDaoXmlImpl implements LocalDao {
             byteBuffer.flip();
             return Charset.defaultCharset().decode(byteBuffer).toString();
         } catch (IOException e) {
+            e.printStackTrace();
             Config.logger.info(e.getMessage());
             return null;
         }
@@ -264,6 +266,15 @@ public class LocalDaoXmlImpl implements LocalDao {
             e.printStackTrace();
         }
         return map;
+    }
+
+    public static void main(String[] args){
+        LocalDaoXmlImpl localDaoXml = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\documents1.xml");
+        long version = localDaoXml.getVersion();
+        System.out.println(version);
+        localDaoXml.setProperty("_version",10);
+        String version1 = localDaoXml.getProperty("_version");
+        System.out.println(version1);
     }
 
 }

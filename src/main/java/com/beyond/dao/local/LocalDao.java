@@ -15,7 +15,7 @@ public interface LocalDao {
     List<Document> selectAll();
     Document selectById(String id);
 
-    void setVersion(int version);
+    void setVersion(long version);
     long getVersion();
     void setLastModifyTimeMills(long lastModifyTimeMills);
     long getLastModifyTimeMills();

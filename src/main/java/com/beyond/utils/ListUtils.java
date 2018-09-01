@@ -26,7 +26,7 @@ public class ListUtils {
         return list.get(index);
     }
 
-    private static int getDocumentIndexById(List<Document> list,String id){
+    public static int getDocumentIndexById(List<Document> list,String id){
         int index = -1;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getId().equals(id)){

@@ -402,7 +402,7 @@ public class MainController{
     private void synchronizeModelAndView(){
         fxDocumentList = documentService.initObservableList();
         documentService.initTableView(documentTableView,fxDocumentList);
-        documentTableView.getSelectionModel().select(0);
+        documentTableView.getSelectionModel().select(selectedId==null?0:ListUtils.getDocumentIndexById(fxDocumentList,selectedId));
         refresh();
     }
 
