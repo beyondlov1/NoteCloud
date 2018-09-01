@@ -1,9 +1,10 @@
 package com.beyond.controller;
 
+import com.beyond.MainApplication;
 import com.beyond.entity.Note;
 import com.beyond.entity.Todo;
 import com.beyond.entity.fx.Document;
-import com.beyond.f.F;
+import com.beyond.f.Config;
 import com.beyond.service.local.DocumentService;
 import com.beyond.service.local.impl.DocumentServiceImpl;
 import com.beyond.utils.*;
@@ -17,18 +18,22 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 
 import java.awt.*;
 import java.util.*;
-import java.util.List;
 
-public class MainController {
+import static com.beyond.f.Config.SYNCHRONIZE_PERIOD;
+import static com.beyond.f.Config.logger;
 
-    private DocumentService documentService = new DocumentServiceImpl(F.DEFAULT_XML_PATH);
-    private DocumentService deletedDocumentService = new DocumentServiceImpl(F.DELETED_XML_PATH);
+public class MainController{
+
+    private DocumentService documentService = new DocumentServiceImpl(Config.DEFAULT_XML_PATH);
+    private DocumentService deletedDocumentService = new DocumentServiceImpl(Config.DELETED_XML_PATH);
+    private com.beyond.service.remote.DocumentService remoteDocumentService = new com.beyond.service.remote.impl.DocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
+    private Timer timer = new Timer();
 
     private String selectedId;
 
@@ -313,7 +318,7 @@ public class MainController {
 
         //结尾输入end加回车的的时候保存并结束,不会包括end
         boolean isCommit = false;
-        String[] targetEndStringArray =  new String[]{F.COMMIT_STRING_NOTE,F.COMMIT_STRING_END, F.COMMIT_STRING_TODO};
+        String[] targetEndStringArray =  new String[]{Config.COMMIT_STRING_NOTE, Config.COMMIT_STRING_END, Config.COMMIT_STRING_TODO};
 
         //判断能否提交
         for (String targetEndString: targetEndStringArray) {
@@ -323,13 +328,13 @@ public class MainController {
                 endString = content.substring(content.length() - targetEndStringLength);
                 isCommit = (targetEndString).equals(endString);
                 switch (targetEndString) {
-                    case F.COMMIT_STRING_NOTE:
+                    case Config.COMMIT_STRING_NOTE:
                         type = "note";
                         break;
-                    case F.COMMIT_STRING_TODO:
+                    case Config.COMMIT_STRING_TODO:
                         type = "todo";
                         break;
-                    case F.COMMIT_STRING_END:
+                    case Config.COMMIT_STRING_END:
                         type = null;
                         break;
                     default:
@@ -389,6 +394,43 @@ public class MainController {
 
     private void changeWorkSpace(String xmlPathPropertyName) {
         documentService.changeWorkSpace(xmlPathPropertyName);
+    }
+
+    private void synchronizeModelAndView(){
+        fxDocumentList = documentService.initObservableList();
+       // deletedFxDocumentList = deletedDocumentService.initObservableList();
+        refresh();
+    }
+
+    public void startSynchronize(){
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    remoteDocumentService.synchronize(new Callback<com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType, Object>() {
+                        @Override
+                        public Object call(com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType param) {
+//                            if (param== com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType.UPLOAD){
+//                                //TODO:UPLOAD CALL
+//                            }
+                            if (param== com.beyond.service.remote.impl.DocumentServiceImpl.SynchronizeType.DOWNLOAD){
+                                synchronizeModelAndView();
+                            }
+                            return null;
+                        }
+                    });
+                    logger.info("synchronize success");
+                }catch (Exception e){
+                    e.printStackTrace();
+                    logger.info("connect timeout");
+                }
+            }
+        };
+        timer.schedule(timerTask,0,SYNCHRONIZE_PERIOD*60*1000);
+    }
+
+    public void stopSynchronize(){
+        timer.cancel();
     }
 }
 

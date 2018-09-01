@@ -2,17 +2,15 @@ import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.dao.remote.RemoteDao;
 import com.beyond.dao.remote.impl.SimpleRemoteDaoImpl;
-import com.beyond.f.F;
 import org.junit.Test;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DaoTest {
     @Test
     public void test(){
-        LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+        LocalDao localDao = new LocalDaoXmlImpl("Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
         //localDao.setVersion(3);
 //        int version = localDao.getVersion();
 //        long lastModifyTime = localDao.getLastModifyTimeMills();

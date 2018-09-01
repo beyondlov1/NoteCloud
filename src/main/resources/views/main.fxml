@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<HBox fx:id="container" prefHeight="661.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.beyond.controller.MainController">
+<HBox fx:id="container" prefHeight="661.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="583.0" prefWidth="400.0" HBox.hgrow="SOMETIMES">
          <children>

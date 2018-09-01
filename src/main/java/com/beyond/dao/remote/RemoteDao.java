@@ -29,13 +29,9 @@ public interface RemoteDao {
     int upload(File file);
     int download(String url, String filePath);
 
-    @Deprecated
     String getVersion();
-    @Deprecated
     void setVersion(int version);
-    @Deprecated
     void setLastModifyTimeMills(long lastModifyTimeMills);
-    @Deprecated
     String getLastModifyTimeMills();
 
     boolean isExist();

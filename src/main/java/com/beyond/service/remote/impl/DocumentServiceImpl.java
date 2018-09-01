@@ -1,10 +1,12 @@
 package com.beyond.service.remote.impl;
 
+import com.beyond.controller.MainController;
 import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.dao.remote.RemoteDao;
 import com.beyond.dao.remote.impl.SimpleRemoteDaoImpl;
 import com.beyond.service.remote.DocumentService;
+import javafx.util.Callback;
 
 import java.io.File;
 
@@ -16,7 +18,7 @@ public class DocumentServiceImpl implements DocumentService {
     private String url;
     private String filePath;
 
-    enum SynchronizeType{
+    public enum SynchronizeType{
         UPLOAD,DOWNLOAD,NULL
     }
     
@@ -28,7 +30,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public void synchronize() {
+    public void synchronize(Callback<SynchronizeType, Object> callback) {
         int localVersion = localDao.getVersion()==null?-1:Integer.parseInt(localDao.getVersion());
         long localLastModifyTimeMills = localDao.getLastModifyTimeMills()==null?-1:Long.parseLong(localDao.getLastModifyTimeMills());
         int remoteVersion = remoteDao.getVersion()==null?-1:Integer.parseInt(remoteDao.getVersion());
@@ -47,6 +49,8 @@ public class DocumentServiceImpl implements DocumentService {
             remoteDao.setProperty("_lastModifyTimeMills",localDao.getProperty("_lastModifyTimeMills"));
             remoteDao.setProperty("_version",localDao.getProperty("_version"));
         }
+
+        callback.call(synchronizeType);
 
     }
 
@@ -72,38 +76,6 @@ public class DocumentServiceImpl implements DocumentService {
             }else{
                 return SynchronizeType.NULL;
             }
-        }
-
-        public int getLocalVersion() {
-            return localVersion;
-        }
-
-        public void setLocalVersion(int localVersion) {
-            this.localVersion = localVersion;
-        }
-
-        public long getLocalLastModifyTimeMills() {
-            return localLastModifyTimeMills;
-        }
-
-        public void setLocalLastModifyTimeMills(long localLastModifyTimeMills) {
-            this.localLastModifyTimeMills = localLastModifyTimeMills;
-        }
-
-        public int getRemoteVersion() {
-            return remoteVersion;
-        }
-
-        public void setRemoteVersion(int remoteVersion) {
-            this.remoteVersion = remoteVersion;
-        }
-
-        public long getRemoteLastModifyTimeMills() {
-            return remoteLastModifyTimeMills;
-        }
-
-        public void setRemoteLastModifyTimeMills(long remoteLastModifyTimeMills) {
-            this.remoteLastModifyTimeMills = remoteLastModifyTimeMills;
         }
 
         @Override

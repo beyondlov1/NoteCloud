@@ -1,10 +1,8 @@
 package com.beyond.dao.remote.impl;
 
-import com.beyond.dao.local.LocalDao;
-import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.dao.remote.RemoteDao;
 import com.beyond.entity.Document;
-import com.beyond.f.F;
+import com.beyond.f.Config;
 import com.beyond.utils.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
@@ -19,16 +17,11 @@ import org.apache.jackrabbit.webdav.DavConstants;
 import org.apache.jackrabbit.webdav.client.methods.HttpMkcol;
 import org.apache.jackrabbit.webdav.client.methods.HttpPropfind;
 import org.apache.jackrabbit.webdav.client.methods.HttpProppatch;
-import org.apache.jackrabbit.webdav.xml.Namespace;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -116,7 +109,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int setProperty(String propertyName, Object value) {
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value);
         try {
             if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
@@ -137,7 +130,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public String getProperty(String propertyName) {
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpPropfind httpPropfind = HttpUtils.getPropfind(url, propertyName);
         try {
             CloseableHttpResponse response = client.execute(httpPropfind);
@@ -152,7 +145,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     @Override
     public void setProperties(Map<String, Object> properties) {
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpProppatch httpProppatch = HttpUtils.addProperties(url, properties, DavConstants.NAMESPACE);
         try {
             if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
@@ -166,7 +159,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     @Override
     public Map<String, Object> getProperties(Set<String> keys) {
         Map<String, Object> result = new HashMap<>();
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpPropfind httpPropfind = HttpUtils.getBatchPropfind(url, keys, DavConstants.NAMESPACE);
         for (String key : keys) {
             try {
@@ -191,7 +184,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     @Override
     public int upload(File file) {
         mkDir();
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpPut httpPut = new HttpPut(url);
         httpPut.setEntity(new FileEntity(file));
         try {
@@ -213,7 +206,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int download(String url, String filePath) {
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpGet httpGet = new HttpGet(url);
         FileOutputStream fileOutputStream = null;
         try {
@@ -238,7 +231,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     @Override
     public boolean isExist(){
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpGet httpGet = new HttpGet(url);
         CloseableHttpResponse response = null;
         try {
@@ -258,7 +251,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     private void mkDirs(String url){
-        CloseableHttpClient client = HttpUtils.getClient(F.USERNAME, F.PASSWORD);
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         String parentUrl = HttpUtils.getParentUrl(url);
         HttpMkcol httpMkcol = new HttpMkcol(parentUrl);
         String root = "https://"+URI.create(url).getHost();
@@ -285,11 +278,11 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         //String teststst = remoteDao.getProperty("teststst");
         //System.out.println(teststst);
         //System.out.println(remoteDao.getLastModifyTimeMills());
-//        String filePath = "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml";
+//        String filePath = "Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\documents.xml";
 //        remoteDao.upload(new File(filePath));
 //        remoteDao.setVersion(10);
-//        remoteDao.download(url, "F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
-//        LocalDao localDao = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+//        remoteDao.download(url, "Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
+//        LocalDao localDao = new LocalDaoXmlImpl("Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
 //        System.out.println(localDao.getVersion());
         ((SimpleRemoteDaoImpl) remoteDao).mkDir();
     }

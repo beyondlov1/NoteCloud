@@ -1,8 +1,7 @@
 package com.beyond;
 
-import com.beyond.f.F;
-import com.beyond.service.remote.DocumentService;
-import com.beyond.service.remote.impl.DocumentServiceImpl;
+import com.beyond.controller.MainController;
+import com.beyond.f.Config;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +12,8 @@ import javafx.stage.WindowEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.net.URL;
 import java.util.Objects;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainApplication  extends Application {
 
@@ -27,36 +25,29 @@ public class MainApplication  extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent parent = FXMLLoader.load(Objects.requireNonNull(MainApplication.class.getClassLoader().getResource("views/main.fxml")));
+        URL resource = MainApplication.class.getClassLoader().getResource("views/main.fxml");
+
+        //加载fxml
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(resource);
+        fxmlLoader.setController(new MainController());
+        Parent parent = fxmlLoader.load();
+        //Parent parent = FXMLLoader.load(Objects.requireNonNull(resource)); //这种方法不能获取到controller
+
         primaryStage.setTitle("NoteCloud");
         Scene scene = new Scene(parent);
         primaryStage.setScene(scene);
         primaryStage.show();
 
 
-
-
-        DocumentService documentService = new DocumentServiceImpl(F.DEFAULT_REMOTE_URL,F.DEFAULT_XML_PATH);
-        Timer timer = new Timer();
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                try {
-                    documentService.synchronize();
-                    logger.info("synchronize success");
-                }catch (Exception e){
-                    e.printStackTrace();
-                    logger.info("connect timeout");
-                }
-            }
-        };
-        timer.schedule(timerTask,0,5*60*1000);
+        MainController controller = fxmlLoader.getController();
+        controller.startSynchronize();
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                timer.cancel();
-                F.logger.info("timer cancel");
+                controller.stopSynchronize();
+                Config.logger.info("timer cancel");
             }
         });
     }

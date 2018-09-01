@@ -3,6 +3,7 @@ package com.beyond.utils;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -11,6 +12,8 @@ public class ConfigUtils {
 
     //单例模式
     private static Properties properties;
+
+    private static String configPath =      LocalDaoXmlImpl.class.getResource("/").getPath()+"properties/config.properties";
 
     public static Properties getProperties(String configPath){
 
@@ -40,10 +43,32 @@ public class ConfigUtils {
     }
 
     public static Properties getProperties(){
-        return getProperties(LocalDaoXmlImpl.class.getResource("/").getPath()+"properties/config.properties");
+        return getProperties(configPath);
     }
 
     public static String getProperty(String key){
         return getProperties().getProperty(key);
+    }
+
+    public static void setProperty(String key,String value){
+        getProperties().setProperty(key,value);
+    }
+
+    public static void storeProperties() {
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(configPath);
+            getProperties().store(fileWriter,"save");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (fileWriter != null) {
+                    fileWriter.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
