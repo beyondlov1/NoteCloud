@@ -115,9 +115,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
         //以远程的为主
         List<Document> result = new ArrayList<>();
-        if (localList.size()==0){//首次启动, 直接下载远程
-            result = remoteList;
-        }
+
         for (Document remoteDocument : remoteList) {
             if (deletedDocumentIds.contains(remoteDocument.getId())){//删除的不添加
                 continue;
@@ -140,6 +138,10 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
                 continue;
             }
             result.add(remoteDocument);
+        }
+
+        if (localList.size()==0){//首次启动, 直接下载远程
+            result = remoteList;
         }
 
         return result;

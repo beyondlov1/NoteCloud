@@ -44,8 +44,7 @@ public class DocumentServiceImpl implements DocumentService {
     public ObservableList<com.beyond.entity.fx.Document> initObservableList(){
         List<com.beyond.entity.Document> documents = this.findAll();
         List<com.beyond.entity.fx.Document> fxDocuments = new ArrayList<>();
-        for (com.beyond.entity.Document document :
-                documents) {
+        for (com.beyond.entity.Document document : documents) {
             fxDocuments.add(new com.beyond.entity.fx.Document(document));
         }
         ObservableList<com.beyond.entity.fx.Document> result = FXCollections.observableList(fxDocuments);

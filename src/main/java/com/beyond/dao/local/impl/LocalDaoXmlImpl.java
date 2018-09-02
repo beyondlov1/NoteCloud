@@ -75,6 +75,11 @@ public class LocalDaoXmlImpl implements LocalDao {
                 e.printStackTrace();
             }
         }
+
+        //添加属性
+        this.setVersion(0);
+        this.setLastModifyTimeMills(new Date().getTime());
+        this.setModifiedIds(null);
     }
 
     @Override
