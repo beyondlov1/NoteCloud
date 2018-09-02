@@ -1,5 +1,6 @@
 package com.beyond.service.remote.impl;
 
+import com.beyond.controller.MainController;
 import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.dao.remote.RemoteDao;
@@ -8,6 +9,7 @@ import com.beyond.entity.Document;
 import com.beyond.f.Config;
 import com.beyond.service.remote.RemoteDocumentService;
 import com.beyond.utils.ListUtils;
+import com.beyond.utils.SortUtils;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
 import javafx.collections.ObservableList;
@@ -54,6 +56,8 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
             saveRemote();
 
             mergeFxDocuments=ListUtils.getFxDocumentListFromDocumentList(mergeList);
+            SortUtils.sort(mergeFxDocuments,com.beyond.entity.fx.Document.class,"lastModifyTime", MainController.SortType.DESC);
+
         }
 
         if (callback!=null){
