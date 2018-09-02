@@ -22,6 +22,7 @@ public class Config {
     public static String PASSWORD ;
 
     public static Long SYNCHRONIZE_PERIOD;
+    public static String DOWNLOAD_TMP_PATH;
 
     static {
         refreshConfig();
@@ -37,6 +38,8 @@ public class Config {
         PASSWORD = ConfigUtils.getProperty("remote.password");
 
         SYNCHRONIZE_PERIOD = Long.parseLong(ConfigUtils.getProperty("remote.synchronize.period"));
+
+        DOWNLOAD_TMP_PATH = ConfigUtils.getProperty("remote.download.tmpPath");
     }
 
     public static void saveOrUpdateConfigProperty(String propertyName, String value) {

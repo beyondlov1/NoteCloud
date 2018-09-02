@@ -4,13 +4,14 @@ import com.beyond.entity.Document;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface LocalDao {
     void setXmlPath(String xmlPath);
-    int add(Document document);
-    int delete(Document document);
-    void deleteById(String id);
-    int update(Document document);
+    String add(Document document);
+    String delete(Document document);
+    String deleteById(String id);
+    String update(Document document);
     <T> List<T> selectAll(Class<T> clazz);
     List<Document> selectAll();
     Document selectById(String id);
@@ -19,9 +20,13 @@ public interface LocalDao {
     long getVersion();
     void setLastModifyTimeMills(long lastModifyTimeMills);
     long getLastModifyTimeMills();
+    void setModifiedIds(String[] ids);
+    String[] getModifiedIds();
 
     void setProperty(String propertyName, Object value);
-    Object getProperty(String propertyName);
+    String getProperty(String propertyName);
     Map<String, Object> getProperties();
     void setProperties(Map<String,Object> properties);
+
+
 }

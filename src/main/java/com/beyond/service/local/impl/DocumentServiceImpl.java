@@ -184,7 +184,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public void update(Document document,ObservableList<com.beyond.entity.fx.Document> fxDocumentList){
         update(document);
-        com.beyond.entity.fx.Document foundDocument = ListUtils.getDocumentById(fxDocumentList, document.getId());
+        com.beyond.entity.fx.Document foundDocument = ListUtils.getFxDocumentById(fxDocumentList, document.getId());
         foundDocument.setDocument(document);
     }
 

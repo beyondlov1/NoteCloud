@@ -1,14 +1,15 @@
 package com.beyond.service.remote.impl;
 
-import com.beyond.controller.MainController;
 import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.dao.remote.RemoteDao;
 import com.beyond.dao.remote.impl.SimpleRemoteDaoImpl;
-import com.beyond.service.remote.DocumentService;
+import com.beyond.entity.Document;
+import com.beyond.service.remote.RemoteDocumentService;
 import javafx.util.Callback;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * 远端的服务层
@@ -17,7 +18,7 @@ import java.io.File;
  * 缺陷: 每隔一段同步一次, 在两次同步间的真空期, 设备1,设备2 同时添加数据, 则会导致下次较快同步的人会上传, 之后版本号+1, 会和下次同步的人
  * 版本号相同,或者比后者版本号要大, 从而会导致丢失更新
  */
-public class SimpleDocumentServiceImpl implements DocumentService {
+public class SimpleRemoteDocumentServiceImpl implements RemoteDocumentService {
 
     private LocalDao localDao;
     private RemoteDao remoteDao;
@@ -25,11 +26,7 @@ public class SimpleDocumentServiceImpl implements DocumentService {
     private String url;
     private String filePath;
 
-    public enum SynchronizeType{
-        UPLOAD,DOWNLOAD,NULL
-    }
-    
-    public SimpleDocumentServiceImpl(String url, String filePath){
+    public SimpleRemoteDocumentServiceImpl(String url, String filePath){
         this.url = url;
         this.filePath = filePath;
         this.localDao = new LocalDaoXmlImpl(filePath);
@@ -37,7 +34,7 @@ public class SimpleDocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public void synchronize(Callback<SynchronizeType, Object> callback) {
+    public void synchronize(Callback<Object, Object> callback) {
         long localVersion = localDao.getVersion();
         long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
         long remoteVersion = remoteDao.getVersion();
@@ -48,13 +45,15 @@ public class SimpleDocumentServiceImpl implements DocumentService {
 
         if (synchronizeType==SynchronizeType.DOWNLOAD){
             remoteDao.download(url,filePath);
-            localDao.setProperty("_version",remoteDao.getProperty("_version"));
-            localDao.setProperty("_lastModifyTimeMills",remoteDao.getProperty("_lastModifyTimeMills"));
+//            localDao.setProperty("_version",remoteDao.getProperty("_version"));
+//            localDao.setProperty("_lastModifyTimeMills",remoteDao.getProperty("_lastModifyTimeMills"));
+            localDao.setProperties(remoteDao.getProperties());
         }
         if (synchronizeType==SynchronizeType.UPLOAD){
             remoteDao.upload(new File(filePath));
-            remoteDao.setProperty("_lastModifyTimeMills",localDao.getProperty("_lastModifyTimeMills"));
-            remoteDao.setProperty("_version",localDao.getProperty("_version"));
+//            remoteDao.setProperty("_lastModifyTimeMills",localDao.getProperty("_lastModifyTimeMills"));
+//            remoteDao.setProperty("_version",localDao.getProperty("_version"));
+            remoteDao.setProperties(localDao.getProperties());
         }
 
         callback.call(synchronizeType);

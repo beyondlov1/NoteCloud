@@ -78,26 +78,26 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
     @Override
-    public int add(Document document) {
-        if (document == null) return 0;
+    public String add(Document document) {
+        if (document == null) return null;
         Date date = new Date();
         document.setCreateTime(date);
         document.setLastModifyTime(date);
         XStream xStream = XmlUtils.getXStream();
         String xml = xStream.toXML(document);
         XmlUtils.appendInRootXml(xml, xmlPath, ROOT_TAG);
-        return 1;
+        return document.getId();
     }
 
     @Override
-    public int delete(Document document) {
-        if (document == null) return 0;
+    public String delete(Document document) {
+        if (document == null) return null;
         deleteById(document.getId());
-        return 1;
+        return document.getId();
     }
 
     @Override
-    public void deleteById(String id) {
+    public String deleteById(String id) {
         XStream xStream = XmlUtils.getXStream();
         List<Document> list = (List) xStream.fromXML(new File(xmlPath));
         List<Document> newList = new ArrayList<>();
@@ -108,11 +108,12 @@ public class LocalDaoXmlImpl implements LocalDao {
         }
         String xml = xStream.toXML(newList);
         XmlUtils.saveXml(xml, xmlPath);
+        return id;
     }
 
     @Override
-    public int update(Document document) {
-        if (document == null) return 0;
+    public String update(Document document) {
+        if (document == null) return null;
         document.setLastModifyTime(new Date());
         XStream xStream = XmlUtils.getXStream();
         List<Document> list = (List) xStream.fromXML(new File(xmlPath));
@@ -124,7 +125,7 @@ public class LocalDaoXmlImpl implements LocalDao {
         }
         String xml = xStream.toXML(list);
         XmlUtils.saveXml(xml, xmlPath);
-        return 1;
+        return document.getId();
     }
 
     @Override
@@ -174,9 +175,6 @@ public class LocalDaoXmlImpl implements LocalDao {
     }
 
 
-
-
-
     @Override
     public void setVersion(long version) {
         setProperty("_version", version);
@@ -185,9 +183,9 @@ public class LocalDaoXmlImpl implements LocalDao {
     @Override
     public long getVersion() {
         String versionString = getProperty("_version");
-        if (StringUtils.isNotBlank(versionString)){
+        if (StringUtils.isNotBlank(versionString)) {
             return Long.parseLong(versionString);
-        }else{
+        } else {
             return -1;
         }
     }
@@ -200,24 +198,52 @@ public class LocalDaoXmlImpl implements LocalDao {
     @Override
     public long getLastModifyTimeMills() {
         String versionString = getProperty("_lastModifyTimeMills");
-        if (StringUtils.isNotBlank(versionString)){
+        if (StringUtils.isNotBlank(versionString)) {
             return Long.parseLong(versionString);
-        }else{
+        } else {
             return -1;
         }
     }
 
     @Override
-    public void setProperty(String propertyName, Object value) {
-        if (!Objects.isNull(value)) {
-            UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
-            ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
-            try {
-                userDefinedFileAttributeView.write(propertyName, byteBuffer);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void setModifiedIds(String[] ids) {
+        if (ids == null) {
+            setProperty("_modifiedIds", null);
+            return;
         }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String id : ids) {
+            stringBuilder.append(",");
+            stringBuilder.append(id);
+        }
+        if (StringUtils.isNotBlank(stringBuilder)) {
+            String s = stringBuilder.toString();
+            setProperty("_modifiedIds", s.substring(1));
+        } else {
+            setProperty("_modifiedIds", null);
+        }
+    }
+
+    @Override
+    public String[] getModifiedIds() {
+        String modifiedIds = getProperty("_modifiedIds");
+        if (Objects.isNull(modifiedIds)) {
+            modifiedIds = "";
+        }
+        return modifiedIds.split(",");
+    }
+
+    @Override
+    public void setProperty(String propertyName, Object value) {
+        UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
+        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value == null ? "" : value));
+        try {
+            userDefinedFileAttributeView.write(propertyName, byteBuffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -256,11 +282,11 @@ public class LocalDaoXmlImpl implements LocalDao {
         UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
         try {
             List<String> keys = userDefinedFileAttributeView.list();
-            for (String key :keys) {
+            for (String key : keys) {
                 ByteBuffer byteBuffer = ByteBuffer.allocate(userDefinedFileAttributeView.size(key));
                 userDefinedFileAttributeView.read(key, byteBuffer);
                 byteBuffer.flip();
-                map.put(key,Charset.defaultCharset().decode(byteBuffer).toString());
+                map.put(key, Charset.defaultCharset().decode(byteBuffer).toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -268,11 +294,11 @@ public class LocalDaoXmlImpl implements LocalDao {
         return map;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         LocalDaoXmlImpl localDaoXml = new LocalDaoXmlImpl("F:\\git_repository\\MyGitHub\\NoteCloud\\documents1.xml");
         long version = localDaoXml.getVersion();
         System.out.println(version);
-        localDaoXml.setProperty("_version",10);
+        localDaoXml.setProperty("_version", 10);
         String version1 = localDaoXml.getProperty("_version");
         System.out.println(version1);
     }

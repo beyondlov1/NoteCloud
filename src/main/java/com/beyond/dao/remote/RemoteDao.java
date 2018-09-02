@@ -26,6 +26,9 @@ public interface RemoteDao {
     String getProperty(String propertyName);
     void setProperties(Map<String,Object> properties);
     Map<String, Object> getProperties(Set<String> keys);
+
+    Map<String, Object> getProperties();
+
     int upload(File file);
     int download(String url, String filePath);
 

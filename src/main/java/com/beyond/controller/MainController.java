@@ -6,12 +6,19 @@ import com.beyond.entity.fx.Document;
 import com.beyond.f.Config;
 import com.beyond.service.local.DocumentService;
 import com.beyond.service.local.impl.DocumentServiceImpl;
-import com.beyond.service.remote.impl.SimpleDocumentServiceImpl;
+import com.beyond.service.remote.RemoteDocumentService;
+import com.beyond.service.remote.impl.MergeRemoteDocumentServiceImpl;
+import com.beyond.service.remote.impl.SimpleRemoteDocumentServiceImpl;
 import com.beyond.utils.*;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -22,19 +29,27 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
+import javafx.util.Duration;
 
+import javax.naming.TimeLimitExceededException;
 import java.awt.*;
 import java.util.*;
+import java.util.List;
+import java.util.concurrent.*;
+import java.util.function.Predicate;
 
 import static com.beyond.f.Config.SYNCHRONIZE_PERIOD;
 import static com.beyond.f.Config.logger;
+import static com.beyond.service.remote.impl.MergeRemoteDocumentServiceImpl.mergeFxDocuments;
 
-public class MainController{
+public class MainController {
 
     private DocumentService documentService = new DocumentServiceImpl(Config.DEFAULT_XML_PATH);
     private DocumentService deletedDocumentService = new DocumentServiceImpl(Config.DELETED_XML_PATH);
-    private com.beyond.service.remote.DocumentService remoteDocumentService = new SimpleDocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
+    private RemoteDocumentService remoteDocumentService = new SimpleRemoteDocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
+    private RemoteDocumentService remoteDocumentService1 = new MergeRemoteDocumentServiceImpl(Config.DEFAULT_REMOTE_URL, Config.DEFAULT_XML_PATH);
     private Timer timer = new Timer();
+    private Timeline timeline;
 
     private String selectedId;
 
@@ -127,7 +142,7 @@ public class MainController{
         documentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<com.beyond.entity.fx.Document>() {
             @Override
             public void changed(ObservableValue<? extends com.beyond.entity.fx.Document> observable, com.beyond.entity.fx.Document oldValue, com.beyond.entity.fx.Document newValue) {
-                if (newValue!=null){
+                if (newValue != null) {
                     documentService.initWebView(webView, newValue);
                     contentTextAreaSaveOrUpdate.setText(newValue.getContent());
                     selectedId = newValue.getId();
@@ -172,7 +187,7 @@ public class MainController{
         documentTableView.setOnInputMethodTextChanged(new EventHandler<InputMethodEvent>() {
             @Override
             public void handle(InputMethodEvent event) {
-                if (documentTableView.isFocused()){
+                if (documentTableView.isFocused()) {
                     changeInputMethod();
                 }
             }
@@ -189,13 +204,20 @@ public class MainController{
                 focusBackToTableView(event);
             }
         });
+
+//        fxDocumentList.addListener(new ListChangeListener<Document>() {
+//            @Override
+//            public void onChanged(Change<? extends Document> c) {
+//                synchronizeModelAndView();
+//            }
+//        });
     }
 
     /**
      * Robot这个类要用awt包中的, fxRobox不知道为什么不好使
      * 暂时只能用这种来模拟按键的方式来切换输入法, 还没有发现更好的办法...
      */
-    private void changeInputMethod(){
+    private void changeInputMethod() {
         Robot robot = null;
         try {
             robot = new Robot();
@@ -281,12 +303,12 @@ public class MainController{
     @FXML
     private void delete() {
         if (!StringUtils.isEmpty(selectedId)) {
-            Document document = ListUtils.getDocumentById(fxDocumentList, selectedId);
-            Document deletedDocument = ListUtils.getDocumentById(deletedFxDocumentList, selectedId);
-            if (document!=null){
+            Document document = ListUtils.getFxDocumentById(fxDocumentList, selectedId);
+            Document deletedDocument = ListUtils.getFxDocumentById(deletedFxDocumentList, selectedId);
+            if (document != null) {
                 documentService.deleteById(selectedId, fxDocumentList);
             }
-            if (deletedDocument!=null){
+            if (deletedDocument != null) {
                 deletedDocumentService.deleteById(selectedId, deletedFxDocumentList);
             }
             changeViewAfterDelete();
@@ -294,7 +316,7 @@ public class MainController{
     }
 
     private void changeViewAfterDelete() {
-        if (documentTableView.getSelectionModel().getSelectedIndex()!=0){
+        if (documentTableView.getSelectionModel().getSelectedIndex() != 0) {
             documentTableView.getSelectionModel().selectNext();
         }
     }
@@ -321,10 +343,10 @@ public class MainController{
 
         //结尾输入end加回车的的时候保存并结束,不会包括end
         boolean isCommit = false;
-        String[] targetEndStringArray =  new String[]{Config.COMMIT_STRING_NOTE, Config.COMMIT_STRING_END, Config.COMMIT_STRING_TODO};
+        String[] targetEndStringArray = new String[]{Config.COMMIT_STRING_NOTE, Config.COMMIT_STRING_END, Config.COMMIT_STRING_TODO};
 
         //判断能否提交
-        for (String targetEndString: targetEndStringArray) {
+        for (String targetEndString : targetEndStringArray) {
             String endString = null;
             int targetEndStringLength = targetEndString.length();
             if (content != null && content.length() >= targetEndStringLength) {
@@ -354,7 +376,7 @@ public class MainController{
             //封装数据
             com.beyond.entity.Document document = null;
             if (org.apache.commons.lang3.StringUtils.isNotBlank(type)) {
-                switch (type){
+                switch (type) {
                     case "note":
                         document = new Note();
                         document.setContent(content);
@@ -367,14 +389,14 @@ public class MainController{
                         document.setVersion(1);
                         document.setType(type);
                         Date remindDate = TimeUtils.parse(content);
-                        if (remindDate!=null){
+                        if (remindDate != null) {
                             ((Todo) document).setRemindDate(remindDate);
                         }
                         break;
                     default:
                         break;
                 }
-            }else{
+            } else {
                 document = new com.beyond.entity.Document();
                 document.setContent(content);
                 document.setVersion(1);
@@ -399,40 +421,91 @@ public class MainController{
         documentService.changeWorkSpace(xmlPathPropertyName);
     }
 
-    private void synchronizeModelAndView(){
-        fxDocumentList = documentService.initObservableList();
+    private void synchronizeModelAndView() {
+        fxDocumentList = mergeFxDocuments==null?documentService.initObservableList():mergeFxDocuments;
         documentService.initTableView(documentTableView,fxDocumentList);
-        documentTableView.getSelectionModel().select(selectedId==null?0:ListUtils.getDocumentIndexById(fxDocumentList,selectedId));
+        com.beyond.entity.Document selectedDocument = documentService.findById(selectedId);
+        if (selectedDocument==null) selectedId = null;
+        documentTableView.getSelectionModel().select(selectedId == null ? 0 : ListUtils.getFxDocumentIndexById(fxDocumentList, selectedId));
         refresh();
     }
 
-    public void startSynchronize(){
-        timer.scheduleAtFixedRate(new TimerTask() {
+    public void startSynchronize() {
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                Platform.runLater(() -> {
+//                    try {
+//                        remoteDocumentService.synchronize(new Callback<SimpleRemoteDocumentServiceImpl.SynchronizeType, Object>() {
+//                            @Override
+//                            public Object call(SimpleRemoteDocumentServiceImpl.SynchronizeType param) {
+//                                if (param== SimpleRemoteDocumentServiceImpl.SynchronizeType.DOWNLOAD) {
+//                                    synchronizeModelAndView();
+//                                }
+//                                return null;
+//                            }
+//                        });
+//                        logger.info("synchronize success");
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                        logger.info("connect timeout");
+//                    }
+//                });
+//            }
+//        }, 1000, SYNCHRONIZE_PERIOD*60*1000);
+
+//         timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*60), new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                try {
+//                    remoteDocumentService.synchronize(new Callback<SimpleRemoteDocumentServiceImpl.SynchronizeType, Object>() {
+//                        @Override
+//                        public Object call(SimpleRemoteDocumentServiceImpl.SynchronizeType param) {
+//                            if (param== SimpleRemoteDocumentServiceImpl.SynchronizeType.DOWNLOAD) {
+//                                synchronizeModelAndView();
+//                            }
+//                            return null;
+//                        }
+//                    });
+//                    logger.info("synchronize success");
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                    logger.info("connect timeout");
+//                }
+//            }
+//        }));
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+
+
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(() -> {
-                    try {
-                        remoteDocumentService.synchronize(new Callback<SimpleDocumentServiceImpl.SynchronizeType, Object>() {
-                            @Override
-                            public Object call(SimpleDocumentServiceImpl.SynchronizeType param) {
-                                if (param== SimpleDocumentServiceImpl.SynchronizeType.DOWNLOAD) {
-                                    synchronizeModelAndView();
-                                }
-                                return null;
-                            }
-                        });
-                        logger.info("synchronize success");
-                    }catch (Exception e){
-                        e.printStackTrace();
-                        logger.info("connect timeout");
+                remoteDocumentService1.synchronize(new Callback<Object, Object>() {
+                    @Override
+                    public Object call(Object object) {
+                        return null;
                     }
                 });
             }
-        }, 1000, SYNCHRONIZE_PERIOD*60*1000);
+        };
+        timer.schedule(timerTask, 0, SYNCHRONIZE_PERIOD*60 * 1000);
+
+        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*60), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                synchronizeModelAndView();
+            }
+        }));
+        timeline.setDelay(new Duration(10000));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
     }
 
-    public void stopSynchronize(){
+    public void stopSynchronize() {
         timer.cancel();
+       timeline.stop();
     }
 }
 

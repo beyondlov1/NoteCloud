@@ -85,9 +85,9 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     @Override
     public long getVersion() {
         String versionString = getProperty("_version");
-        if (StringUtils.isNotBlank(versionString)){
+        if (StringUtils.isNotBlank(versionString)) {
             return Long.parseLong(versionString);
-        }else{
+        } else {
             return -1;
         }
     }
@@ -100,9 +100,9 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     @Override
     public long getLastModifyTimeMills() {
         String versionString = getProperty("_lastModifyTimeMills");
-        if (StringUtils.isNotBlank(versionString)){
+        if (StringUtils.isNotBlank(versionString)) {
             return Long.parseLong(versionString);
-        }else{
+        } else {
             return -1;
         }
     }
@@ -116,9 +116,8 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int setProperty(String propertyName, Object value) {
-        if (!Objects.isNull(value)) {
             CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
-            HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value);
+            HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value==null?"":value);
             try {
                 if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
                 client.execute(httpProppatch);
@@ -128,9 +127,6 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
                 e.printStackTrace();
                 return -1;
             }
-        }else{
-            return -1;
-        }
     }
 
     /**
@@ -172,15 +168,30 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         Map<String, Object> result = new HashMap<>();
         CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpPropfind httpPropfind = HttpUtils.getBatchPropfind(url, keys, DavConstants.NAMESPACE);
-        for (String key : keys) {
-            try {
-                CloseableHttpResponse response = client.execute(httpPropfind);
-                String content = HttpUtils.getContentFromResponse(response);
-                client.close();
+        String content = HttpUtils.getPropfindResponseContent(client, httpPropfind);
+        if (StringUtils.isNotBlank(content)) {
+            for (String key : keys) {
                 result.put(key, HttpUtils.getStringInResponseContent(content, key, 1));
-            } catch (IOException e) {
-                e.printStackTrace();
-                result.put(key, null);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public Map<String, Object> getProperties() {
+        Map<String, Object> result = new HashMap<>();
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
+        HttpPropfind httpPropfind = HttpUtils.getAllPropfind(url);
+
+        Set<String> keys = new HashSet<>();
+        String content = HttpUtils.getPropfindResponseContent(client, httpPropfind);
+        if (StringUtils.isNotBlank(content)) {
+            String[] split = content.split("<.*_");
+            for (int i = 1; i < split.length; i++) {
+                keys.add("_" + split[i].substring(0, split[i].indexOf(">")));
+            }
+            for (String key : keys) {
+                result.put(key, HttpUtils.getStringInResponseContent(content, key, 1));
             }
         }
         return result;
@@ -241,7 +252,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public boolean isExist(){
+    public boolean isExist() {
         CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpGet httpGet = new HttpGet(url);
         CloseableHttpResponse response = null;
@@ -257,16 +268,16 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     @Override
-    public void mkDir(){
+    public void mkDir() {
         mkDirs(url);
     }
 
-    private void mkDirs(String url){
+    private void mkDirs(String url) {
         CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         String parentUrl = HttpUtils.getParentUrl(url);
         HttpMkcol httpMkcol = new HttpMkcol(parentUrl);
-        String root = "https://"+URI.create(url).getHost();
-        if (!StringUtils.equalsIgnoreCase(parentUrl,root)){
+        String root = "https://" + URI.create(url).getHost();
+        if (!StringUtils.equalsIgnoreCase(parentUrl, root)) {
             mkDirs(parentUrl);
         }
         try {
@@ -279,7 +290,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
     }
 
     public static void main(String[] args) {
-        String url = "https://yura.teracloud.jp/dav/test1/test1/test.xml";
+        String url = "https://yura.teracloud.jp/dav/NoteCloud/repository/documents.xml";
         RemoteDao remoteDao = new SimpleRemoteDaoImpl(url);
         //remoteDao.setVersion(9);
         //int version = remoteDao.getVersion();
@@ -295,6 +306,8 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 //        remoteDao.download(url, "Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
 //        LocalDao localDao = new LocalDaoXmlImpl("Config:\\git_repository\\MyGitHub\\NoteCloud\\NoteCloud\\documents\\downloadDocuments.xml");
 //        System.out.println(localDao.getVersion());
-        ((SimpleRemoteDaoImpl) remoteDao).mkDir();
+//        ((SimpleRemoteDaoImpl) remoteDao).mkDir();
+        Map<String, Object> properties = remoteDao.getProperties();
+        System.out.println(properties);
     }
 }

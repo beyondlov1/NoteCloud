@@ -5,6 +5,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -145,5 +146,26 @@ public class HttpUtils {
     public static String getParentUrl(String url) {
         int index = StringUtils.lastIndexOf(url, "/");
         return StringUtils.substring(url,0,index);
+    }
+
+    public static HttpPropfind getAllPropfind(String url) {
+        try {
+            return new HttpPropfind(url,DavConstants.PROPFIND_ALL_PROP,DavConstants.DEPTH_0);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String getPropfindResponseContent(CloseableHttpClient client, HttpPropfind httpPropfind) {
+        String content=null;
+        try {
+            CloseableHttpResponse response = client.execute(httpPropfind);
+            content = HttpUtils.getContentFromResponse(response);
+            client.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return content;
     }
 }
