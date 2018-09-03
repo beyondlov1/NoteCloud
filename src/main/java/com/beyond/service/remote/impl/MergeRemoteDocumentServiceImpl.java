@@ -184,9 +184,11 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
         localDao.setXmlPath(downloadTmpPath);
         long version = localDao.getVersion();
+        long remoteLastModifyTimeMills = localDao.getLastModifyTimeMills();
         localDao.setXmlPath(filePath);
+        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
         localDao.setVersion(version+1L);
-        localDao.setLastModifyTimeMills(new Date().getTime());
+        localDao.setLastModifyTimeMills(localLastModifyTimeMills>remoteLastModifyTimeMills?localLastModifyTimeMills:remoteLastModifyTimeMills);
         localDao.setModifiedIds(null);
         localDao.setProperty("_lock",0);
     }
@@ -211,7 +213,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
         private SynchronizeType getSynchronizeType(){
 
-            if (localLastModifyTimeMills==remoteLastModifyTimeMills){
+            if (localLastModifyTimeMills==remoteLastModifyTimeMills&&remoteVersion==localVersion){
                 return SynchronizeType.NULL;
             }else{
                 return SynchronizeType.MERGE;
