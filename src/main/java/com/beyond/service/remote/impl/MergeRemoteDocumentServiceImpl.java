@@ -13,8 +13,10 @@ import com.beyond.utils.SortUtils;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.mapper.CannotResolveClassException;
+import javafx.beans.binding.ObjectExpression;
 import javafx.collections.ObservableList;
 import javafx.util.Callback;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.io.File;
@@ -43,8 +45,22 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
     public void synchronize(Callback<Object, Object> callback) {
         long localVersion = localDao.getVersion();
         long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
-        long remoteVersion = remoteDao.getVersion();
-        long remoteLastModifyTimeMills = remoteDao.getLastModifyTimeMills();
+        Map<String, Object> properties = remoteDao.getProperties();
+        Object versionObject = properties.get("_version");
+        Object remoteLastModifyTimeMillsObject = properties.get("_lastModifyTimeMills");
+        long remoteVersion = versionObject ==null||StringUtils.equals(versionObject.toString(),"")?-1:Long.parseLong(versionObject.toString());
+        long remoteLastModifyTimeMills = remoteLastModifyTimeMillsObject ==null||StringUtils.equals(remoteLastModifyTimeMillsObject.toString(),"")?-1:Long.parseLong(remoteLastModifyTimeMillsObject.toString());
+        Object remoteLockObject = properties.get("_lock");
+        long remoteLock = remoteLockObject ==null||StringUtils.equals(remoteLockObject.toString(),"")?0:Long.parseLong(remoteLockObject.toString());
+        if (remoteLock!=0){
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronize(callback);
+        }
+
 
         SynchronizeEntity synchronizeEntity = new MergeRemoteDocumentServiceImpl.SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
         SynchronizeType synchronizeType = synchronizeEntity.getSynchronizeType();
@@ -52,6 +68,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         Config.logger.info(synchronizeEntity);
 
         if (synchronizeType==SynchronizeType.MERGE){
+            remoteDao.setProperty("_lock",1);
 
             List<Document> localList = getLocalDocumentList();
             List<Document> remoteList = getRemoteDocumentList();
@@ -81,7 +98,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         try {
             int isSuccess = remoteDao.download(url, downloadTmpPath);
             Map<String, Object> properties = remoteDao.getProperties();
-            Config.logger.info("remoteProperties"+remoteDao.getProperties());
+            Config.logger.info("remoteProperties"+properties);
             localDao.setXmlPath(downloadTmpPath);
             localDao.setProperties(properties);
             localDao.setXmlPath(filePath);
@@ -171,6 +188,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         localDao.setVersion(version+1L);
         localDao.setLastModifyTimeMills(new Date().getTime());
         localDao.setModifiedIds(null);
+        localDao.setProperty("_lock",0);
     }
 
     private void saveRemote(){
@@ -184,7 +202,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         private long remoteVersion;
         private long remoteLastModifyTimeMills;
 
-        private SynchronizeEntity(long localVersion, long localLastModifyTimeMills, long remoteVersion, long remoteLastModifyTimeMills) {
+        private SynchronizeEntity( long localVersion, long localLastModifyTimeMills, long remoteVersion, long remoteLastModifyTimeMills) {
             this.localVersion = localVersion;
             this.localLastModifyTimeMills = localLastModifyTimeMills;
             this.remoteVersion = remoteVersion;
@@ -192,6 +210,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         }
 
         private SynchronizeType getSynchronizeType(){
+
             if (localLastModifyTimeMills==remoteLastModifyTimeMills&&remoteVersion==localVersion){
                 return SynchronizeType.NULL;
             }else{

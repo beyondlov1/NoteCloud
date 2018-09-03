@@ -491,7 +491,7 @@ public class MainController {
         };
         timer.schedule(timerTask, 0, SYNCHRONIZE_PERIOD*60 * 1000);
 
-        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*60), new EventHandler<ActionEvent>() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*5), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 synchronizeModelAndView();

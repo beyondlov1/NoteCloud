@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfecf7b-5e89-4292-846c-0c814b361a9c" name="Default" comment="添加简单同步">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/DeletedDocuments.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/documents.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/documents.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents/documents.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/utils/StringUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/config.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,7 +34,7 @@
           <entry key="class" value="1" />
           <entry key="dummy" value="12" />
           <entry key="fxml" value="55" />
-          <entry key="java" value="19662" />
+          <entry key="java" value="20194" />
           <entry key="properties" value="209" />
           <entry key="xml" value="62" />
         </counts>
@@ -53,7 +42,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="19662" />
+          <entry key="JAVA" value="20194" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="Properties" value="209" />
           <entry key="XML" value="117" />
@@ -63,7 +52,7 @@
         <counts>
           <entry key="class" value="8" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="116" />
+          <entry key="java" value="118" />
           <entry key="properties" value="11" />
           <entry key="xml" value="31" />
         </counts>
@@ -71,7 +60,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="116" />
+          <entry key="JAVA" value="118" />
           <entry key="Properties" value="11" />
           <entry key="XML" value="35" />
         </counts>
@@ -84,10 +73,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="493" column="82" selection-start-line="493" selection-start-column="82" selection-end-line="493" selection-end-column="82" />
+              <folding>
+                <element signature="class#SortType#0;class#MainController#0" />
+                <element signature="method#init#0;class#MainController#0" />
+                <element signature="docComment;method#changeInputMethod#0;class#MainController#0" />
+                <element signature="method#changeInputMethod#0;class#MainController#0" />
+                <element signature="method#focusBackToTableView#0;class#MainController#0" />
+                <element signature="method#initStyles#0;class#MainController#0" />
+                <element signature="method#initFocus#0;class#MainController#0" />
+                <element signature="method#save#0;class#MainController#0" />
+                <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
+                <element signature="method#changeViewAfterSave#0;class#MainController#0" />
+                <element signature="method#changeViewAfterUpdate#0;class#MainController#0" />
+                <element signature="method#validate#0;class#MainController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="157" column="47" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+            <state relative-caret-position="73">
+              <caret line="192" column="31" selection-start-line="192" selection-start-column="31" selection-end-line="192" selection-end-column="31" />
               <folding>
                 <element signature="method#deleteById#0;class#SimpleRemoteDaoImpl#0" />
                 <element signature="docComment;method#setProperty#0;class#SimpleRemoteDaoImpl#0" />
@@ -121,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="217">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,28 +179,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/lang/Object.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-              <folding>
-                <element signature="e#10065#10066#0" expanded="true" />
-                <element signature="e#10148#10149#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar!/org/apache/commons/lang3/StringUtils.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="2615" column="45" selection-start-line="2615" selection-start-column="45" selection-end-line="2615" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -197,29 +187,37 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="46" column="60" lean-forward="true" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
+            <state relative-caret-position="220">
+              <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
               <folding>
                 <element signature="method#SimpleRemoteDocumentServiceImpl#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#merge#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#saveLocal#0;class#MergeRemoteDocumentServiceImpl#0" />
                 <element signature="method#saveRemote#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#SynchronizeEntity#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#toString#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
                 <element signature="method#main#0;class#MergeRemoteDocumentServiceImpl#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+            <state relative-caret-position="960">
+              <caret line="70" column="54" lean-forward="true" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -320,13 +318,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -599,7 +597,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535955572914" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535988862552" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -903,7 +901,7 @@
       <workItem from="1535458904105" duration="11818000" />
       <workItem from="1535505723022" duration="46481000" />
       <workItem from="1535707084476" duration="2882000" />
-      <workItem from="1535720739346" duration="97119000" />
+      <workItem from="1535720739346" duration="102105000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1534378578323</created>
@@ -1087,7 +1085,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535889028471</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="添加简单同步">
+      <created>1535980440216</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1535980440216</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1123,7 +1128,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283706000" />
+    <option name="totallyTimeSpent" value="288692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1142,7 +1147,7 @@
       <window_info anchor="bottom" id="Messages" order="2" weight="0.32790446" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.49924356" visible="true" weight="0.20086862" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.49924356" visible="true" weight="0.21064061" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.37893593" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -1177,18 +1182,6 @@
     <MESSAGE value="迂回的方式解决了输入法自动切换的问题, 从而能少按一次ctrl space" />
     <MESSAGE value="添加简单同步" />
     <option name="LAST_COMMIT_MESSAGE" value="添加简单同步" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java</url>
-          <line>152</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/FileAttributeTest.java">
@@ -1442,16 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1491,29 +1474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="429" column="91" lean-forward="true" selection-start-line="429" selection-start-column="91" selection-end-line="429" selection-end-column="91" />
-          <folding>
-            <element signature="class#SortType#0;class#MainController#0" />
-            <element signature="method#init#0;class#MainController#0" />
-            <element signature="docComment;method#changeInputMethod#0;class#MainController#0" />
-            <element signature="method#changeInputMethod#0;class#MainController#0" />
-            <element signature="method#focusBackToTableView#0;class#MainController#0" />
-            <element signature="method#initStyles#0;class#MainController#0" />
-            <element signature="method#initFocus#0;class#MainController#0" />
-            <element signature="method#save#0;class#MainController#0" />
-            <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
-            <element signature="method#changeViewAfterSave#0;class#MainController#0" />
-            <element signature="method#changeViewAfterUpdate#0;class#MainController#0" />
-            <element signature="method#validate#0;class#MainController#0" />
-            <element signature="e#18186#18339#0" expanded="true" />
-            <element signature="e#18338#18339#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1568,60 +1528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="157" column="47" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
-          <folding>
-            <element signature="method#deleteById#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="docComment;method#setProperty#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#setProperties#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="e#5730#5786#0" />
-            <element signature="docComment;method#upload#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#upload#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="docComment;method#download#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#download#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#isExist#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#mkDirs#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#main#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="e#9125#9151#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="46" column="60" lean-forward="true" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
-          <folding>
-            <element signature="method#SimpleRemoteDocumentServiceImpl#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#merge#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#saveLocal#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#saveRemote#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#SynchronizeEntity#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#toString#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#main#0;class#MergeRemoteDocumentServiceImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1655,10 +1561,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="68" column="53" lean-forward="true" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+        <state relative-caret-position="960">
+          <caret line="70" column="54" lean-forward="true" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="493" column="82" selection-start-line="493" selection-start-column="82" selection-end-line="493" selection-end-column="82" />
+          <folding>
+            <element signature="class#SortType#0;class#MainController#0" />
+            <element signature="method#init#0;class#MainController#0" />
+            <element signature="docComment;method#changeInputMethod#0;class#MainController#0" />
+            <element signature="method#changeInputMethod#0;class#MainController#0" />
+            <element signature="method#focusBackToTableView#0;class#MainController#0" />
+            <element signature="method#initStyles#0;class#MainController#0" />
+            <element signature="method#initFocus#0;class#MainController#0" />
+            <element signature="method#save#0;class#MainController#0" />
+            <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
+            <element signature="method#changeViewAfterSave#0;class#MainController#0" />
+            <element signature="method#changeViewAfterUpdate#0;class#MainController#0" />
+            <element signature="method#validate#0;class#MainController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="192" column="31" selection-start-line="192" selection-start-column="31" selection-end-line="192" selection-end-column="31" />
+          <folding>
+            <element signature="method#deleteById#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="docComment;method#setProperty#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#setProperties#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="e#5730#5786#0" />
+            <element signature="docComment;method#upload#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#upload#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="docComment;method#download#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#download#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#isExist#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#mkDirs#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="method#main#0;class#SimpleRemoteDaoImpl#0" />
+            <element signature="e#9125#9151#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+          <folding>
+            <element signature="method#SimpleRemoteDocumentServiceImpl#0;class#MergeRemoteDocumentServiceImpl#0" />
+            <element signature="method#saveRemote#0;class#MergeRemoteDocumentServiceImpl#0" />
+            <element signature="method#main#0;class#MergeRemoteDocumentServiceImpl#0" />
           </folding>
         </state>
       </provider>
