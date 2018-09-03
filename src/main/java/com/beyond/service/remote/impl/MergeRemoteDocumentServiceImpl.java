@@ -73,7 +73,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
             List<Document> localList = getLocalDocumentList();
             List<Document> remoteList = getRemoteDocumentList();
             List<Document> mergeList = merge(localDao.getModifiedIds(), localList, remoteList);
-            saveLocal(mergeList);
+            saveLocal(mergeList,synchronizeEntity);
             saveRemote();
 
             //建立一个缓存, 防止刷新页面时都要读取一次xml文件
@@ -177,17 +177,16 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         return result;
     }
 
-    private void saveLocal(List<Document> list){
+    private void saveLocal(List<Document> list, SynchronizeEntity synchronizeEntity){
         XStream xStream = XmlUtils.getXStream();
         String xml = xStream.toXML(list);
         XmlUtils.saveXml(xml,filePath);
 
-        localDao.setXmlPath(downloadTmpPath);
-        long version = localDao.getVersion();
-        long remoteLastModifyTimeMills = localDao.getLastModifyTimeMills();
-        localDao.setXmlPath(filePath);
-        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
+        long version = synchronizeEntity.getRemoteVersion();
+        long remoteLastModifyTimeMills = synchronizeEntity.getRemoteLastModifyTimeMills();
+        long localLastModifyTimeMills = synchronizeEntity.getLocalLastModifyTimeMills();
         localDao.setVersion(version+1L);
+
         localDao.setLastModifyTimeMills(localLastModifyTimeMills>remoteLastModifyTimeMills?localLastModifyTimeMills:remoteLastModifyTimeMills);
         localDao.setModifiedIds(null);
         localDao.setProperty("_lock",0);
@@ -218,6 +217,23 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
             }else{
                 return SynchronizeType.MERGE;
             }
+        }
+
+        public long getLocalVersion() {
+            return localVersion;
+        }
+
+        public long getLocalLastModifyTimeMills() {
+            return localLastModifyTimeMills;
+        }
+
+
+        public long getRemoteVersion() {
+            return remoteVersion;
+        }
+
+        public long getRemoteLastModifyTimeMills() {
+            return remoteLastModifyTimeMills;
         }
 
         @Override
