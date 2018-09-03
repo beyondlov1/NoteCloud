@@ -4,6 +4,7 @@ import com.beyond.dao.local.LocalDao;
 import com.beyond.entity.Document;
 import com.beyond.f.Config;
 import com.beyond.utils.XmlUtils;
+import com.sun.istack.internal.NotNull;
 import com.thoughtworks.xstream.XStream;
 import org.apache.commons.lang3.StringUtils;
 
@@ -188,9 +189,10 @@ public class LocalDaoXmlImpl implements LocalDao {
     @Override
     public long getVersion() {
         String versionString = getProperty("_version");
-        if (StringUtils.isNotBlank(versionString)) {
+        try {
             return Long.parseLong(versionString);
-        } else {
+        } catch (Exception e) {
+            Config.logger.info(e.getMessage());
             return -1;
         }
     }
@@ -233,16 +235,19 @@ public class LocalDaoXmlImpl implements LocalDao {
     @Override
     public String[] getModifiedIds() {
         String modifiedIds = getProperty("_modifiedIds");
-        if (Objects.isNull(modifiedIds)) {
-            modifiedIds = "";
-        }
         return modifiedIds.split(",");
     }
 
+    /**
+     * 向xml文件中添加属性
+     *
+     * @param propertyName
+     * @param value        如果为空则保存 ""
+     */
     @Override
     public void setProperty(String propertyName, Object value) {
         UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
-        ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value == null ? "" : value));
+        ByteBuffer byteBuffer = Charset.defaultCharset().encode(com.beyond.utils.StringUtils.getNotNullString(value));
         try {
             userDefinedFileAttributeView.write(propertyName, byteBuffer);
         } catch (IOException e) {
@@ -251,6 +256,12 @@ public class LocalDaoXmlImpl implements LocalDao {
 
     }
 
+    /**
+     * 取出文件属性
+     *
+     * @param propertyName
+     * @return 如果异常返回 ""
+     */
     @Override
     public String getProperty(String propertyName) {
         UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
@@ -262,8 +273,8 @@ public class LocalDaoXmlImpl implements LocalDao {
         } catch (IOException e) {
             e.printStackTrace();
             Config.logger.info(e.getMessage());
-            return null;
         }
+        return "";
     }
 
     @Override
@@ -271,7 +282,7 @@ public class LocalDaoXmlImpl implements LocalDao {
         UserDefinedFileAttributeView userDefinedFileAttributeView = Files.getFileAttributeView(Paths.get(xmlPath), UserDefinedFileAttributeView.class);
         for (String key : properties.keySet()) {
             Object value = properties.get(key);
-            ByteBuffer byteBuffer = Charset.defaultCharset().encode(String.valueOf(value));
+            ByteBuffer byteBuffer = Charset.defaultCharset().encode(com.beyond.utils.StringUtils.getNotNullString(value));
             try {
                 userDefinedFileAttributeView.write(key, byteBuffer);
             } catch (IOException e) {

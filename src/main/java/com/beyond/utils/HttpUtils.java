@@ -123,15 +123,21 @@ public class HttpUtils {
         }
     }
 
-    public static String getStringInResponseContent(String content, String targetTag, int splitIndex) {
-        targetTag = targetTag+">";
-        String[] split = content.split(targetTag);
-        try {
-            String s = StringUtils.substringBeforeLast(split[splitIndex].trim(), "</");
-            return StringUtils.isBlank(s) ? null : s.trim();
-        }catch (Exception e){
-            return null;
-        }
+    public static String getStringInResponseContent(String content, String targetTag) {
+
+        return Dom4jUtils.getNodeText(content, "//"+DavConstants.NAMESPACE.getPrefix()+":" + targetTag);
+
+//        if (content.indexOf(targetTag+"/>")>0){
+//            return null;
+//        }
+//        targetTag = targetTag+">";
+//        String[] split = content.split(targetTag);
+//        try {
+//            String s = StringUtils.substringBeforeLast(split[splitIndex].trim(), "</");
+//            return StringUtils.isBlank(s) ? null : s.trim();
+//        }catch (Exception e){
+//            return null;
+//        }
 
         //Pattern pattern = Pattern.compile(regex);
         //Matcher matcher = pattern.matcher(split[splitIndex]);
@@ -141,6 +147,7 @@ public class HttpUtils {
         //} else {
         //    return null;
         //}
+
     }
 
     public static String getParentUrl(String url) {

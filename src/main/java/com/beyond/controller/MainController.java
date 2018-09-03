@@ -486,23 +486,18 @@ public class MainController {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                remoteDocumentService1.synchronize(new Callback<Object, Object>() {
-                    @Override
-                    public Object call(Object object) {
-                        return null;
-                    }
-                });
+                remoteDocumentService1.synchronize(null);
             }
         };
         timer.schedule(timerTask, 0, SYNCHRONIZE_PERIOD*60 * 1000);
 
-        timeline = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*60), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 synchronizeModelAndView();
             }
         }));
-        timeline.setDelay(new Duration(1000));
+        timeline.setDelay(new Duration(10000));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 

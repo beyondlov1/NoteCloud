@@ -12,6 +12,7 @@ import com.beyond.utils.ListUtils;
 import com.beyond.utils.SortUtils;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.mapper.CannotResolveClassException;
 import javafx.collections.ObservableList;
 import javafx.util.Callback;
 import org.apache.commons.lang3.time.DateUtils;
@@ -48,16 +49,19 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         SynchronizeEntity synchronizeEntity = new MergeRemoteDocumentServiceImpl.SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
         SynchronizeType synchronizeType = synchronizeEntity.getSynchronizeType();
 
+        Config.logger.info(synchronizeEntity);
+
         if (synchronizeType==SynchronizeType.MERGE){
+
             List<Document> localList = getLocalDocumentList();
             List<Document> remoteList = getRemoteDocumentList();
             List<Document> mergeList = merge(localDao.getModifiedIds(), localList, remoteList);
             saveLocal(mergeList);
             saveRemote();
 
+            //建立一个缓存, 防止刷新页面时都要读取一次xml文件
             mergeFxDocuments=ListUtils.getFxDocumentListFromDocumentList(mergeList);
             SortUtils.sort(mergeFxDocuments,com.beyond.entity.fx.Document.class,"lastModifyTime", MainController.SortType.DESC);
-
         }
 
         if (callback!=null){
@@ -68,21 +72,30 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
     }
 
     private List<Document> getLocalDocumentList() {
+        Config.logger.info("localProperties"+localDao.getProperties());
         XStream xStream = XmlUtils.getXStream();
         return (List<Document>)xStream.fromXML(new File(filePath));
     }
 
     private List<Document> getRemoteDocumentList() {
-        int isSuccess = remoteDao.download(url, downloadTmpPath);
-        Map<String, Object> properties = localDao.getProperties();
-        localDao.setXmlPath(downloadTmpPath);
-        localDao.setProperties(properties);
-        localDao.setXmlPath(filePath);
-        if (isSuccess>0) {
-            XStream xStream = XmlUtils.getXStream();
-            return (List<Document>) xStream.fromXML(new File(downloadTmpPath));
-        }else {
-            throw new RuntimeException("下载失败");
+        try {
+            int isSuccess = remoteDao.download(url, downloadTmpPath);
+            Map<String, Object> properties = remoteDao.getProperties();
+            Config.logger.info("remoteProperties"+remoteDao.getProperties());
+            localDao.setXmlPath(downloadTmpPath);
+            localDao.setProperties(properties);
+            localDao.setXmlPath(filePath);
+            if (isSuccess>0) {
+                XStream xStream = XmlUtils.getXStream();
+                return (List<Document>) xStream.fromXML(new File(downloadTmpPath));
+            }else {
+                throw new RuntimeException("下载失败");
+            }
+        }catch (CannotResolveClassException e){
+            e.printStackTrace();
+            remoteDao.mkDir();
+            remoteDao.upload(new File(filePath));
+            return getRemoteDocumentList();
         }
     }
 
@@ -124,7 +137,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
             if (deletedDocumentIds.contains(remoteDocument.getId())){//删除的不添加
                 continue;
             }
-            if (modifyDocumentIds.contains(remoteDocument.getId())){//更新的
+            if (modifyDocumentIds.contains(remoteDocument.getId())){//本地更新的
                 Document localDocument = ListUtils.getDocumentById(localList, remoteDocument.getId());
                 if (localDocument!=null&&localDocument.getLastModifyTime().compareTo(remoteDocument.getLastModifyTime())<0){
                     if (localDocument.getVersion()<remoteDocument.getVersion()){
@@ -137,15 +150,11 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
                 }
                 continue;
             }
-            if (addDocumentIds.contains(remoteDocument.getId())){//添加的
-                result.add(ListUtils.getDocumentById(localList,remoteDocument.getId()));
-                continue;
-            }
             result.add(remoteDocument);
         }
 
-        if (localList.size()==0){//首次启动, 直接下载远程
-            result = remoteList;
+        for (String addDocumentId : addDocumentIds) {//本地添加的
+            result.add(ListUtils.getDocumentById(localList,addDocumentId));
         }
 
         return result;

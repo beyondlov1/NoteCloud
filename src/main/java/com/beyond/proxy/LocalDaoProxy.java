@@ -33,11 +33,11 @@ public class LocalDaoProxy {
                     Object object = method.invoke(localDao, args);
                     localDao.setProperty("_version", tmpVersion + 1L);
                     localDao.setProperty("_lastModifyTimeMills", new Date().getTime());
-                    String _modfiedIds =(localDao.getProperty("_modifiedIds") == null ? "" : localDao.getProperty("_modifiedIds")) + (object == null ? "," : ("," + object.toString()));
-                    if (StringUtils.length(_modfiedIds)>1){
-                        _modfiedIds=_modfiedIds.substring(1);
+                    String modifiedIds =(localDao.getProperty("_modifiedIds") == null ? "" : localDao.getProperty("_modifiedIds")) + (object == null ? "," : ("," + object.toString()));
+                    if (StringUtils.length(modifiedIds)>1){
+                        modifiedIds=modifiedIds.substring(1);
                     }
-                    localDao.setProperty("_modifiedIds", _modfiedIds);//如果为空就不会加进去
+                    localDao.setProperty("_modifiedIds", modifiedIds);//如果为空就不会加进去
                     return object;
                 } else {
                     return method.invoke(localDao, args);

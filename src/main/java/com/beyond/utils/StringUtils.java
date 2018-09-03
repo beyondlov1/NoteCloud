@@ -50,4 +50,13 @@ public class StringUtils {
         }
     }
 
+    /**
+     * 返回非空字符串， 如果为空则转化为 “”
+     * @param object
+     * @return
+     */
+    public static String getNotNullString(Object object){
+        return String.valueOf(object==null?"":object);
+    }
+
 }

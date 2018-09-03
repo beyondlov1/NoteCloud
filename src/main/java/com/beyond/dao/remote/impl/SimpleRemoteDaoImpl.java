@@ -3,6 +3,7 @@ package com.beyond.dao.remote.impl;
 import com.beyond.dao.remote.RemoteDao;
 import com.beyond.entity.Document;
 import com.beyond.f.Config;
+import com.beyond.utils.Dom4jUtils;
 import com.beyond.utils.HttpUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpEntity;
@@ -17,6 +18,7 @@ import org.apache.jackrabbit.webdav.DavConstants;
 import org.apache.jackrabbit.webdav.client.methods.HttpMkcol;
 import org.apache.jackrabbit.webdav.client.methods.HttpPropfind;
 import org.apache.jackrabbit.webdav.client.methods.HttpProppatch;
+import org.dom4j.Node;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -72,6 +74,12 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         return null;
     }
 
+
+
+
+
+
+
     @Override
     public List<String> getFileChildren(String dirPath) {
         return null;
@@ -99,13 +107,17 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
 
     @Override
     public long getLastModifyTimeMills() {
-        String versionString = getProperty("_lastModifyTimeMills");
-        if (StringUtils.isNotBlank(versionString)) {
-            return Long.parseLong(versionString);
+        String lastModifyTimeMillsString = getProperty("_lastModifyTimeMills");
+        if (StringUtils.isNotBlank(lastModifyTimeMillsString)) {
+            return Long.parseLong(lastModifyTimeMillsString);
         } else {
             return -1;
         }
     }
+
+
+
+
 
     /**
      * 设置属性
@@ -116,24 +128,24 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
      */
     @Override
     public int setProperty(String propertyName, Object value) {
-            CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
-            HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value==null?"":value);
-            try {
-                if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
-                client.execute(httpProppatch);
-                client.close();
-                return 1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
+        CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
+        HttpProppatch httpProppatch = HttpUtils.addProperty(url, propertyName, value == null ? "" : value);
+        try {
+            if (httpProppatch == null) throw new RuntimeException("HttpProppatch is null");
+            client.execute(httpProppatch);
+            client.close();
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     /**
      * 获取属性值
      *
      * @param propertyName 属性名称
-     * @return 返回属性值得字符串
+     * @return 返回属性值得字符串, 如果不能找到相应的属性则返回null， 如果内容为空返回""
      */
     @Override
     public String getProperty(String propertyName) {
@@ -143,11 +155,11 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
             CloseableHttpResponse response = client.execute(httpPropfind);
             String content = HttpUtils.getContentFromResponse(response);
             client.close();
-            return HttpUtils.getStringInResponseContent(content, propertyName, 1);
+            return HttpUtils.getStringInResponseContent(content, propertyName);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
+        return "";
     }
 
     @Override
@@ -163,7 +175,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         }
     }
 
-    @Override
+    @Deprecated
     public Map<String, Object> getProperties(Set<String> keys) {
         Map<String, Object> result = new HashMap<>();
         CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
@@ -171,7 +183,7 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         String content = HttpUtils.getPropfindResponseContent(client, httpPropfind);
         if (StringUtils.isNotBlank(content)) {
             for (String key : keys) {
-                result.put(key, HttpUtils.getStringInResponseContent(content, key, 1));
+                result.put(key, HttpUtils.getStringInResponseContent(content, key));
             }
         }
         return result;
@@ -183,15 +195,32 @@ public class SimpleRemoteDaoImpl implements RemoteDao {
         CloseableHttpClient client = HttpUtils.getClient(Config.USERNAME, Config.PASSWORD);
         HttpPropfind httpPropfind = HttpUtils.getAllPropfind(url);
 
-        Set<String> keys = new HashSet<>();
         String content = HttpUtils.getPropfindResponseContent(client, httpPropfind);
         if (StringUtils.isNotBlank(content)) {
-            String[] split = content.split("<.*_");
-            for (int i = 1; i < split.length; i++) {
-                keys.add("_" + split[i].substring(0, split[i].indexOf(">")));
-            }
-            for (String key : keys) {
-                result.put(key, HttpUtils.getStringInResponseContent(content, key, 1));
+
+//            String[] split = content.split("<\\w*:_");
+//            for (int i = 1; i < split.length; i++) {
+//                if (split[i].indexOf("/>")>0){
+//                    keys.add("_" + split[i].substring(0, split[i].indexOf("/")));
+//                }else {
+//                    keys.add("_" + split[i].substring(0, split[i].indexOf(">")));
+//                }
+//            }
+//            System.out.println(keys);
+//            for (String key : keys) {
+//                if (StringUtils.equals("_version",key)){
+//                    result.put(key, HttpUtils.getStringInResponseContent(content, key, 1)==null?0:HttpUtils.getStringInResponseContent(content, key, 1));
+//                }else{
+//                    result.put(key, HttpUtils.getStringInResponseContent(content, key, 1)==null?"":HttpUtils.getStringInResponseContent(content, key, 1));
+//                }
+//            }
+
+            List<Node> allNode = Dom4jUtils.getAllNode(content);
+            for (Node node : allNode) {
+                String name = node.getName();
+                if (name.startsWith("_")) {
+                    result.put(name, node.getText());
+                }
             }
         }
         return result;
