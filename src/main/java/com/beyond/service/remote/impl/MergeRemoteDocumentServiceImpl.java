@@ -211,7 +211,7 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
         private SynchronizeType getSynchronizeType(){
 
-            if (localLastModifyTimeMills==remoteLastModifyTimeMills&&remoteVersion==localVersion){
+            if (localLastModifyTimeMills==remoteLastModifyTimeMills){
                 return SynchronizeType.NULL;
             }else{
                 return SynchronizeType.MERGE;
