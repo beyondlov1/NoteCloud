@@ -29,11 +29,12 @@ public class LocalDaoProxy {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 String methodName = method.getName();
                 if (methodName.startsWith("add") || methodName.startsWith("update") || methodName.startsWith("delete")) {
-                    long tmpVersion = localDao.getProperty("_version") == null || "null".equals(localDao.getProperty("_version")) ? 0 : Long.parseLong(localDao.getProperty("_version").toString());
+                    long tmpVersion = localDao.getProperty("_version") == null || "null".equals(localDao.getProperty("_version"))||"".equals(localDao.getProperty("_version")) ? 0 : Long.parseLong(localDao.getProperty("_version").toString());
+                    String tmpModifiedIds = localDao.getProperty("_modifiedIds") ==null?"":localDao.getProperty("_modifiedIds").toString();
                     Object object = method.invoke(localDao, args);
                     localDao.setProperty("_version", tmpVersion + 1L);
                     localDao.setProperty("_lastModifyTimeMills", new Date().getTime());
-                    String modifiedIds =(localDao.getProperty("_modifiedIds") == null ? "" : localDao.getProperty("_modifiedIds")) + (object == null ? "," : ("," + object.toString()));
+                    String modifiedIds =tmpModifiedIds + (object == null ? "," : ("," + object.toString()));
                     if (StringUtils.length(modifiedIds)>1){
                         modifiedIds=modifiedIds.substring(1);
                     }

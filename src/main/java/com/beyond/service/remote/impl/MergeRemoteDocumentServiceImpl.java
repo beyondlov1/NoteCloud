@@ -13,11 +13,9 @@ import com.beyond.utils.SortUtils;
 import com.beyond.utils.XmlUtils;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.mapper.CannotResolveClassException;
-import javafx.beans.binding.ObjectExpression;
 import javafx.collections.ObservableList;
 import javafx.util.Callback;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
 import java.io.File;
 import java.util.*;
@@ -30,6 +28,8 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
     private String url;
     private String filePath;
     private String downloadTmpPath;
+
+    private static int remoteLockedCount = 0;
 
     public static ObservableList<com.beyond.entity.fx.Document> mergeFxDocuments = null;
 
@@ -87,11 +87,16 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         Object remoteLockObject = properties.get("_lock");
         long remoteLock = remoteLockObject ==null||StringUtils.equals(remoteLockObject.toString(),"")?0:Long.parseLong(remoteLockObject.toString());
         if (remoteLock!=0){
+            remoteLockedCount++;
             try {
-                Thread.sleep(2000);
+                Thread.sleep(Config.PERIOD_OF_GET_REMOTE_LOCK);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            if (remoteLockedCount>Config.MAX_REMOTE_CONNECT_TIME_OUT/Config.PERIOD_OF_GET_REMOTE_LOCK){
+                remoteDao.setProperty("_lock",0);
+            }
+            Config.logger.info(properties);
             return getSynchronizeEntity();
         }
 

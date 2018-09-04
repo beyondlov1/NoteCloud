@@ -274,6 +274,7 @@ public class LocalDaoXmlImpl implements LocalDao {
             e.printStackTrace();
             Config.logger.info(e.getMessage());
         }
+        Config.logger.info(this.getProperties());
         return "";
     }
 

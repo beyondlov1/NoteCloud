@@ -1,1 +1,265 @@
-<?xml version="1.0" encoding="UTF-8"?><documents></documents>
+<documents>
+  <document id="b686ff4474154b95b5fd790a30b974c3">
+    <content>bbbc</content>
+    <createTime>2018-09-04 14:22:44.136 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="a5d8a3fc33b34f7d8a5cf6bb4404f040">
+    <content>ggg</content>
+    <createTime>2018-09-04 14:25:05.16 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="7b68f91417be49988d8b69a59fcde34e">
+    <content>ccc</content>
+    <createTime>2018-09-04 14:25:28.100 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0b75fd2dd19f4c9b94dd3523b5d620d5">
+    <content>local</content>
+    <createTime>2018-09-04 14:32:44.404 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="a5d8a3fc33b34f7d8a5cf6bb4404f040">
+    <content>ggg</content>
+    <createTime>2018-09-04 14:32:48.153 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="baa6545576744c19b641f0b6aa8df91b">
+    <content>6666</content>
+    <createTime>2018-09-04 14:34:16.909 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="49f49afe32604e8296b9713477c63dc0">
+    <content>ftian</content>
+    <createTime>2018-09-04 14:39:55.476 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="9c241b158762470cac1d9df698e79b5e">
+    <content>添加</content>
+    <createTime>2018-09-04 15:18:52.475 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="ad8f788fe5e6469b99d16e564ba30df5">
+    <content>修改溴改修改</content>
+    <createTime>2018-09-04 15:18:54.210 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>3</version>
+  </document>
+  <document id="d7053dc3a6c842b0ae29b707f9e2c800">
+    <content>国士无双</content>
+    <createTime>2018-09-04 15:23:33.963 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="8c452ab19ff4465da698f57257b66bc0">
+    <content>中央美院</content>
+    <createTime>2018-09-04 15:23:35.498 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="9f7aa341fa2945b185a7e5e8ac514b31">
+    <content>天下无双</content>
+    <createTime>2018-09-04 15:23:39.611 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="9c241b158762470cac1d9df698e79b5e">
+    <content>添加</content>
+    <createTime>2018-09-04 15:23:39.851 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="aa392deb037f4183bbd4a8350ca00f72">
+    <content>中间商</content>
+    <createTime>2018-09-04 15:26:19.481 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="d7053dc3a6c842b0ae29b707f9e2c800">
+    <content>国士无双</content>
+    <createTime>2018-09-04 15:26:19.653 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="2d27a7f7580c45c6babb0b6e9f1e70ca">
+    <content># 将从远程的所有properties中获得单个property抽象成方法</content>
+    <createTime>2018-09-04 15:26:19.832 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="712c2a5cb3c84f21b2b97e27ba405bb0">
+    <content>remote</content>
+    <createTime>2018-09-04 15:26:19.988 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0b75fd2dd19f4c9b94dd3523b5d620d5">
+    <content>local</content>
+    <createTime>2018-09-04 15:26:20.149 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="c9ecf84189af4183a9161acf6b661e89">
+    <content>嘎嘎嘎</content>
+    <createTime>2018-09-04 15:26:20.466 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="baa6545576744c19b641f0b6aa8df91b">
+    <content>6666</content>
+    <createTime>2018-09-04 15:26:20.624 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="a62a4e6268b34a3ba4825a112dbfc8e2">
+    <content>888</content>
+    <createTime>2018-09-04 15:26:20.958 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="3fdd6db009814fa9b049bfdcc828b72b">
+    <content>66</content>
+    <createTime>2018-09-04 15:26:21.113 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="4e6ad3bfa20b4d32bd50ce658fe29f47">
+    <content>无邪</content>
+    <createTime>2018-09-04 15:26:21.278 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="95c037bce7ca44fdb8d318fdfece8e19">
+    <content>天真</content>
+    <createTime>2018-09-04 15:26:21.444 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="78b27f772b3c49efbeb2cffbb5e928f0">
+    <content>田间</content>
+    <createTime>2018-09-04 15:26:21.604 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="749e6c75a81c488c8e524996eb35f518">
+    <content>最后测试一边</content>
+    <createTime>2018-09-04 15:26:21.764 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="8621f899d8f2445eabf36360eeb91a3c">
+    <content>尝试以才</content>
+    <createTime>2018-09-04 15:26:21.935 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="c7ff8e138729487b997d11d308c23e72">
+    <content>t按压guoke</content>
+    <createTime>2018-09-04 15:26:22.101 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="9953efd9df734dc594b212862f84d085">
+    <content>发到付</content>
+    <createTime>2018-09-04 15:26:22.261 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="8964d2aae6bc41debf60bd77a95f71d6">
+    <content>七月七</content>
+    <createTime>2018-09-04 15:26:22.446 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="2260445dea25423a8c841554824f9c8f">
+    <content>三</content>
+    <createTime>2018-09-04 15:26:22.616 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="3c440c2ea43d426597a5354cbbc45f5e">
+    <content>九月九</content>
+    <createTime>2018-09-04 15:26:22.785 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="e499049c1caa4408b9d7b733122b18d0">
+    <content>fff</content>
+    <createTime>2018-09-04 15:26:22.969 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="20bb9cc937db492eac72c3592e1d10c6">
+    <content>666</content>
+    <createTime>2018-09-04 15:26:23.686 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="aa392deb037f4183bbd4a8350ca00f72">
+    <content>中间商</content>
+    <createTime>2018-09-04 15:26:37.333 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="d7053dc3a6c842b0ae29b707f9e2c800">
+    <content>国士无双</content>
+    <createTime>2018-09-04 15:26:37.544 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="2d27a7f7580c45c6babb0b6e9f1e70ca">
+    <content># 将从远程的所有properties中获得单个property抽象成方法</content>
+    <createTime>2018-09-04 15:26:37.723 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="712c2a5cb3c84f21b2b97e27ba405bb0">
+    <content>remote</content>
+    <createTime>2018-09-04 15:26:37.901 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0b75fd2dd19f4c9b94dd3523b5d620d5">
+    <content>local</content>
+    <createTime>2018-09-04 15:26:38.66 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+<document id="26ed01e2f1474c6b830c334ab99fb819">
+  <content>添加以</content>
+  <createTime>2018-09-04 15:30:36.456 UTC</createTime>
+  <lastModifyTime reference="../createTime"/>
+  <version>1</version>
+</document><document id="32637f8650a24c67912349c652745260">
+  <content>添加修改</content>
+  <createTime>2018-09-04 15:37:11.68 UTC</createTime>
+  <lastModifyTime reference="../createTime"/>
+  <version>2</version>
+</document><note id="e83235320d4b4d5b909e15cb5a99bfd4">
+  <content># 前端的页面生成方案
+1. 用freemarker 将所有的页面都写死, table或者表单模块都写死, 写成空的, 之后往里面加数据.
+
+优点: 由于是静态页面, 加载速度会快一点点
+
+缺点: 数据与相应的表单或表格匹配有难度, 并且比较依赖excel的质量(可能需要添加字段), 而且如果要修改, 就需要前后端都修改
+
+2. 用layui自带的模版写, 在打开页面的时候由js自动生成页面
+
+优点: 一切由传进来的数据控制, 并且不存在数据与组件匹配的问题
+
+缺点: 需要动态生成, 可能会慢一点
+</content>
+  <type defined-in="document">note</type>
+  <createTime>2018-09-04 15:46:35.503 UTC</createTime>
+  <lastModifyTime reference="../createTime"/>
+  <version>3</version>
+  <type>note</type>
+</note></documents>

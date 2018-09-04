@@ -1,146 +1,19 @@
 <documents>
-  <document id="2d27a7f7580c45c6babb0b6e9f1e70ca">
-    <content># 将从远程的所有properties中获得单个property抽象成方法</content>
-    <createTime>2018-09-03 16:40:44.118 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="712c2a5cb3c84f21b2b97e27ba405bb0">
-    <content>remote</content>
-    <createTime>2018-09-03 16:36:58.521 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="d207a1427af14e5e81a4961124aec174">
-    <content>通天塔</content>
-    <createTime>2018-09-03 16:15:46.731 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="7b68f91417be49988d8b69a59fcde34e">
-    <content>ccc</content>
-    <createTime>2018-09-03 16:03:25.174 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="592526b692084ce5bc08bb8abe96056e">
-    <content>777</content>
-    <createTime>2018-09-03 14:44:19.978 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="3fdd6db009814fa9b049bfdcc828b72b">
-    <content>66</content>
-    <createTime>2018-09-03 14:31:48.659 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="95c037bce7ca44fdb8d318fdfece8e19">
-    <content>天真</content>
-    <createTime>2018-09-03 14:23:10.826 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="78b27f772b3c49efbeb2cffbb5e928f0">
-    <content>田间</content>
-    <createTime>2018-09-03 05:34:40.723 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="8621f899d8f2445eabf36360eeb91a3c">
-    <content>尝试以才</content>
-    <createTime>2018-09-03 04:53:54.783 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="9953efd9df734dc594b212862f84d085">
-    <content>发到付</content>
-    <createTime>2018-09-03 04:20:23.282 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="2260445dea25423a8c841554824f9c8f">
-    <content>三</content>
-    <createTime>2018-09-02 15:18:26.426 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="e499049c1caa4408b9d7b733122b18d0">
-    <content>fff</content>
-    <createTime>2018-09-02 15:10:18.58 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="20bb9cc937db492eac72c3592e1d10c6">
-    <content>666</content>
-    <createTime>2018-09-02 15:08:41.582 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="3c440c2ea43d426597a5354cbbc45f5e">
-    <content>九月九</content>
-    <createTime>2018-09-02 15:14:01.331 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="8964d2aae6bc41debf60bd77a95f71d6">
-    <content>七月七</content>
-    <createTime>2018-09-02 15:31:29.243 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="c7ff8e138729487b997d11d308c23e72">
-    <content>t按压guoke</content>
-    <createTime>2018-09-03 04:22:57.362 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="749e6c75a81c488c8e524996eb35f518">
-    <content>最后测试一边</content>
-    <createTime>2018-09-03 05:07:22.622 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="4e6ad3bfa20b4d32bd50ce658fe29f47">
-    <content>无邪</content>
-    <createTime>2018-09-03 14:23:13.741 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="a62a4e6268b34a3ba4825a112dbfc8e2">
-    <content>888</content>
-    <createTime>2018-09-03 14:37:24.202 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="baa6545576744c19b641f0b6aa8df91b">
-    <content>6666</content>
-    <createTime>2018-09-03 14:46:22.859 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="c9ecf84189af4183a9161acf6b661e89">
-    <content>嘎嘎嘎</content>
-    <createTime>2018-09-03 16:10:25.446 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="b686ff4474154b95b5fd790a30b974c3">
-    <content>bbbc</content>
-    <createTime>2018-09-03 16:26:10.356 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="a5d8a3fc33b34f7d8a5cf6bb4404f040">
-    <content>ggg</content>
-    <createTime>2018-09-03 16:32:09.87 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="0b75fd2dd19f4c9b94dd3523b5d620d5">
-    <content>local</content>
-    <createTime>2018-09-03 16:36:53.92 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
+  <document id="575204c169fc429a9c92c40c84b9ccd2">
+    <content># 前端的页面生成方案
+1. 用freemarker 将所有的页面都写死, table或者表单模块都写死, 写成空的, 之后往里面加数据.
+
+优点: 由于是静态页面, 加载速度会快一点点
+
+缺点: 数据与相应的表单或表格匹配有难度, 并且比较依赖excel的质量(可能需要添加字段), 而且如果要修改, 就需要前后端都修改
+
+2. 用layui自带的模版写, 在打开页面的时候由js自动生成页面
+
+优点: 一切由传进来的数据控制, 并且不存在数据与组件匹配的问题
+
+缺点: 需要动态生成, 可能会慢一点点</content>
+    <createTime>2018-09-04 15:47:01.84 UTC</createTime>
+    <lastModifyTime>2018-09-04 15:47:59.129 UTC</lastModifyTime>
+    <version>2</version>
   </document>
 </documents>
