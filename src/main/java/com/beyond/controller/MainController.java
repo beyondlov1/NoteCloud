@@ -13,10 +13,8 @@ import com.beyond.utils.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,18 +26,12 @@ import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
-import javafx.util.Callback;
 import javafx.util.Duration;
 
-import javax.naming.TimeLimitExceededException;
 import java.awt.*;
 import java.util.*;
-import java.util.List;
-import java.util.concurrent.*;
-import java.util.function.Predicate;
 
 import static com.beyond.f.Config.SYNCHRONIZE_PERIOD;
-import static com.beyond.f.Config.logger;
 import static com.beyond.service.remote.impl.MergeRemoteDocumentServiceImpl.mergeFxDocuments;
 
 public class MainController {
@@ -52,6 +44,7 @@ public class MainController {
     private Timeline timeline;
 
     private String selectedId;
+    private boolean isRefresh;
 
     //添加组件
     @FXML
@@ -139,16 +132,20 @@ public class MainController {
                 }
             }
         });
-        documentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<com.beyond.entity.fx.Document>() {
+        ChangeListener<com.beyond.entity.fx.Document> tableViewChangeListener = new ChangeListener<com.beyond.entity.fx.Document>() {
             @Override
             public void changed(ObservableValue<? extends com.beyond.entity.fx.Document> observable, com.beyond.entity.fx.Document oldValue, com.beyond.entity.fx.Document newValue) {
                 if (newValue != null) {
-                    documentService.initWebView(webView, newValue);
-                    contentTextAreaSaveOrUpdate.setText(newValue.getContent());
+                    if (!isRefresh) {
+                        documentService.initWebView(webView, newValue);
+                        isRefresh=false;
+                        contentTextAreaSaveOrUpdate.setText(newValue.getContent());
+                    }
                     selectedId = newValue.getId();
                 }
             }
-        });
+        };
+        documentTableView.getSelectionModel().selectedItemProperty().addListener(tableViewChangeListener);
         deletedDocumentTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<com.beyond.entity.fx.Document>() {
             @Override
             public void changed(ObservableValue<? extends com.beyond.entity.fx.Document> observable, com.beyond.entity.fx.Document oldValue, com.beyond.entity.fx.Document newValue) {
@@ -427,12 +424,15 @@ public class MainController {
     }
 
     private void synchronizeModelAndView() {
+        isRefresh = true;
         fxDocumentList = mergeFxDocuments==null?documentService.initObservableList():mergeFxDocuments;
+        //fxDocumentList = documentService.initObservableList();
         documentService.initTableView(documentTableView,fxDocumentList);
         com.beyond.entity.Document selectedDocument = documentService.findById(selectedId);
         if (selectedDocument==null) selectedId = null;
         documentTableView.getSelectionModel().select(selectedId == null ? 0 : ListUtils.getFxDocumentIndexById(fxDocumentList, selectedId));
         refresh();
+        isRefresh =false;
     }
 
     public void startSynchronize() {
