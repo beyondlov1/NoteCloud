@@ -43,26 +43,8 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
     @Override
     public void synchronize(Callback<Object, Object> callback) {
-        long localVersion = localDao.getVersion();
-        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
-        Map<String, Object> properties = remoteDao.getProperties();
-        Object versionObject = properties.get("_version");
-        Object remoteLastModifyTimeMillsObject = properties.get("_lastModifyTimeMills");
-        long remoteVersion = versionObject ==null||StringUtils.equals(versionObject.toString(),"")?-1:Long.parseLong(versionObject.toString());
-        long remoteLastModifyTimeMills = remoteLastModifyTimeMillsObject ==null||StringUtils.equals(remoteLastModifyTimeMillsObject.toString(),"")?-1:Long.parseLong(remoteLastModifyTimeMillsObject.toString());
-        Object remoteLockObject = properties.get("_lock");
-        long remoteLock = remoteLockObject ==null||StringUtils.equals(remoteLockObject.toString(),"")?0:Long.parseLong(remoteLockObject.toString());
-        if (remoteLock!=0){
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            synchronize(callback);
-        }
 
-
-        SynchronizeEntity synchronizeEntity = new MergeRemoteDocumentServiceImpl.SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
+        SynchronizeEntity synchronizeEntity = getSynchronizeEntity();
         SynchronizeType synchronizeType = synchronizeEntity.getSynchronizeType();
 
         Config.logger.info(synchronizeEntity);
@@ -86,6 +68,35 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
         }
 
         Config.logger.info(synchronizeType);
+    }
+
+    /**
+     * 获取同步信息实体
+     * @return 返回同步信息实体, 包含 version lastModifyTimeMills
+     */
+    private SynchronizeEntity getSynchronizeEntity() {
+        long localVersion = localDao.getVersion();
+        long localLastModifyTimeMills = localDao.getLastModifyTimeMills();
+        Map<String, Object> properties = remoteDao.getProperties();
+        Object versionObject = properties.get("_version");
+        Object remoteLastModifyTimeMillsObject = properties.get("_lastModifyTimeMills");
+        long remoteVersion = versionObject ==null|| StringUtils.equals(versionObject.toString(),"")?-1:Long.parseLong(versionObject.toString());
+        long remoteLastModifyTimeMills = remoteLastModifyTimeMillsObject ==null||StringUtils.equals(remoteLastModifyTimeMillsObject.toString(),"")?-1:Long.parseLong(remoteLastModifyTimeMillsObject.toString());
+
+
+        Object remoteLockObject = properties.get("_lock");
+        long remoteLock = remoteLockObject ==null||StringUtils.equals(remoteLockObject.toString(),"")?0:Long.parseLong(remoteLockObject.toString());
+        if (remoteLock!=0){
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return getSynchronizeEntity();
+        }
+
+
+        return new SynchronizeEntity(localVersion,localLastModifyTimeMills,remoteVersion,remoteLastModifyTimeMills);
     }
 
     private List<Document> getLocalDocumentList() {

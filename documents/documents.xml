@@ -1,4 +1,16 @@
 <documents>
+  <document id="2d27a7f7580c45c6babb0b6e9f1e70ca">
+    <content># 将从远程的所有properties中获得单个property抽象成方法</content>
+    <createTime>2018-09-03 16:40:44.118 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="712c2a5cb3c84f21b2b97e27ba405bb0">
+    <content>remote</content>
+    <createTime>2018-09-03 16:36:58.521 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
   <document id="d207a1427af14e5e81a4961124aec174">
     <content>通天塔</content>
     <createTime>2018-09-03 16:15:46.731 UTC</createTime>
@@ -116,6 +128,18 @@
   <document id="b686ff4474154b95b5fd790a30b974c3">
     <content>bbbc</content>
     <createTime>2018-09-03 16:26:10.356 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="a5d8a3fc33b34f7d8a5cf6bb4404f040">
+    <content>ggg</content>
+    <createTime>2018-09-03 16:32:09.87 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+  <document id="0b75fd2dd19f4c9b94dd3523b5d620d5">
+    <content>local</content>
+    <createTime>2018-09-03 16:36:53.92 UTC</createTime>
     <lastModifyTime reference="../createTime"/>
     <version>1</version>
   </document>

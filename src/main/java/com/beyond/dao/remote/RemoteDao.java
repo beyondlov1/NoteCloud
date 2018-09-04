@@ -21,19 +21,18 @@ public interface RemoteDao {
     //对库的整体操作
     List<String> getFileChildren(String dirPath);
 
-
     int setProperty(String propertyName,Object value);
     String getProperty(String propertyName);
     void setProperties(Map<String,Object> properties);
     Map<String, Object> getProperties();
 
-    int upload(File file);
-    int download(String url, String filePath);
-
     long getVersion();
     void setVersion(int version);
     void setLastModifyTimeMills(long lastModifyTimeMills);
     long getLastModifyTimeMills();
+
+    int upload(File file);
+    int download(String url, String filePath);
 
     boolean isExist();
     void mkDir();
