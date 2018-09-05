@@ -2,17 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cfecf7b-5e89-4292-846c-0c814b361a9c" name="Default" comment="添加简单同步">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libs__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/beyond/utils/GuiUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/libs__2_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documents/documents.xml" beforeDir="false" afterPath="$PROJECT_DIR$/documents/documents.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/properties/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/beyond/service/local/impl/DocumentServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/properties/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/properties/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/main.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,49 +33,36 @@
     <session id="521633229">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="class" value="1" />
-          <entry key="dummy" value="12" />
-          <entry key="fxml" value="55" />
-          <entry key="java" value="20410" />
-          <entry key="properties" value="209" />
-          <entry key="xml" value="62" />
+          <entry key="java" value="1605" />
+          <entry key="xml" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="20410" />
-          <entry key="PLAIN_TEXT" value="12" />
-          <entry key="Properties" value="209" />
-          <entry key="XML" value="117" />
+          <entry key="JAVA" value="1605" />
+          <entry key="XML" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="9" />
-          <entry key="fxml" value="4" />
-          <entry key="java" value="118" />
-          <entry key="properties" value="11" />
-          <entry key="xml" value="32" />
+          <entry key="class" value="2" />
+          <entry key="java" value="6" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="9" />
-          <entry key="JAVA" value="118" />
-          <entry key="Properties" value="11" />
-          <entry key="XML" value="36" />
+          <entry key="CLASS" value="2" />
+          <entry key="JAVA" value="6" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -74,123 +72,139 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
+      <file leaf-file-name="DocumentServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="133">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
               <folding>
-                <element signature="method#deleteById#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="docComment;method#setProperty#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#setProperties#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="docComment;method#upload#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#upload#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="docComment;method#download#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#download#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#isExist#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#mkDirs#0;class#SimpleRemoteDaoImpl#0" />
-                <element signature="method#main#0;class#SimpleRemoteDaoImpl#0" />
+                <element signature="method#changeWorkSpace#0;class#DocumentServiceImpl#0" />
+                <element signature="method#initObservableList#0;class#DocumentServiceImpl#0" />
+                <element signature="method#initWebView#0;class#DocumentServiceImpl#0" />
+                <element signature="method#initTableColumn#0;class#DocumentServiceImpl#0" />
+                <element signature="class#2714:3961" />
+                <element signature="method#call#0;class#2714:3961" />
+                <element signature="class#4008:4472" />
+                <element signature="method#call#0;class#4008:4472" />
+                <element signature="method#initListView#0;class#DocumentServiceImpl#0" />
+                <element signature="method#initText#0;class#DocumentServiceImpl#0" />
+                <element signature="method#add#0;class#DocumentServiceImpl#0" />
+                <element signature="method#add#1;class#DocumentServiceImpl#0" />
+                <element signature="method#delete#1;class#DocumentServiceImpl#0" />
+                <element signature="method#deleteById#0;class#DocumentServiceImpl#0" />
+                <element signature="method#deleteById#1;class#DocumentServiceImpl#0" />
+                <element signature="method#update#0;class#DocumentServiceImpl#0" />
+                <element signature="method#update#1;class#DocumentServiceImpl#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java">
+      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2424">
-              <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+            <state relative-caret-position="188">
+              <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="LocalDaoXmlImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="206" selection-start-line="206" selection-end-line="206" />
+            <state relative-caret-position="-26">
+              <caret line="265" column="18" selection-start-line="265" selection-start-column="18" selection-end-line="265" selection-end-column="18" />
               <folding>
-                <element signature="method#setXmlPath#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#init#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#add#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#delete#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#deleteById#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#update#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#selectAll#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#selectAll#1;class#LocalDaoXmlImpl#0" />
-                <element signature="method#selectById#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#setLastModifyTimeMills#0;class#LocalDaoXmlImpl#0" />
-                <element signature="method#main#0;class#LocalDaoXmlImpl#0" />
+                <element signature="method#getProperties#0;class#LocalDaoXmlImpl#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="DocumentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/DocumentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="documents.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/documents/documents.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="198">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://E:/jdk/Java/jdk1.8.0_141/jre/lib/rt.jar!/sun/nio/fs/WindowsUserDefinedFileAttributeView.class">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/properties/config.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3912">
-              <caret line="176" selection-start-line="176" selection-end-line="176" />
+            <state relative-caret-position="154">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1536">
-              <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+            <state relative-caret-position="223">
+              <caret line="284" column="65" lean-forward="true" selection-start-line="284" selection-start-column="65" selection-end-line="284" selection-end-column="65" />
               <folding>
-                <element signature="method#getLocalDocumentList#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#getRemoteDocumentList#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#merge#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#saveLocal#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#saveRemote#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#SynchronizeEntity#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#getSynchronizeType#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#toString#0;class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
-                <element signature="method#main#0;class#MergeRemoteDocumentServiceImpl#0" />
+                <element signature="class#SortType#0;class#MainController#0" />
+                <element signature="class#3747:4636" />
+                <element signature="method#handle#0;class#3747:4636" />
+                <element signature="class#4462:5060" />
+                <element signature="method#changed#0;class#4462:5060" />
+                <element signature="class#5354:5826" />
+                <element signature="method#changed#0;class#5354:5826" />
+                <element signature="class#5783:6642" />
+                <element signature="method#handle#0;class#5783:6642" />
+                <element signature="class#6979:7228" />
+                <element signature="method#handle#0;class#6979:7228" />
+                <element signature="class#7279:7445" />
+                <element signature="class#7504:7670" />
+                <element signature="e#7674#7747#0" />
+                <element signature="docComment;method#changeInputMethod#0;class#MainController#0" />
+                <element signature="method#changeInputMethod#0;class#MainController#0" />
+                <element signature="method#focusBackToTableView#0;class#MainController#0" />
+                <element signature="method#initStyles#0;class#MainController#0" />
+                <element signature="method#initFocus#0;class#MainController#0" />
+                <element signature="method#delete#0;class#MainController#0" />
+                <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
+                <element signature="method#changeViewAfterSave#0;class#MainController#0" />
+                <element signature="method#changeViewAfterUpdate#0;class#MainController#0" />
+                <element signature="method#validate#0;class#MainController#0" />
+                <element signature="method#validate#0;class#MainController#0" />
+                <element signature="method#refresh#0;class#MainController#0" />
+                <element signature="method#synchronizeModelAndView#0;class#MainController#0" />
+                <element signature="method#startSynchronize#0;class#MainController#0" />
+                <element signature="e#15938#15991#0" />
+                <element signature="class#18500:18670" />
+                <element signature="method#stopSynchronize#0;class#MainController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java">
+      <file leaf-file-name="main.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/views/main.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="70" column="54" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+            <state relative-caret-position="-110">
+              <caret line="54" column="93" selection-start-line="54" selection-start-column="93" selection-end-line="54" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/GuiUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="28" column="70" lean-forward="true" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,14 +212,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java">
+      <file leaf-file-name="TimeUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/TimeUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1248">
-              <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="264">
+              <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -234,23 +245,14 @@
       <find>isNotblan</find>
       <find>System</find>
       <find>initFocus</find>
-      <find>System.out.</find>
-      <find>load</find>
-      <find>\\</find>
-      <find>Config</find>
-      <find>private Date</find>
-      <find>;</find>
-      <find>_modifiedIds</find>
-      <find>_modifiedId</find>
-      <find>jaxws</find>
+      <find>Integer</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
       <replace>utils.appendInRootXml</replace>
       <replace>utils.saveXml</replace>
       <replace>final StringProperty</replace>
-      <replace>/</replace>
-      <replace>&amp;&amp;</replace>
+      <replace>int</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -259,7 +261,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/NoteService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/impl/BaseServcieImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/view/View.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/DocumentValid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/entity/Document.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/entity/fx/Document.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/XmlUtils.java" />
         <option value="$PROJECT_DIR$/documents/DeletedDocuments.xml" />
@@ -272,44 +278,40 @@
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/SortUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/DocumentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/ReflectUtils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/TestTimeNLP.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/TimeUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/entity/Todo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/impl/DocumentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/documents/documents.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/UploadXml.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Upload.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Synchroinze.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/SecureUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/impl/SynchronizeImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/RemoteDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/FileAttributeTes.java" />
-        <option value="$PROJECT_DIR$/documents/documents.xml" />
         <option value="$PROJECT_DIR$/src/test/java/FileAttributeTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/f/F.java" />
+        <option value="$PROJECT_DIR$/src/test/java/LocalDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/RemoteService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/DocumentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/DocumentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/MainApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/main.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/ConfigUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/properties/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/entity/Document.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/RemoteDocumentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleDocumentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/ListUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/properties/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/utils/GuiUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/main.fxml" />
       </list>
     </option>
   </component>
@@ -332,22 +334,14 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="NoteClould" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="56" />
-    <option name="y" value="-17" />
-    <option name="width" value="1932" />
-    <option name="height" value="1045" />
+    <option name="x" value="31" />
+    <option name="y" value="-8" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -382,13 +376,6 @@
               <item name="NoteCloud" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NoteCloud" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
@@ -464,15 +451,6 @@
               <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="remote" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NoteCloud" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="beyond" type="462c0819:PsiDirectoryNode" />
-              <item name="f" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
@@ -562,14 +540,9 @@
               <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="NoteCloud" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NoteCloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NoteCloud" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -583,7 +556,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536028760536" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535536594109" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -594,11 +567,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\git_repository\MyGitHub\NoteCloud\NoteCloud\src\main\resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\git_repository\MyGitHub\NoteCloud\NoteCloud\src\main\config" />
       <recent name="D:\JavaProject\NoteCloud\src\test\java" />
       <recent name="D:\JavaProject\NoteCloud\src\main\resources\properties" />
       <recent name="D:\JavaProject\NoteCloud\src\main\java\com\beyond\dao\local\impl" />
@@ -619,26 +588,9 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/documents/DeletedDocuments.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/documents/documents.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$1.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$2.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$3.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$4.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$5.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$6.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$7.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$8.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController$SortType.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/controller/MainController.class</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/dao/local/impl/LocalDaoXmlImpl.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/utils/ConfigUtils.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/beyond/utils/XmlUtils.class</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -646,6 +598,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/libs__2_.xml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -653,7 +606,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/libraries/libs__2_.xml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -748,34 +700,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainApplication">
-    <configuration name="Dom4jUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.beyond.utils.Dom4jUtils" />
-      <module name="NoteCloud" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.beyond.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LocalDaoXmlImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.beyond.dao.local.impl.LocalDaoXmlImpl" />
-      <module name="NoteCloud" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.beyond.dao.local.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.beyond.MainApplication" />
       <module name="NoteCloud" />
@@ -786,23 +710,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MergeRemoteDocumentServiceImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.beyond.service.remote.impl.MergeRemoteDocumentServiceImpl" />
-      <module name="NoteCloud" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.beyond.service.remote.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="SimpleRemoteDaoImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.beyond.dao.remote.impl.SimpleRemoteDaoImpl" />
@@ -814,44 +721,107 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    </configuration>
+    <configuration name="SynchronizeImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.beyond.dao.remote.synchronize.simple.impl.SynchronizeImpl" />
+      <module name="NoteCloud" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.beyond.dao.remote.synchronize.simple.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    </configuration>
+    <configuration name="DaoTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NoteCloud" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DaoTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FileAttributeTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NoteCloud" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FileAttributeTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MainApplication" />
+      <item itemvalue="Application.SynchronizeImpl" />
+      <item itemvalue="JUnit.FileAttributeTest.test" />
+      <item itemvalue="JUnit.DaoTest.test1" />
       <item itemvalue="Application.SimpleRemoteDaoImpl" />
-      <item itemvalue="Application.LocalDaoXmlImpl" />
-      <item itemvalue="Application.MergeRemoteDocumentServiceImpl" />
-      <item itemvalue="Application.Dom4jUtils" />
+      <item itemvalue="Application.MainApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="Application.Dom4jUtils" />
-        <item itemvalue="Application.MergeRemoteDocumentServiceImpl" />
         <item itemvalue="Application.SimpleRemoteDaoImpl" />
-        <item itemvalue="Application.LocalDaoXmlImpl" />
+        <item itemvalue="JUnit.DaoTest.test1" />
+        <item itemvalue="JUnit.FileAttributeTest.test" />
+        <item itemvalue="Application.SynchronizeImpl" />
       </list>
     </recent_temporary>
   </component>
@@ -878,11 +848,9 @@
       <workItem from="1535257347912" duration="13629000" />
       <workItem from="1535288280277" duration="3620000" />
       <workItem from="1535458904105" duration="11818000" />
-      <workItem from="1535505723022" duration="46481000" />
-      <workItem from="1535707084476" duration="2882000" />
-      <workItem from="1535720739346" duration="109547000" />
-      <workItem from="1536029469725" duration="74000" />
-      <workItem from="1536110039563" duration="840000" />
+      <workItem from="1535472131335" duration="15989000" />
+      <workItem from="1535727475774" duration="1158000" />
+      <workItem from="1535790450019" duration="39264000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1534378578323</created>
@@ -997,198 +965,161 @@
       <updated>1535471770798</updated>
     </task>
     <task id="LOCAL-00017" summary="添加简单同步">
-      <created>1535537022670</created>
+      <created>1535544617690</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1535537022670</updated>
+      <updated>1535544617690</updated>
     </task>
     <task id="LOCAL-00018" summary="添加简单同步">
-      <created>1535621522505</created>
+      <created>1535554135748</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1535621522506</updated>
+      <updated>1535554135748</updated>
     </task>
     <task id="LOCAL-00019" summary="添加简单同步">
-      <created>1535717820284</created>
+      <created>1535557066126</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1535717820284</updated>
+      <updated>1535557066126</updated>
     </task>
     <task id="LOCAL-00020" summary="添加简单同步">
-      <created>1535721044755</created>
+      <created>1535645832472</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1535721044755</updated>
+      <updated>1535645832472</updated>
     </task>
     <task id="LOCAL-00021" summary="添加简单同步">
-      <created>1535727659218</created>
+      <created>1535806212715</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1535727659218</updated>
+      <updated>1535806212715</updated>
     </task>
     <task id="LOCAL-00022" summary="添加简单同步">
-      <created>1535789961716</created>
+      <created>1536076191795</created>
       <option name="number" value="00022" />
       <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
-      <updated>1535789961717</updated>
+      <updated>1536076191795</updated>
     </task>
     <task id="LOCAL-00023" summary="添加简单同步">
-      <created>1535813315841</created>
+      <created>1536078624547</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1535813315841</updated>
+      <updated>1536078624547</updated>
     </task>
-    <task id="LOCAL-00024" summary="添加简单同步">
-      <created>1535885803574</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1535885803574</updated>
-    </task>
-    <task id="LOCAL-00025" summary="添加简单同步">
-      <created>1535887834158</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1535887834158</updated>
-    </task>
-    <task id="LOCAL-00026" summary="添加简单同步">
-      <created>1535889028471</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1535889028471</updated>
-    </task>
-    <task id="LOCAL-00027" summary="添加简单同步">
-      <created>1535980440216</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1535980440216</updated>
-    </task>
-    <task id="LOCAL-00028" summary="添加简单同步">
-      <created>1535988945835</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1535988945835</updated>
-    </task>
-    <task id="LOCAL-00029" summary="添加简单同步">
-      <created>1535989805293</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1535989805293</updated>
-    </task>
-    <task id="LOCAL-00030" summary="添加简单同步">
-      <created>1535990167199</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1535990167199</updated>
-    </task>
-    <task id="LOCAL-00031" summary="添加简单同步">
-      <created>1535990420058</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1535990420058</updated>
-    </task>
-    <task id="LOCAL-00032" summary="添加简单同步">
-      <created>1535992137476</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1535992137476</updated>
-    </task>
-    <task id="LOCAL-00033" summary="添加简单同步">
-      <created>1536029526073</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1536029526073</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 13h 46m 56s.xml">
+    <history-entry file="FileAttributeTest_test - 2018.08.29 at 21h 11m 27s.xml">
       <configuration name="FileAttributeTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 13h 47m 17s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 29m 42s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 17h 43m 17s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 31m 09s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 17h 45m 21s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 32m 30s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 17h 49m 12s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 38m 49s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 17h 52m 28s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 39m 16s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileAttributeTest_test - 2018.08.29 at 17h 54m 20s.xml">
-      <configuration name="FileAttributeTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 39m 38s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DaoTest_test - 2018.08.30 at 14h 12m 13s.xml">
-      <configuration name="DaoTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 39m 47s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DaoTest_test - 2018.08.30 at 14h 12m 48s.xml">
-      <configuration name="DaoTest.test" configurationId="JUnit" />
+    <history-entry file="LocalDaoTest_test - 2018.08.29 at 21h 39m 56s.xml">
+      <configuration name="LocalDaoTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DaoTest_test - 2018.08.30 at 14h 13m 00s.xml">
-      <configuration name="DaoTest.test" configurationId="JUnit" />
+    <history-entry file="DaoTest_test1 - 2018.08.29 at 22h 22m 36s.xml">
+      <configuration name="DaoTest.test1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297048000" />
+    <option name="totallyTimeSpent" value="201476000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="JRebel" order="0" side_tool="true" />
-      <window_info content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="1" side_tool="true" visible="true" weight="0.16684435" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.24962178" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" weight="0.32980332" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info anchor="bottom" id="JRebel Console" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="JRebel Executor" order="1" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32790446" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.49924356" visible="true" weight="0.21064061" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.37893593" />
-      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.21617162" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32838285" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24946696" />
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.17161717" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.21617162" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49924356" visible="true" weight="0.34983498" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="0" side_tool="true" weight="0.21028744" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32995737" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32838285" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.2590759" />
+      <window_info anchor="bottom" id="JRebel Executor" order="12" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info id="JRebel" order="7" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+      <window_info anchor="bottom" id="JRebel Console" order="13" side_tool="true" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="3" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="JRebel" order="7" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49924356" visible="true" weight="0.34983498" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" weight="0.32980332" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.21617162" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.17161717" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32838285" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="JRebel Executor" order="12" />
+      <window_info content_ui="combo" x="833" y="68" width="241" height="606" id="Project" order="0" side_tool="true" visible="true" weight="0.21028744" />
+      <window_info anchor="bottom" id="JRebel Console" order="13" side_tool="true" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32838285" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.2590759" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1206,370 +1137,243 @@
     <MESSAGE value="添加简单同步" />
     <option name="LAST_COMMIT_MESSAGE" value="添加简单同步" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="22" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/FileAttributeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestTimeNLP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="53" column="20" lean-forward="true" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/util/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="248" column="5" lean-forward="true" selection-start-line="248" selection-start-column="5" selection-end-line="248" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documents/downloadDocuments.xml" />
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/scene/layout/Priority.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/config/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/properties/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/application/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="247" column="21" lean-forward="true" selection-start-line="247" selection-start-column="21" selection-end-line="247" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="3096" column="27" selection-start-line="3096" selection-start-column="27" selection-end-line="3096" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/DocumentServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/DaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/ConfigUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/jre/lib/rt.jar!/sun/nio/fs/WindowsException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/animation/KeyFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="102" column="42" lean-forward="true" selection-start-line="102" selection-start-column="42" selection-end-line="102" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/entity/Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="3799" column="26" lean-forward="true" selection-start-line="3799" selection-start-column="26" selection-end-line="3799" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="299" column="20" lean-forward="true" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/RemoteDocumentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/util/Callback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documents/DeletedDocuments.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/DeletedLocalDaoXmlImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="116">
+          <caret line="11" column="65" lean-forward="true" selection-start-line="11" selection-start-column="65" selection-end-line="11" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/entity/fx/Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="1826">
+          <caret line="131" column="108" selection-start-line="131" selection-start-column="108" selection-end-line="131" selection-end-column="108" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/ListUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/entity/Note.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/entity/Todo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/jdk/jdk/javafx-src.zip!/javafx/scene/input/InputMethodRequests.java" />
+    <entry file="jar://D:/jdk/jdk/javafx-src.zip!/com/sun/javafx/robot/FXRobotFactory.java" />
+    <entry file="jar://D:/jdk/jdk/javafx-src.zip!/com/sun/javafx/robot/FXRobot.java" />
+    <entry file="jar://D:/jdk/jdk/src.zip!/java/awt/event/KeyEvent.java" />
+    <entry file="jar://D:/jdk/jdk/src.zip!/java/awt/Robot.java" />
+    <entry file="jar://D:/jdk/jdk/src.zip!/com/sun/org/apache/xpath/internal/operations/UnaryOperation.java" />
+    <entry file="jar://D:/jdk/jdk/src.zip!/com/sun/org/apache/xpath/internal/operations/String.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Download.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/SecureUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/javafx-src.zip!/javafx/animation/Timeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1109">
-          <caret line="143" column="35" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/DocumentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="52" lean-forward="true" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Synchroinze.java" />
+    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/nio/file/Files.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.6/httpclient-4.5.6.jar!/org/apache/http/client/methods/HttpPut.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documents/tmpDocument.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/impl/SynchronizeImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/synchronize/simple/Upload.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/NoteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+        <state relative-caret-position="44">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/XmlUtils.java">
+    <entry file="jar://D:/jdk/jdk/src.zip!/java/nio/file/attribute/UserDefinedFileAttributeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="193">
+          <caret line="212" column="45" selection-start-line="212" selection-start-column="45" selection-end-line="212" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-webdav/2.16.3/jackrabbit-webdav-2.16.3.jar!/org/apache/jackrabbit/webdav/property/DefaultDavProperty.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="330">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar!/org/dom4j/XPath.class">
+    <entry file="file://$PROJECT_DIR$/src/test/java/FileAttributeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="-75">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/StringUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/util/Objects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="200" column="24" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar!/org/apache/commons/lang3/StringUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="2615" column="45" selection-start-line="2615" selection-start-column="45" selection-end-line="2615" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="2420" column="20" selection-start-line="2420" selection-start-column="20" selection-end-line="2420" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6936">
-          <caret line="488" selection-start-line="488" selection-end-line="488" />
+        <state relative-caret-position="256">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
           <folding>
-            <element signature="e#18328#18329#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-webdav/2.16.3/jackrabbit-webdav-2.16.3.jar!/org/apache/jackrabbit/webdav/client/methods/HttpPropfind.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding>
-            <element signature="method#deleteById#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="docComment;method#setProperty#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#setProperties#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="docComment;method#upload#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#upload#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="docComment;method#download#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#download#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#isExist#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#mkDirs#0;class#SimpleRemoteDaoImpl#0" />
-            <element signature="method#main#0;class#SimpleRemoteDaoImpl#0" />
-          </folding>
+        <state relative-caret-position="295">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/HttpUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
-          <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
+        <state relative-caret-position="177">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/f/F.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="57" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/DeletedDocuments.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/RemoteDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="245">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/jdk/Java/jdk1.8.0_141/jre/lib/rt.jar!/sun/nio/fs/WindowsUserDefinedFileAttributeView.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/DocumentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3912">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
+        <state relative-caret-position="110">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state relative-caret-position="269">
+          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/Dom4jUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/DaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="70" column="54" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+        <state relative-caret-position="297">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleDocumentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-814">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/ListUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/remote/impl/SimpleRemoteDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1588">
+          <caret line="157" column="31" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
+          <folding>
+            <element signature="method#main#0;class#SimpleRemoteDaoImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/jdk/jdk/javafx-src.zip!/com/sun/javafx/event/EventDispatchChainImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/XmlUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/SimpleRemoteDocumentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="141">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/LocalDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/proxy/LocalDaoProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/remote/impl/MergeRemoteDocumentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1536">
-          <caret line="82" column="22" lean-forward="true" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+        <state relative-caret-position="-307">
+          <caret line="134" column="108" lean-forward="true" selection-start-line="134" selection-start-column="108" selection-end-line="134" selection-end-column="108" />
           <folding>
+            <element signature="method#MergeRemoteDocumentServiceImpl#0;class#MergeRemoteDocumentServiceImpl#0" />
+            <element signature="docComment;method#getSynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
             <element signature="method#getLocalDocumentList#0;class#MergeRemoteDocumentServiceImpl#0" />
             <element signature="method#getRemoteDocumentList#0;class#MergeRemoteDocumentServiceImpl#0" />
-            <element signature="method#merge#0;class#MergeRemoteDocumentServiceImpl#0" />
             <element signature="method#saveLocal#0;class#MergeRemoteDocumentServiceImpl#0" />
             <element signature="method#saveRemote#0;class#MergeRemoteDocumentServiceImpl#0" />
             <element signature="class#SynchronizeEntity#0;class#MergeRemoteDocumentServiceImpl#0" />
@@ -1581,30 +1385,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="206" selection-start-line="206" selection-end-line="206" />
-          <folding>
-            <element signature="method#setXmlPath#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#init#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#add#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#delete#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#deleteById#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#update#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectAll#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectAll#1;class#LocalDaoXmlImpl#0" />
-            <element signature="method#selectById#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#setLastModifyTimeMills#0;class#LocalDaoXmlImpl#0" />
-            <element signature="method#main#0;class#LocalDaoXmlImpl#0" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/documents/documents.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="198">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/TimeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/dao/local/impl/LocalDaoXmlImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="265" column="18" selection-start-line="265" selection-start-column="18" selection-end-line="265" selection-end-column="18" />
+          <folding>
+            <element signature="method#getProperties#0;class#LocalDaoXmlImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/DocumentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/f/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/utils/GuiUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="28" column="70" lean-forward="true" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="284" column="65" lean-forward="true" selection-start-line="284" selection-start-column="65" selection-end-line="284" selection-end-column="65" />
+          <folding>
+            <element signature="class#SortType#0;class#MainController#0" />
+            <element signature="class#3747:4636" />
+            <element signature="method#handle#0;class#3747:4636" />
+            <element signature="class#4462:5060" />
+            <element signature="method#changed#0;class#4462:5060" />
+            <element signature="class#5354:5826" />
+            <element signature="method#changed#0;class#5354:5826" />
+            <element signature="class#5783:6642" />
+            <element signature="method#handle#0;class#5783:6642" />
+            <element signature="class#6979:7228" />
+            <element signature="method#handle#0;class#6979:7228" />
+            <element signature="class#7279:7445" />
+            <element signature="class#7504:7670" />
+            <element signature="e#7674#7747#0" />
+            <element signature="docComment;method#changeInputMethod#0;class#MainController#0" />
+            <element signature="method#changeInputMethod#0;class#MainController#0" />
+            <element signature="method#focusBackToTableView#0;class#MainController#0" />
+            <element signature="method#initStyles#0;class#MainController#0" />
+            <element signature="method#initFocus#0;class#MainController#0" />
+            <element signature="method#delete#0;class#MainController#0" />
+            <element signature="method#changeViewAfterDelete#0;class#MainController#0" />
+            <element signature="method#changeViewAfterSave#0;class#MainController#0" />
+            <element signature="method#changeViewAfterUpdate#0;class#MainController#0" />
+            <element signature="method#validate#0;class#MainController#0" />
+            <element signature="method#validate#0;class#MainController#0" />
+            <element signature="method#refresh#0;class#MainController#0" />
+            <element signature="method#synchronizeModelAndView#0;class#MainController#0" />
+            <element signature="method#startSynchronize#0;class#MainController#0" />
+            <element signature="e#15938#15991#0" />
+            <element signature="class#18500:18670" />
+            <element signature="method#stopSynchronize#0;class#MainController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/beyond/service/local/impl/DocumentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+          <folding>
+            <element signature="method#changeWorkSpace#0;class#DocumentServiceImpl#0" />
+            <element signature="method#initObservableList#0;class#DocumentServiceImpl#0" />
+            <element signature="method#initWebView#0;class#DocumentServiceImpl#0" />
+            <element signature="method#initTableColumn#0;class#DocumentServiceImpl#0" />
+            <element signature="class#2714:3961" />
+            <element signature="method#call#0;class#2714:3961" />
+            <element signature="class#4008:4472" />
+            <element signature="method#call#0;class#4008:4472" />
+            <element signature="method#initListView#0;class#DocumentServiceImpl#0" />
+            <element signature="method#initText#0;class#DocumentServiceImpl#0" />
+            <element signature="method#add#0;class#DocumentServiceImpl#0" />
+            <element signature="method#add#1;class#DocumentServiceImpl#0" />
+            <element signature="method#delete#1;class#DocumentServiceImpl#0" />
+            <element signature="method#deleteById#0;class#DocumentServiceImpl#0" />
+            <element signature="method#deleteById#1;class#DocumentServiceImpl#0" />
+            <element signature="method#update#0;class#DocumentServiceImpl#0" />
+            <element signature="method#update#1;class#DocumentServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-110">
+          <caret line="54" column="93" selection-start-line="54" selection-start-column="93" selection-end-line="54" selection-end-column="93" />
         </state>
       </provider>
     </entry>

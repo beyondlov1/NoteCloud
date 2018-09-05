@@ -1,16 +1,7 @@
 <documents>
-  <document id="719a8971a91b4ad0985f72775c4a10f5">
-    <content># bug
-在同步过程中, 增删改查数据???</content>
-    <createTime>2018-09-04 16:21:02.741 UTC</createTime>
-    <lastModifyTime reference="../createTime"/>
-    <version>1</version>
-  </document>
-  <document id="accdcf25cf2d4c30b3b6a62a6f296b05">
-    <content># 全键盘操作
-Ctrl+S 保存
-</content>
-    <createTime>2018-09-04 16:17:43.682 UTC</createTime>
+  <document id="2cce0832eac84449aaa5853240eeb25e">
+    <content>添加</content>
+    <createTime>2018-09-05 15:07:38.28 UTC</createTime>
     <lastModifyTime reference="../createTime"/>
     <version>1</version>
   </document>
@@ -21,14 +12,33 @@ Ctrl+S 保存
 优点: 由于是静态页面, 加载速度会快一点点
 
 缺点: 数据与相应的表单或表格匹配有难度, 并且比较依赖excel的质量(可能需要添加字段), 而且如果要修改, 就需要前后端都修改
-
 2. 用layui自带的模版写, 在打开页面的时候由js自动生成页面
 
 优点: 一切由传进来的数据控制, 并且不存在数据与组件匹配的问题
 
 缺点: 需要动态生成, 可能会慢一点点</content>
     <createTime>2018-09-04 15:47:01.84 UTC</createTime>
-    <lastModifyTime>2018-09-05 01:18:26.899 UTC</lastModifyTime>
-    <version>4</version>
+    <lastModifyTime>2018-09-04 15:54:08.984 UTC</lastModifyTime>
+    <version>3</version>
   </document>
-</documents>
+  <document id="accdcf25cf2d4c30b3b6a62a6f296b05">
+    <content># 全键盘操作
+Ctrl+S 保存
+(已完成)</content>
+    <createTime>2018-09-04 16:17:43.682 UTC</createTime>
+    <lastModifyTime>2018-09-05 15:37:45.300 UTC</lastModifyTime>
+    <version>2</version>
+  </document>
+  <document id="719a8971a91b4ad0985f72775c4a10f5">
+    <content># bug
+在同步过程中, 增删改查数据???</content>
+    <createTime>2018-09-04 16:21:02.741 UTC</createTime>
+    <lastModifyTime reference="../createTime"/>
+    <version>1</version>
+  </document>
+<document id="1be650250bf84783a33c1c4c4fde2c68">
+  <content># 文本框默认显示一个 &apos;#&apos;</content>
+  <createTime>2018-09-05 15:38:19.797 UTC</createTime>
+  <lastModifyTime reference="../createTime"/>
+  <version>1</version>
+</document></documents>

@@ -14,6 +14,7 @@ public class Config {
     public final static String COMMIT_STRING_END = "end\n";
     public static final long PERIOD_OF_GET_REMOTE_LOCK = 2*1000;
     public static final long MAX_REMOTE_CONNECT_TIME_OUT = 90*1000;
+    public static final int MAX_CONTENT_SHOW = 80;
 
     public static String DEFAULT_XML_PATH ;
     public static String DELETED_XML_PATH ;

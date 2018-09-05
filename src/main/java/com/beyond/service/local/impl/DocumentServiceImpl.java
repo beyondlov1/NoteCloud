@@ -3,6 +3,7 @@ package com.beyond.service.local.impl;
 import com.beyond.controller.MainController;
 import com.beyond.dao.local.LocalDao;
 import com.beyond.entity.Document;
+import com.beyond.f.Config;
 import com.beyond.proxy.LocalDaoProxy;
 import com.beyond.service.local.DocumentService;
 import com.beyond.utils.*;
@@ -55,6 +56,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public void initTableView(TableView<com.beyond.entity.fx.Document> tableView, ObservableList<com.beyond.entity.fx.Document> list) {
         tableView.setItems(list);
+        GuiUtils.autoFitTable(tableView);
     }
 
     @Override
@@ -83,7 +85,7 @@ public class DocumentServiceImpl implements DocumentService {
                             setGraphic(null);
                         } else {
                             String content = HtmlUtils.parseHtml2Text(item);
-                            content = StringUtils.cutAndPretty(content,100);
+                            content = StringUtils.cutAndPretty(content,Config.MAX_CONTENT_SHOW);
                             Text text = new Text(content);
                             TextFlow textFlow = new TextFlow(text);
                             textFlow.setPadding(new Insets(5,10,5,10));

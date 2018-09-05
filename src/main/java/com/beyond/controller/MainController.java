@@ -138,7 +138,7 @@ public class MainController {
                 if (newValue != null) {
                     if (!isRefresh) {
                         documentService.initWebView(webView, newValue);
-                        isRefresh=false;
+                        isRefresh = false;
                         contentTextAreaSaveOrUpdate.setText(newValue.getContent());
                     }
                     selectedId = newValue.getId();
@@ -258,7 +258,8 @@ public class MainController {
     private void save(KeyEvent keyEvent) {
         //清空message
         message.setText(null);
-        com.beyond.entity.Document document = validate(contentTextAreaSave);
+        com.beyond.entity.Document document = validate(keyEvent, contentTextAreaSave);
+
         //提交数据
         if (document != null) {
             //设置版本
@@ -274,7 +275,7 @@ public class MainController {
         //清空message
         message.setText(null);
 
-        com.beyond.entity.Document document = validate(contentTextAreaSaveOrUpdate);
+        com.beyond.entity.Document document = validate(keyEvent, contentTextAreaSaveOrUpdate);
 
         //提交数据
         if (document != null) {
@@ -346,6 +347,7 @@ public class MainController {
         for (String targetEndString : targetEndStringArray) {
             String endString = null;
             int targetEndStringLength = targetEndString.length();
+
             if (content != null && content.length() >= targetEndStringLength) {
                 endString = content.substring(content.length() - targetEndStringLength);
                 isCommit = (targetEndString).equals(endString);
@@ -409,12 +411,26 @@ public class MainController {
         }
     }
 
+    private com.beyond.entity.Document validate(KeyEvent keyEvent, TextArea contentTextAreaSaveOrUpdate) {
+        com.beyond.entity.Document document = null;
+        if (keyEvent.isControlDown() && keyEvent.getCode() == KeyCode.S) {
+            String content = contentTextAreaSaveOrUpdate.getText();
+            if (org.apache.commons.lang3.StringUtils.isNotBlank(content)) {
+                document = new com.beyond.entity.Document();
+                document.setContent(content);
+            }
+        } else {
+            document = validate(contentTextAreaSaveOrUpdate);
+        }
+        return document;
+    }
+
     private void refresh() {
         documentTableView.refresh();
 
-        if (selectedId!=null){
+        if (selectedId != null) {
             com.beyond.entity.Document selectedDocument = documentService.findById(selectedId);
-            if (selectedDocument==null) return;
+            if (selectedDocument == null) return;
             documentService.initWebView(webView, new Document(documentService.findById(selectedId)));
         }
     }
@@ -425,14 +441,14 @@ public class MainController {
 
     private void synchronizeModelAndView() {
         isRefresh = true;
-        fxDocumentList = mergeFxDocuments==null?documentService.initObservableList():mergeFxDocuments;
+        fxDocumentList = mergeFxDocuments == null ? documentService.initObservableList() : mergeFxDocuments;
         //fxDocumentList = documentService.initObservableList();
-        documentService.initTableView(documentTableView,fxDocumentList);
+        documentService.initTableView(documentTableView, fxDocumentList);
         com.beyond.entity.Document selectedDocument = documentService.findById(selectedId);
-        if (selectedDocument==null) selectedId = null;
+        if (selectedDocument == null) selectedId = null;
         documentTableView.getSelectionModel().select(selectedId == null ? 0 : ListUtils.getFxDocumentIndexById(fxDocumentList, selectedId));
         refresh();
-        isRefresh =false;
+        isRefresh = false;
     }
 
     public void startSynchronize() {
@@ -489,9 +505,9 @@ public class MainController {
                 remoteDocumentService1.synchronize(null);
             }
         };
-        timer.schedule(timerTask, 0, SYNCHRONIZE_PERIOD*60 * 1000);
+        timer.schedule(timerTask, 0, SYNCHRONIZE_PERIOD * 60 * 1000);
 
-        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD*5), new EventHandler<ActionEvent>() {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(SYNCHRONIZE_PERIOD * 5), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 synchronizeModelAndView();
@@ -505,7 +521,7 @@ public class MainController {
 
     public void stopSynchronize() {
         timer.cancel();
-       timeline.stop();
+        timeline.stop();
     }
 }
 
