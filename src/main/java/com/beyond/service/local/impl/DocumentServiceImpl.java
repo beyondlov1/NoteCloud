@@ -56,7 +56,6 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public void initTableView(TableView<com.beyond.entity.fx.Document> tableView, ObservableList<com.beyond.entity.fx.Document> list) {
         tableView.setItems(list);
-        GuiUtils.autoFitTable(tableView);
     }
 
     @Override
