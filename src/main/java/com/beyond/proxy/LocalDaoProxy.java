@@ -11,6 +11,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Date;
 
+import static com.beyond.service.remote.impl.MergeRemoteDocumentServiceImpl.getIsMergingOrUpdating;
+
 public class LocalDaoProxy {
 
     private static LocalDaoProxy localDaoProxy;
@@ -29,6 +31,11 @@ public class LocalDaoProxy {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 String methodName = method.getName();
                 if (methodName.startsWith("add") || methodName.startsWith("update") || methodName.startsWith("delete")) {
+                    int isMergingOrUpdating = getIsMergingOrUpdating();
+                    if (isMergingOrUpdating==0){
+                        //TODO: 生产者与消费者, 创建一个线程来专门处理为执行的操作
+                    }
+
                     long tmpVersion = localDao.getProperty("_version") == null || "null".equals(localDao.getProperty("_version"))||"".equals(localDao.getProperty("_version")) ? 0 : Long.parseLong(localDao.getProperty("_version").toString());
                     String tmpModifiedIds = localDao.getProperty("_modifiedIds") ==null?"":localDao.getProperty("_modifiedIds").toString();
                     Object object = method.invoke(localDao, args);

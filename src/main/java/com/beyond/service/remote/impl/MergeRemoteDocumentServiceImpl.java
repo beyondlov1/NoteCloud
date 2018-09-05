@@ -30,6 +30,13 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
     private String downloadTmpPath;
 
     private static int remoteLockedCount = 0;
+    private static int isMergingOrUpdating = 0;
+    public static int getIsMergingOrUpdating(){
+        return isMergingOrUpdating;
+    }
+    private synchronized static void setIsMergingOrUpdating(int i){
+        isMergingOrUpdating = i;
+    }
 
     public static ObservableList<com.beyond.entity.fx.Document> mergeFxDocuments = null;
 
@@ -54,9 +61,11 @@ public class MergeRemoteDocumentServiceImpl implements RemoteDocumentService {
 
             List<Document> localList = getLocalDocumentList();
             List<Document> remoteList = getRemoteDocumentList();
+            setIsMergingOrUpdating(1);
             List<Document> mergeList = merge(localDao.getModifiedIds(), localList, remoteList);
             saveLocal(mergeList,synchronizeEntity);
             saveRemote();
+            setIsMergingOrUpdating(0);
 
             //建立一个缓存, 防止刷新页面时都要读取一次xml文件
             mergeFxDocuments=ListUtils.getFxDocumentListFromDocumentList(mergeList);
