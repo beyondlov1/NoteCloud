@@ -8,10 +8,11 @@ import java.util.TimerTask;
 
 public class UnInvokedMethodHandler {
     private MessageQueue messageQueue;
+    private Timer timer;
 
     public UnInvokedMethodHandler() {
         this.messageQueue = new MessageQueue();
-        Timer timer= new Timer();
+        timer= new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -44,6 +45,10 @@ public class UnInvokedMethodHandler {
 
     public void setMessageQueue(MessageQueue messageQueue) {
         this.messageQueue = messageQueue;
+    }
+
+    public void stop() {
+        timer.cancel();
     }
 
     class ConsumerRunnable implements Runnable {

@@ -112,20 +112,24 @@ public class MainController {
     }
 
     private void initListeners() {
-        container.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        documentTableView.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 KeyCode code = event.getCode();
                 switch (code) {
                     case E:
-                        documentTableView.requestFocus();
+                        //documentTableView.requestFocus();
                         documentTableView.getSelectionModel().selectPrevious();
                         documentTableView.scrollTo(documentTableView.getSelectionModel().getSelectedIndex());
                         break;
                     case D:
-                        documentTableView.requestFocus();
-                        documentTableView.getSelectionModel().selectNext();
-                        documentTableView.scrollTo(documentTableView.getSelectionModel().getSelectedIndex());
+                        if (event.isControlDown()){
+                            saveOrUpdate(event);
+                        }else {
+                            //documentTableView.requestFocus();
+                            documentTableView.getSelectionModel().selectNext();
+                            documentTableView.scrollTo(documentTableView.getSelectionModel().getSelectedIndex());
+                        }
                         break;
                     default:
                         break;
@@ -172,6 +176,7 @@ public class MainController {
                         contentTextAreaSaveOrUpdate.positionCaret(contentTextAreaSaveOrUpdate.getText().length());
                         changeInputMethod();
                         break;
+
                     default:
                         break;
                 }
@@ -286,16 +291,20 @@ public class MainController {
             } else {
                 //设置版本
                 com.beyond.entity.Document foundDocument = documentService.findById(selectedId);
-                foundDocument.setVersion(foundDocument.getVersion() + 1);
-                foundDocument.setContent(document.getContent());
-                documentService.update(foundDocument, fxDocumentList);
-                refresh();
-                //設置文字和光標
-                contentTextAreaSaveOrUpdate.setText(document.getContent());
-                contentTextAreaSaveOrUpdate.positionCaret(document.getContent().length());
-                changeViewAfterUpdate(contentTextAreaSaveOrUpdate);
+                updateDocument(foundDocument,document);
             }
         }
+    }
+
+    private void updateDocument(com.beyond.entity.Document foundDocument, com.beyond.entity.Document document) {
+        foundDocument.setVersion(foundDocument.getVersion() + 1);
+        foundDocument.setContent(document.getContent());
+        documentService.update(foundDocument, fxDocumentList);
+        refresh();
+        //設置文字和光標
+        contentTextAreaSaveOrUpdate.setText(foundDocument.getContent());
+        contentTextAreaSaveOrUpdate.positionCaret(foundDocument.getContent().length());
+        changeViewAfterUpdate(contentTextAreaSaveOrUpdate);
     }
 
     @FXML
@@ -419,9 +428,17 @@ public class MainController {
                 document = new com.beyond.entity.Document();
                 document.setContent(content);
             }
+        }else if (keyEvent.isControlDown() && keyEvent.getCode() == KeyCode.D){
+            String content = contentTextAreaSaveOrUpdate.getText();
+            if (org.apache.commons.lang3.StringUtils.isNotBlank(content)) {
+                document = new com.beyond.entity.Document();
+                document.setContent(content+"(已完成)");
+            }
         } else {
             document = validate(contentTextAreaSaveOrUpdate);
         }
+
+
         return document;
     }
 

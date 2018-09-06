@@ -19,7 +19,7 @@ public class LocalDaoProxy {
 
     private static LocalDaoProxy localDaoProxy;
 
-    private static UnInvokedMethodHandler unInvokedMethodHandler;
+    public static UnInvokedMethodHandler unInvokedMethodHandler;
 
     public static LocalDaoProxy getInstance() {
         if (localDaoProxy == null) {

@@ -2,6 +2,7 @@ package com.beyond;
 
 import com.beyond.controller.MainController;
 import com.beyond.f.Config;
+import com.beyond.proxy.LocalDaoProxy;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +48,7 @@ public class MainApplication  extends Application {
             @Override
             public void handle(WindowEvent event) {
                 controller.stopSynchronize();
+                LocalDaoProxy.unInvokedMethodHandler.stop();
                 Config.logger.info("timer cancel");
             }
         });
