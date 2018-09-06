@@ -4,6 +4,8 @@ import com.beyond.dao.local.LocalDao;
 import com.beyond.dao.local.impl.LocalDaoXmlImpl;
 import com.beyond.entity.Document;
 import com.beyond.f.Config;
+import com.beyond.mq.UnHandleMethodData;
+import com.beyond.mq.UnInvokedMethodHandler;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.InvocationHandler;
@@ -17,9 +19,12 @@ public class LocalDaoProxy {
 
     private static LocalDaoProxy localDaoProxy;
 
+    private static UnInvokedMethodHandler unInvokedMethodHandler;
+
     public static LocalDaoProxy getInstance() {
         if (localDaoProxy == null) {
             localDaoProxy = new LocalDaoProxy();
+            unInvokedMethodHandler = new UnInvokedMethodHandler();
         }
         return localDaoProxy;
     }
@@ -32,8 +37,11 @@ public class LocalDaoProxy {
                 String methodName = method.getName();
                 if (methodName.startsWith("add") || methodName.startsWith("update") || methodName.startsWith("delete")) {
                     int isMergingOrUpdating = getIsMergingOrUpdating();
-                    if (isMergingOrUpdating==0){
-                        //TODO: 生产者与消费者, 创建一个线程来专门处理为执行的操作
+                    if (isMergingOrUpdating==1){
+                        //TODO: 生产者与消费者, 创建一个线程来专门处理未执行的操作
+                        UnHandleMethodData unHandleMethodData = new UnHandleMethodData(method,args,localDao);
+                        unInvokedMethodHandler.addMessage(unHandleMethodData);
+                        return "";
                     }
 
                     long tmpVersion = localDao.getProperty("_version") == null || "null".equals(localDao.getProperty("_version"))||"".equals(localDao.getProperty("_version")) ? 0 : Long.parseLong(localDao.getProperty("_version").toString());
